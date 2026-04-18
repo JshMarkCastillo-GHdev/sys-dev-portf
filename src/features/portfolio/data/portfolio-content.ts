@@ -85,31 +85,68 @@ export const aboutContent: AboutContent = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Frontend Engineering",
-    description: "Interfaces that stay responsive, readable, and comfortable to use across screen sizes.",
-    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    title: "Frontend",
+    icon: "frontend",
+    description:
+      "Building responsive interfaces with modern React tooling and a clean component workflow.",
+    items: [
+      "NextJS Turbopack",
+      "ReactJS",
+      "TypeScript",
+      "TailwindCSS",
+      "ShadcnUI",
+    ],
   },
   {
-    title: "Backend Thinking",
-    description: "Practical server-side patterns for integrations, API flows, and maintainable logic.",
-    items: ["Node.js", "Route Handlers", "REST", "Validation", "Auth-aware design"],
+    title: "Backend",
+    icon: "backend",
+    description:
+      "Comfortable with server-side JavaScript for building APIs, integrations, and application logic.",
+    items: ["NodeJS"],
   },
   {
-    title: "Delivery Workflow",
-    description: "A developer workflow built around dependable shipping and iterative improvement.",
-    items: ["GitHub Actions", "Vercel", "Render", "Testing strategy", "DX tooling"],
+    title: "Databases",
+    icon: "databases",
+    description:
+      "Familiar with relational and document-oriented data stacks for structured and flexible application data.",
+    items: ["Prisma + PostgreSQL", "Mongoose + MongoDB"],
+  },
+  {
+    title: "Tools",
+    icon: "tools",
+    description:
+      "Daily tools that support API testing, collaboration, version control, and documentation.",
+    items: ["Swagger", "Postman", "Git", "GitHub", "REST APIs"],
+  },
+  {
+    title: "Deployment",
+    icon: "deployment",
+    description:
+      "Comfortable shipping and maintaining applications on modern hosting platforms.",
+    items: ["Vercel", "Render"],
+  },
+  {
+    title: "Agents familiar with",
+    icon: "agents",
+    description:
+      "AI-assisted development tools I am familiar with for code generation and workflow acceleration.",
+    items: ["Cursor", "Codex"],
   },
 ]
 
 export const featuredProjects: ProjectItem[] = [
   {
     slug: "portfolio-command-center",
-    title: "Portfolio Command Center",
+    title: "Project Template #1",
     summary:
-      "A modular portfolio shell with live GitHub enrichment and reusable section architecture.",
+      "Placeholder project description for introducing the project scope, goals, and expected outcome.",
     description:
-      "Built to tell a developer story clearly while keeping content typed, sections reusable, and deployment friction low.",
+      "Use this template to present a project title, a concise description, the stack used, screenshot slots, and relevant links.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    screenshotPlaceholder: {
+      label: "Screenshots",
+      caption: "Place UI previews or product screenshots here.",
+    },
     repoUrl: "https://github.com/octocat/hello-world",
     liveUrl: "https://example.dev",
     imageHint: "dashboard gradients",
@@ -123,12 +160,16 @@ export const featuredProjects: ProjectItem[] = [
   },
   {
     slug: "case-study-library",
-    title: "Case Study Library",
+    title: "Project Template #1",
     summary:
-      "A project archive focused on presenting outcomes, architecture decisions, and technical depth.",
+      "Placeholder summary for another reusable project card entry within the same portfolio template system.",
     description:
-      "Designed to make project storytelling stronger with a flexible template for highlights, stack, and delivery notes.",
+      "This blank-style project card can be reused by updating only the content fields for links, screenshots, and stack details.",
     techStack: ["React", "TypeScript", "MDX", "Design Systems"],
+    screenshotPlaceholder: {
+      label: "Screenshots",
+      caption: "Use this area for visual snapshots or walkthrough images.",
+    },
     repoUrl: "https://github.com/octocat/Spoon-Knife",
     imageHint: "notebook cards",
     featured: true,
@@ -141,12 +182,16 @@ export const featuredProjects: ProjectItem[] = [
   },
   {
     slug: "team-ops-dashboard",
-    title: "Team Ops Dashboard",
+    title: "Project Template #1",
     summary:
-      "An internal-facing dashboard prototype showing metrics, workflows, and release status.",
+      "Placeholder summary for a future project card that still follows the same reusable layout.",
     description:
-      "A concept project used to explore how data-heavy interfaces can still feel calm and navigable.",
+      "Keep this template ready for later project additions by filling in screenshots, stack details, and repository links.",
     techStack: ["Next.js", "Charts", "UX Writing", "Component Systems"],
+    screenshotPlaceholder: {
+      label: "Screenshots",
+      caption: "Reserve this panel for dashboard or product screenshots.",
+    },
     repoUrl: "https://github.com/octocat/octocat.github.io",
     imageHint: "analytics board",
     featured: false,
@@ -160,43 +205,46 @@ export const featuredProjects: ProjectItem[] = [
 
 export const experienceItems: ExperienceItem[] = [
   {
-    title: "Frontend Developer",
-    organization: "Product Studio",
+    id: "industry-template-1-remote",
+    company: "Company Placeholder",
+    role: "Industry Experience Template #1",
+    duration: "Duration Placeholder",
     location: "Remote",
-    period: "2023 - Present",
     summary:
-      "Building responsive product interfaces and reusable systems for client and internal products.",
-    bullets: [
-      "Shipped reusable UI foundations to reduce repeated feature work.",
-      "Improved developer handoff by standardizing component patterns.",
-      "Balanced visual polish with maintainable implementation choices.",
+      "Use this template card to present company, role, duration, and the core responsibilities for industry experience.",
+    responsibilities: [
+      "Responsibility placeholder #1",
+      "Responsibility placeholder #2",
+      "Responsibility placeholder #3",
     ],
   },
   {
-    title: "Full-Stack Developer",
-    organization: "Startup Lab",
+    id: "industry-template-1-hybrid",
+    company: "Company Placeholder",
+    role: "Industry Experience Template #1",
+    duration: "Duration Placeholder",
     location: "Hybrid",
-    period: "2021 - 2023",
     summary:
-      "Worked across product flows, APIs, and deployment pipelines with a strong bias for clarity and delivery.",
-    bullets: [
-      "Built end-to-end features from schema planning to UI release.",
-      "Introduced cleaner routing and shared utility patterns.",
-      "Supported deployment workflows across multiple environments.",
+      "Another reusable blank card for adding more industry experience entries later.",
+    responsibilities: [
+      "Responsibility placeholder #1",
+      "Responsibility placeholder #2",
+      "Responsibility placeholder #3",
     ],
   },
 ]
 
 export const educationItems: EducationItem[] = [
   {
-    school: "State University",
-    credential: "B.S. in Computer Science",
-    period: "2017 - 2021",
+    id: "education-template-1-urs-morong",
+    degree: "Computer Engineering",
+    institution: "University of Rizal System Morong",
+    duration: "Education Experience #1",
     summary:
-      "Focused on software engineering, systems design, and practical application development.",
-    bullets: [
-      "Completed capstone work around full-stack application architecture.",
-      "Built a foundation in algorithms, data structures, and databases.",
+      "Reusable education template entry for academic background and foundational engineering studies.",
+    details: [
+      "Computer Engineering from University of Rizal System Morong",
+      "Use this template to add honors, projects, or academic highlights later.",
     ],
   },
 ]

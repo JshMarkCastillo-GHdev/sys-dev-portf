@@ -19,7 +19,7 @@ export default function EducationPage() {
       <div className="grid gap-5">
         {educationItems.map((item) => (
           <ExperienceCard
-            key={`${item.school}-${item.period}`}
+            key={item.id}
             item={item}
             subtitle="Education"
           />

@@ -1,9 +1,16 @@
 import Link from "next/link"
-import { ArrowUpRight, Sparkles } from "lucide-react"
+import { ArrowRight, ArrowUpRight, GitBranch, ImageIcon } from "lucide-react"
 
 import type { ProjectItem } from "@/types/portfolio"
+import { ScrollReveal } from "@/components/portfolio/scroll-reveal"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
 type ProjectCardProps = {
@@ -12,59 +19,115 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="h-full rounded-[1.75rem] border border-border/60 bg-card/90 shadow-sm">
-      <CardHeader className="space-y-4">
-        <div className="flex items-start justify-between gap-4">
-          <div className="space-y-2">
-            <CardTitle className="text-xl">{project.title}</CardTitle>
-            <p className="text-sm leading-7 text-muted-foreground">
-              {project.summary}
+    <ScrollReveal>
+      <Card className="h-full rounded-[1.85rem] border border-border/70 bg-card/95 shadow-lg shadow-black/20 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/35">
+        <CardHeader className="space-y-4">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-2">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Project Template #1
+              </p>
+              <CardTitle className="text-2xl">{project.title}</CardTitle>
+              <p className="text-sm leading-7 text-muted-foreground">
+                {project.summary}
+              </p>
+            </div>
+            {project.featured ? (
+              <Badge
+                variant="outline"
+                className="rounded-full border-border/80 bg-background px-3 py-1 font-sans text-sm"
+              >
+                Placeholder
+              </Badge>
+            ) : null}
+          </div>
+        </CardHeader>
+
+        <CardContent className="space-y-5">
+          <div className="rounded-[1.45rem] border border-dashed border-border/80 bg-background/80 p-5">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex size-11 items-center justify-center rounded-2xl border border-border/70 bg-card">
+                <ImageIcon className="size-5 text-zinc-200" />
+              </span>
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                  {project.screenshotPlaceholder.label}
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {project.screenshotPlaceholder.caption}
+                </p>
+              </div>
+            </div>
+            <div className="mt-5 grid min-h-36 place-items-center rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-zinc-900 to-zinc-800">
+              <p className="font-sans text-sm text-zinc-300">
+                Screenshot placeholder panel
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              Description
+            </p>
+            <p className="mt-3 text-sm leading-7 text-zinc-100">
+              {project.description}
             </p>
           </div>
-          {project.featured ? (
-            <Badge className="rounded-full bg-primary/10 text-primary hover:bg-primary/15">
-              Featured
-            </Badge>
-          ) : null}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {project.techStack.slice(0, 5).map((tech) => (
-            <Badge
-              key={tech}
-              variant="outline"
-              className="rounded-full border-border/70 px-3 py-1"
-            >
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        {project.highlights.map((item) => (
-          <div key={item} className="flex items-start gap-3 text-sm leading-6">
-            <Sparkles className="mt-1 size-4 text-primary" />
-            <span className="text-muted-foreground">{item}</span>
+
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              Tech Stack
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {project.techStack.map((tech) => (
+                <Badge
+                  key={tech}
+                  variant="outline"
+                  className="rounded-full border-border/80 bg-background px-3 py-1.5 font-sans text-sm font-medium text-foreground transition hover:border-foreground/45 hover:bg-card"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
           </div>
-        ))}
-      </CardContent>
-      <CardFooter className="flex flex-wrap gap-3">
-        <Button
-          render={<Link href={`/projects/${project.slug}`} />}
-          variant="outline"
-          className="rounded-full"
-        >
-          Read Case Study
-        </Button>
-        {project.repoUrl ? (
+        </CardContent>
+
+        <CardFooter className="flex flex-wrap gap-3 bg-transparent px-4 pb-5 pt-0">
           <Button
-            render={<Link href={project.repoUrl} target="_blank" rel="noreferrer" />}
+            render={<Link href={`/projects/${project.slug}`} />}
+            variant="outline"
+            className="rounded-full border-border/80 bg-background"
+          >
+            View Template
+            <ArrowRight className="size-4" />
+          </Button>
+          <Button
+            render={
+              <Link
+                href={project.repoUrl || "#"}
+                target={project.repoUrl ? "_blank" : undefined}
+                rel={project.repoUrl ? "noreferrer" : undefined}
+              />
+            }
             className="rounded-full"
           >
-            Repository
-            <ArrowUpRight className="size-4" />
+            GitHub Link
+            <GitBranch className="size-4" />
           </Button>
-        ) : null}
-      </CardFooter>
-    </Card>
+          {project.repoUrl ? (
+            <Button
+              render={
+                <Link href={project.repoUrl} target="_blank" rel="noreferrer" />
+              }
+              variant="ghost"
+              className="rounded-full"
+            >
+              Open Repo
+              <ArrowUpRight className="size-4" />
+            </Button>
+          ) : null}
+        </CardFooter>
+      </Card>
+    </ScrollReveal>
   )
 }

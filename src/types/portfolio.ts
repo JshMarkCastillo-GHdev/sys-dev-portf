@@ -21,6 +21,7 @@ export type StatItem = {
 
 export type SkillGroup = {
   title: string
+  icon: string
   description: string
   items: string[]
 }
@@ -41,6 +42,10 @@ export type ProjectItem = {
   summary: string
   description: string
   techStack: string[]
+  screenshotPlaceholder: {
+    label: string
+    caption: string
+  }
   repoUrl?: string
   liveUrl?: string
   imageHint: string
@@ -50,20 +55,22 @@ export type ProjectItem = {
 }
 
 export type ExperienceItem = {
-  title: string
-  organization: string
-  location: string
-  period: string
-  summary: string
-  bullets: string[]
+  id: string
+  company: string
+  role: string
+  duration: string
+  responsibilities: string[]
+  location?: string
+  summary?: string
 }
 
 export type EducationItem = {
-  school: string
-  credential: string
-  period: string
-  summary: string
-  bullets: string[]
+  id: string
+  degree: string
+  institution: string
+  duration: string
+  details: string[]
+  summary?: string
 }
 
 export type SiteConfig = {

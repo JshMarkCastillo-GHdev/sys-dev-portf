@@ -22,14 +22,14 @@ export default function ExperiencePage() {
       <div className="grid gap-5 lg:grid-cols-2">
         {experienceItems.map((item) => (
           <ExperienceCard
-            key={`${item.organization}-${item.period}`}
+            key={item.id}
             item={item}
-            subtitle={item.location}
+            subtitle={item.location || "Industry"}
           />
         ))}
         {educationItems.map((item) => (
           <ExperienceCard
-            key={`${item.school}-${item.period}`}
+            key={item.id}
             item={item}
             subtitle="Education"
           />

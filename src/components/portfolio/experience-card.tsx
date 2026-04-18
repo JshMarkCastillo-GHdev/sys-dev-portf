@@ -1,4 +1,7 @@
+import { BriefcaseBusiness, GraduationCap } from "lucide-react"
+
 import type { EducationItem, ExperienceItem } from "@/types/portfolio"
+import { ScrollReveal } from "@/components/portfolio/scroll-reveal"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type ExperienceCardProps = {
@@ -7,29 +10,67 @@ type ExperienceCardProps = {
 }
 
 export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
-  const heading = "title" in item ? item.title : item.school
-  const secondary = "organization" in item ? item.organization : item.credential
+  const isIndustry = "company" in item
+  const heading = isIndustry ? item.role : item.degree
+  const secondary = isIndustry ? item.company : item.institution
+  const duration = item.duration
+  const details = isIndustry ? item.responsibilities : item.details
+  const summary = item.summary
 
   return (
-    <Card className="rounded-[1.75rem] border border-border/60 bg-card/90 shadow-sm">
-      <CardHeader className="space-y-2">
-        <p className="text-sm font-medium text-primary">{subtitle}</p>
-        <CardTitle className="text-xl">{heading}</CardTitle>
-        <p className="text-sm text-muted-foreground">
-          {secondary} • {item.period}
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-sm leading-7 text-muted-foreground">{item.summary}</p>
-        <ul className="space-y-2 text-sm text-muted-foreground">
-          {item.bullets.map((bullet) => (
-            <li key={bullet} className="flex gap-3">
-              <span className="mt-2 size-1.5 rounded-full bg-primary" />
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-    </Card>
+    <ScrollReveal>
+      <Card className="rounded-[1.85rem] border border-border/70 bg-card/95 shadow-lg shadow-black/20 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/35">
+        <CardHeader className="space-y-4">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-2">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                {subtitle}
+              </p>
+              <CardTitle className="text-2xl">{heading}</CardTitle>
+              <p className="text-sm text-muted-foreground">{secondary}</p>
+            </div>
+            <span className="inline-flex size-12 items-center justify-center rounded-2xl border border-border/80 bg-background text-foreground">
+              {isIndustry ? (
+                <BriefcaseBusiness className="size-5" />
+              ) : (
+                <GraduationCap className="size-5" />
+              )}
+            </span>
+          </div>
+        </CardHeader>
+
+        <CardContent className="space-y-5">
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              Duration
+            </p>
+            <p className="mt-3 text-sm text-zinc-100">{duration}</p>
+          </div>
+
+          {summary ? (
+            <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Overview
+              </p>
+              <p className="mt-3 text-sm leading-7 text-zinc-100">{summary}</p>
+            </div>
+          ) : null}
+
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              {isIndustry ? "Responsibilities" : "Education Details"}
+            </p>
+            <ul className="mt-4 space-y-3 text-sm text-zinc-100">
+              {details.map((detail) => (
+                <li key={detail} className="flex gap-3">
+                  <span className="mt-2 size-1.5 rounded-full bg-zinc-100" />
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </CardContent>
+      </Card>
+    </ScrollReveal>
   )
 }

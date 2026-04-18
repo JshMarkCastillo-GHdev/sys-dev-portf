@@ -19,9 +19,9 @@ export default function IndustryExperiencePage() {
       <div className="grid gap-5">
         {experienceItems.map((item) => (
           <ExperienceCard
-            key={`${item.organization}-${item.period}`}
+            key={item.id}
             item={item}
-            subtitle={item.location}
+            subtitle={item.location || "Industry"}
           />
         ))}
       </div>
