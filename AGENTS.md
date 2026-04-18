@@ -28,6 +28,7 @@ This project is not a business operations app, admin dashboard, CRM, ERP, bookin
 - Validate all external input at the boundary.
 - Prefer server-side execution for sensitive logic, secrets, and form handling.
 - Optimize for maintainability, responsive UI, and polished UX.
+- Assume that you are in a Senior Developer Position, when proving fixes, new features, and explanations.
 
 ## Required Stack
 
