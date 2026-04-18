@@ -33,15 +33,14 @@ export function ContactPanel() {
             <div className="rounded-[1.65rem] border border-border/70 bg-background/80 p-6">
               <div className="rounded-[1.45rem] border border-border/70 bg-muted/35 p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Contact Template
+                  Contact
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold text-foreground">
                   Reach Joshua Mark Castillo
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                  This contact section stays intentionally static and secure. It
-                  gives visitors clear ways to connect without exposing a public
-                  write endpoint.
+                  Connect through GitHub, email, resume access, and professional
+                  profiles while keeping the portfolio simple and secure.
                 </p>
               </div>
 
@@ -73,7 +72,7 @@ export function ContactPanel() {
 
               <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/35 p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Footer Mark
+                  Portfolio Signature
                 </p>
                 <p className="mt-3 text-sm text-foreground/92">&copy; {siteConfig.name}</p>
               </div>
@@ -83,15 +82,14 @@ export function ContactPanel() {
           <div className="p-5 lg:p-6">
             <CardHeader className="px-0 pb-2">
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                Direct Reach-Out Paths
+                Contact Links
               </p>
               <CardTitle className="pt-2 text-3xl font-semibold tracking-tight text-foreground">
-                Static contact links and downloadable resume.
+                Professional links and resume access.
               </CardTitle>
               <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                Use these cards as a reusable contact template. Replace the
-                placeholders with your real GitHub, email, and professional
-                profile links when you are ready.
+                Find the main places to view projects, send a message, and review
+                current career information.
               </p>
             </CardHeader>
 

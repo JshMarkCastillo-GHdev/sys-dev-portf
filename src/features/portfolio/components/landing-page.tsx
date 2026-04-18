@@ -1,26 +1,26 @@
-import Link from "next/link"
-import { ArrowRight, Download, Sparkles } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, Download, Sparkles } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { AboutCard } from "@/features/portfolio/components/about-card"
-import { IconBadge } from "@/features/portfolio/components/icon-badge"
-import { SectionShell } from "@/features/portfolio/components/section-shell"
-import { SkillsGrid } from "@/features/portfolio/components/skills-grid"
+import { Button } from "@/components/ui/button";
+import { AboutCard } from "@/features/portfolio/components/about-card";
+import { IconBadge } from "@/features/portfolio/components/icon-badge";
+import { SectionShell } from "@/features/portfolio/components/section-shell";
+import { SkillsGrid } from "@/features/portfolio/components/skills-grid";
 import {
   heroStats,
   homeAnchorItems,
   siteConfig,
-} from "@/features/portfolio/data/portfolio-content"
+} from "@/features/portfolio/data/portfolio-content";
 
 export function LandingPage() {
   return (
     <>
       <section className="border-b border-border/70">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:py-24">
-          <div className="space-y-7">
+          <div className="space-y-7 lg:pb-90 sm:pb-0">
             <div className="animate-fade-up space-y-4">
               <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                Home / Portfolio Landing
+                Home / Overview
               </p>
               <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 {siteConfig.name}
@@ -43,43 +43,6 @@ export function LandingPage() {
                 {siteConfig.shortBio}
               </p>
             </div>
-
-            <div className="animate-fade-up animate-delay-2 flex flex-col gap-3 sm:flex-row">
-              <Button
-                render={<Link href="/projects" />}
-                size="lg"
-                className="rounded-full bg-foreground px-5 text-background hover:bg-zinc-200"
-              >
-                View My Works
-                <ArrowRight className="size-4" />
-              </Button>
-              <Button
-                render={
-                  <a
-                    href={siteConfig.resumeUrl}
-                    download="joshua-mark-castillo-resume.pdf"
-                  />
-                }
-                size="lg"
-                variant="outline"
-                className="rounded-full border-border/80 bg-card px-5"
-              >
-                Download My Resume
-                <Download className="size-4" />
-              </Button>
-            </div>
-
-            <div className="animate-fade-up animate-delay-3 flex flex-wrap gap-2">
-              {homeAnchorItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-full border border-border/80 bg-card px-4 py-2 text-sm text-muted-foreground transition hover:border-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
           </div>
 
           <div className="animate-fade-up animate-delay-2 rounded-[2rem] border border-border/70 bg-card/95 p-6 shadow-2xl shadow-black/30">
@@ -87,7 +50,7 @@ export function LandingPage() {
               <div className="flex items-center justify-between border-b border-border/70 pb-4">
                 <div>
                   <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                    Technical snapshot
+                    Core strengths
                   </p>
                   <p className="mt-2 text-xl font-semibold">
                     Comfortable with full stack delivery
@@ -98,7 +61,7 @@ export function LandingPage() {
                 </IconBadge>
               </div>
 
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <div className="mt-5 grid gap-3 sm:grid-rows-3">
                 {heroStats.map((item) => (
                   <div
                     key={item.label}
@@ -116,7 +79,7 @@ export function LandingPage() {
 
               <div className="mt-5 rounded-[1.4rem] border border-border/70 bg-card p-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                  Preferred workflow
+                  Working style
                 </p>
                 <div className="mt-4 space-y-3 text-sm text-foreground/84">
                   <div className="flex items-start justify-between gap-4 border-b border-border/70 pb-3">
@@ -163,5 +126,5 @@ export function LandingPage() {
         <SkillsGrid />
       </SectionShell>
     </>
-  )
+  );
 }

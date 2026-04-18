@@ -5,15 +5,15 @@ import { SectionShell } from "@/features/portfolio/components/section-shell"
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Static contact links for this portfolio.",
+  description: "Professional contact links and resume access.",
 }
 
 export default function ContactPage() {
   return (
     <SectionShell
       eyebrow="Contact"
-      title="Static reach-out links and resume access."
-      description="This contact page is a reusable static template focused on GitHub, email, resume download, and future professional profile links."
+      title="Professional links and resume access."
+      description="Connect through GitHub, email, resume download, and career profiles from one place."
     >
       <ContactPanel />
     </SectionShell>

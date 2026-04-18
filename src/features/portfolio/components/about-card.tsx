@@ -51,7 +51,7 @@ export function AboutCard() {
           <div className="p-5 lg:p-6">
             <CardHeader className="px-0 pb-2">
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                About Section
+                Profile
               </p>
               <CardTitle className="pt-2 text-3xl font-semibold tracking-tight text-foreground">
                 Tech journey, soft skills, and interests.

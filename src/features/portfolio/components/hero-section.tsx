@@ -1,23 +1,26 @@
-import Link from "next/link"
-import { ArrowRight, GitBranch, MapPin } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, GitBranch, MapPin } from "lucide-react";
 
-import { heroStats, socialLinks } from "@/features/portfolio/data/portfolio-content"
-import type { GithubProfile } from "@/features/portfolio/types/portfolio"
-import { getSiteConfig } from "@/lib/site-config"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Container } from "@/components/layout/container"
+import {
+  heroStats,
+  socialLinks,
+} from "@/features/portfolio/data/portfolio-content";
+import type { GithubProfile } from "@/features/portfolio/types/portfolio";
+import { getSiteConfig } from "@/lib/site-config";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/layout/container";
 
 type HeroSectionProps = {
-  profile: GithubProfile | null
-}
+  profile: GithubProfile | null;
+};
 
-const siteConfig = getSiteConfig()
+const siteConfig = getSiteConfig();
 
 export function HeroSection({ profile }: HeroSectionProps) {
   const githubLink =
     socialLinks.find((item) => item.label === "GitHub")?.href ||
-    `https://github.com/${siteConfig.githubUsername}`
+    `https://github.com/${siteConfig.githubUsername}`;
 
   return (
     <section className="relative overflow-hidden border-b border-border/60">
@@ -120,5 +123,5 @@ export function HeroSection({ profile }: HeroSectionProps) {
         </div>
       </Container>
     </section>
-  )
+  );
 }

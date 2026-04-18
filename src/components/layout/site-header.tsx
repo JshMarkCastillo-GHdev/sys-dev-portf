@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu } from "lucide-react"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, Download, ArrowRight } from "lucide-react";
 
 import {
   homeAnchorItems,
   navigationItems,
   siteConfig,
-} from "@/features/portfolio/data/portfolio-content"
-import { Button } from "@/components/ui/button"
+} from "@/features/portfolio/data/portfolio-content";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { Container } from "@/components/layout/container"
+} from "@/components/ui/sheet";
+import { Container } from "@/components/layout/container";
 
 export function SiteHeader() {
-  const pathname = usePathname()
-  const isHome = pathname === "/"
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-xl">
@@ -35,7 +35,9 @@ export function SiteHeader() {
               JMC
             </span>
             <div className="hidden sm:block">
-              <p className="text-sm font-semibold tracking-tight">{siteConfig.name}</p>
+              <p className="text-sm font-semibold tracking-tight">
+                {siteConfig.name}
+              </p>
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                 {siteConfig.role}
               </p>
@@ -47,7 +49,7 @@ export function SiteHeader() {
               const isActive =
                 item.href === "/"
                   ? pathname === "/"
-                  : pathname.startsWith(item.href)
+                  : pathname.startsWith(item.href);
 
               return (
                 <Link
@@ -61,17 +63,24 @@ export function SiteHeader() {
                 >
                   {item.label}
                 </Link>
-              )
+              );
             })}
           </nav>
 
           <div className="flex items-center gap-2">
             <Button
-              render={<Link href="/projects" />}
+              render={
+                <a
+                  href={siteConfig.resumeUrl}
+                  download="joshua-mark-castillo-resume.pdf"
+                />
+              }
+              size="lg"
               variant="outline"
-              className="hidden rounded-full border-border/80 bg-card px-5 md:inline-flex"
+              className="rounded-full border-border/80 bg-card px-5"
             >
-              View My Works
+              My Resume
+              <Download className="size-4" />
             </Button>
 
             <Sheet>
@@ -87,36 +96,23 @@ export function SiteHeader() {
               >
                 <Menu className="size-4" />
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] border-l border-border/70 bg-background">
+              <SheetContent
+                side="right"
+                className="w-70 border-l border-border/70 bg-background"
+              >
                 <SheetHeader>
                   <SheetTitle>{siteConfig.name}</SheetTitle>
                 </SheetHeader>
-                <div className="mt-8 flex flex-col gap-2">
+                <div className="mt-8 flex flex-col">
                   {navigationItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="rounded-2xl border border-transparent px-4 py-3 text-sm font-medium transition hover:border-border hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
+                      className="border-b px-4 py-3 my-1 text-sm font-medium transition hover:border-border hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
                     >
                       {item.label}
                     </Link>
                   ))}
-                </div>
-                <div className="mt-6 border-t border-border/70 pt-6">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                    Home Sections
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {homeAnchorItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="rounded-full border border-border/80 px-3 py-2 text-xs transition hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
                 </div>
               </SheetContent>
             </Sheet>
@@ -141,5 +137,5 @@ export function SiteHeader() {
         ) : null}
       </Container>
     </header>
-  )
+  );
 }

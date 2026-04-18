@@ -1,17 +1,10 @@
-import {
-  Bot,
-  Boxes,
-  Braces,
-  Database,
-  Rocket,
-  Wrench,
-} from "lucide-react"
+import { Bot, Boxes, Braces, Database, Rocket, Wrench } from "lucide-react";
 
-import { skillGroups } from "@/features/portfolio/data/portfolio-content"
-import { IconBadge } from "@/features/portfolio/components/icon-badge"
-import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { skillGroups } from "@/features/portfolio/data/portfolio-content";
+import { IconBadge } from "@/features/portfolio/components/icon-badge";
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const iconMap = {
   frontend: Braces,
@@ -20,7 +13,7 @@ const iconMap = {
   tools: Wrench,
   deployment: Rocket,
   agents: Bot,
-} as const
+} as const;
 
 export function SkillsGrid() {
   return (
@@ -33,13 +26,13 @@ export function SkillsGrid() {
                 <div className="space-y-3">
                   <IconBadge size="lg">
                     {(() => {
-                      const Icon = iconMap[group.icon as keyof typeof iconMap]
-                      return <Icon className="size-5" />
+                      const Icon = iconMap[group.icon as keyof typeof iconMap];
+                      return <Icon className="size-5" />;
                     })()}
                   </IconBadge>
                   <div className="space-y-2">
                     <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                      Skill Category
+                      Expertise
                     </p>
                     <CardTitle className="text-2xl">{group.title}</CardTitle>
                   </div>
@@ -64,5 +57,5 @@ export function SkillsGrid() {
         </ScrollReveal>
       ))}
     </div>
-  )
+  );
 }

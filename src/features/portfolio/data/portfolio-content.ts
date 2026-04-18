@@ -129,7 +129,7 @@ export const aboutContent: AboutContent = {
     "Client-focused Communication",
     "Technical to Non-Technical Translation",
   ],
-  hobbies: ["Game Development", "Fantasy Genre Animes Streaming"],
+  hobbies: ["Game Development", "Anime Streaming"],
   profilePlaceholder: {
     label: "Profile Photo",
     caption:
@@ -193,9 +193,9 @@ export const featuredProjects: ProjectItem[] = [
     slug: "portfolio-command-center",
     title: "Full Stack Developer Portfolio",
     summary:
-      "Developer portfolio scaffold built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn/ui.",
+      "Developer portfolio built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn/ui.",
     description:
-      "This developer portfolio scaffold is designed to provide a clean and modern template for showcasing your skills, projects, and experience as a full stack developer. Built with Next.js App Router for seamless navigation, Turbopack for optimized performance, React and TypeScript for a robust frontend, Tailwind CSS for styling, and shadcn/ui for pre-built UI components, this portfolio serves as a solid foundation for creating a personalized online presence that highlights your expertise and projects effectively.",
+      "This developer portfolio presents skills, projects, experience, and contact information in a clean and modern interface. It uses Next.js App Router for navigation, Turbopack for performance, React and TypeScript for the frontend, Tailwind CSS for styling, and shadcn/ui for polished components. The result is a professional online presence focused on clarity, maintainability, and practical presentation of technical work.",
     techStack: [
       "Next.js App Router",
       "Turbopack",
@@ -266,9 +266,9 @@ export const featuredProjects: ProjectItem[] = [
     slug: "team-ops-dashboard",
     title: "Point-of-Sale Generic System",
     summary:
-      "Point-of-Sale system template built with Next.js, Prisma, PostgreSQL, NextAuth, Tailwind CSS, and shadcn/ui.",
+      "Point-of-sale system built with Next.js, Prisma, PostgreSQL, NextAuth, Tailwind CSS, and shadcn/ui.",
     description:
-      "This Point-of-Sale (POS) system template is designed to provide a solid foundation for building a customizable POS application. It features a clean and intuitive interface for managing products, processing sales, and handling user authentication. The project is built using Next.js for server-side rendering and routing, Prisma as an ORM for database management with PostgreSQL, NextAuth for secure authentication, Tailwind CSS for styling, and shadcn/ui for pre-built UI components. This template serves as a starting point for developers looking to create a tailored POS solution that can be adapted to various business needs.",
+      "This point-of-sale system focuses on product management, sales processing, and secure user access in a clean operational interface. It uses Next.js for routing and rendering, Prisma with PostgreSQL for data management, NextAuth for authentication, Tailwind CSS for styling, and shadcn/ui for polished interface components. The project demonstrates how a structured full stack build can support real business workflows with maintainable architecture.",
     techStack: [
       "Next.js",
       "Turbopack",

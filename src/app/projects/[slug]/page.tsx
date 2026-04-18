@@ -87,8 +87,8 @@ export default async function ProjectDetailPage({
           <CardHeader className="space-y-3">
             <CardTitle className="text-2xl">Project links</CardTitle>
             <p className="text-sm leading-7 text-muted-foreground">
-              Keep this section updated with the live deployment, repository, and
-              a short case-study note for each featured project.
+              Review the live deployment, repository, and supporting links for
+              this project.
             </p>
           </CardHeader>
           <CardContent className="flex flex-col gap-3">

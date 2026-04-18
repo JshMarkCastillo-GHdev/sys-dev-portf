@@ -13,7 +13,7 @@ export default function AboutPage() {
     <SectionShell
       eyebrow="About"
       title="Developer profile and delivery mindset."
-      description="A standalone view of Joshua Mark Castillo's background, working style, and approach to building scalable web applications."
+      description="A closer look at Joshua Mark Castillo's background, working style, and approach to building scalable web applications."
     >
       <AboutCard />
     </SectionShell>
