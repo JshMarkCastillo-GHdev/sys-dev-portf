@@ -12,6 +12,12 @@ import type {
   StatItem,
 } from "@/features/portfolio/types/portfolio";
 
+const projectAssetFolders = {
+  portfolio: "project_1",
+  yolov8: "project_2",
+  pos: "project_3",
+} as const;
+
 export const siteConfig: SiteConfig = {
   name: "Joshua Mark Castillo",
   role: "Jr. Full Stack Developer",
@@ -190,7 +196,7 @@ export const skillGroups: SkillGroup[] = [
 
 export const featuredProjects: ProjectItem[] = [
   {
-    slug: "portfolio-command-center",
+    slug: "project_1",
     title: "Full Stack Developer Portfolio",
     summary:
       "Developer portfolio built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn/ui.",
@@ -204,15 +210,15 @@ export const featuredProjects: ProjectItem[] = [
       "Tailwind CSS",
       "shadcn/ui",
     ],
-    coverImageSrc: "/assets/projects/portfolio-command-center/cover.png",
+    coverImageSrc: `/assets/projects/${projectAssetFolders.portfolio}/cover.png`,
     screenshotImageSrcs: [
-      "/assets/projects/portfolio-command-center/screen-01.png",
-      "/assets/projects/portfolio-command-center/screen-02.png",
+      `/assets/projects/${projectAssetFolders.portfolio}/screen-01.png`,
+      `/assets/projects/${projectAssetFolders.portfolio}/screen-02.png`,
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
       caption:
-        "Recommended directory: /assets/projects/portfolio-command-center/ (16:10, 1600x1000 preferred)",
+        `Recommended directory: /assets/projects/${projectAssetFolders.portfolio}/ (16:10, 1600x1000 preferred)`,
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
     liveUrl: "https://your-live-project-url.example",
@@ -226,7 +232,7 @@ export const featuredProjects: ProjectItem[] = [
     ],
   },
   {
-    slug: "case-study-library",
+    slug: "project_2",
     title: "YoloV8 App with React/Vite",
     summary:
       "License plate for a YoloV8 object detection web application built with React and Vite.",
@@ -241,15 +247,15 @@ export const featuredProjects: ProjectItem[] = [
       "DaisyUI",
       "Tesseract.js",
     ],
-    coverImageSrc: "/assets/projects/case-study-library/cover.png",
+    coverImageSrc: `/assets/projects/${projectAssetFolders.yolov8}/cover.png`,
     screenshotImageSrcs: [
-      "/assets/projects/case-study-library/screen-01.png",
-      "/assets/projects/case-study-library/screen-02.png",
+      `/assets/projects/${projectAssetFolders.yolov8}/screen-01.png`,
+      `/assets/projects/${projectAssetFolders.yolov8}/screen-02.png`,
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
       caption:
-        "Recommended directory: /assets/projects/case-study-library/ (16:10, 1600x1000 preferred)",
+        `Recommended directory: /assets/projects/${projectAssetFolders.yolov8}/ (16:10, 1600x1000 preferred)`,
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
     liveUrl: "https://licenseplaterecogwebapp.vercel.app/",
@@ -263,7 +269,7 @@ export const featuredProjects: ProjectItem[] = [
     ],
   },
   {
-    slug: "team-ops-dashboard",
+    slug: "project_3",
     title: "Point-of-Sale Generic System",
     summary:
       "Point-of-sale system built with Next.js, Prisma, PostgreSQL, NextAuth, Tailwind CSS, and shadcn/ui.",
@@ -278,15 +284,15 @@ export const featuredProjects: ProjectItem[] = [
       "Tailwind CSS",
       "shadcn/ui",
     ],
-    coverImageSrc: "/assets/projects/team-ops-dashboard/cover.png",
+    coverImageSrc: `/assets/projects/${projectAssetFolders.pos}/cover.png`,
     screenshotImageSrcs: [
-      "/assets/projects/team-ops-dashboard/screen-01.png",
-      "/assets/projects/team-ops-dashboard/screen-02.png",
+      `/assets/projects/${projectAssetFolders.pos}/screen-01.png`,
+      `/assets/projects/${projectAssetFolders.pos}/screen-02.png`,
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
       caption:
-        "Recommended directory: /assets/projects/team-ops-dashboard/ (16:10, 1600x1000 preferred)",
+        `Recommended directory: /assets/projects/${projectAssetFolders.pos}/ (16:10, 1600x1000 preferred)`,
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
     liveUrl: "https://your-live-project-url.example",

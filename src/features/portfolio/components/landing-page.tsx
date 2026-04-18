@@ -1,14 +1,11 @@
-import Link from "next/link";
-import { ArrowRight, Download, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { AboutCard } from "@/features/portfolio/components/about-card";
 import { IconBadge } from "@/features/portfolio/components/icon-badge";
 import { SectionShell } from "@/features/portfolio/components/section-shell";
 import { SkillsGrid } from "@/features/portfolio/components/skills-grid";
 import {
   heroStats,
-  homeAnchorItems,
   siteConfig,
 } from "@/features/portfolio/data/portfolio-content";
 
@@ -17,7 +14,7 @@ export function LandingPage() {
     <>
       <section className="border-b border-border/70">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:py-24">
-          <div className="space-y-7 lg:pb-90 sm:pb-0">
+          <div className="space-y-7">
             <div className="animate-fade-up space-y-4">
               <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground">
                 Home / Overview

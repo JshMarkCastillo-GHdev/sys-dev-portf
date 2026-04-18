@@ -1,15 +1,20 @@
 Project screenshot directory
 
-Create one folder per project slug, for example:
-- `portfolio-command-center/`
-- `case-study-library/`
-- `team-ops-dashboard/`
+Use neutral project folders so asset paths stay short and stable:
+- `project_1/`
+- `project_2/`
+- `project_3/`
 
 Recommended files inside each project folder:
 - `cover.png`
 - `screen-01.png`
 - `screen-02.png`
 - `mobile-01.png` for mobile captures if needed
+
+Current mapping used by the app:
+- `project_1/` -> Full Stack Developer Portfolio
+- `project_2/` -> YoloV8 App with React/Vite
+- `project_3/` -> Point-of-Sale Generic System
 
 Recommended ratios and sizes:
 - Feature screenshots: `16:10`

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Download, ArrowRight } from "lucide-react";
+import { Download, Menu } from "lucide-react";
 
 import {
   homeAnchorItems,
@@ -55,7 +55,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-4 py-2.5 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99] ${
+                  className={`rounded-full px-4 py-2.5 text-sm transition active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                     isActive
                       ? "bg-card text-foreground"
                       : "text-muted-foreground hover:bg-accent hover:text-foreground"
@@ -98,7 +98,7 @@ export function SiteHeader() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-70 border-l border-border/70 bg-background"
+                className="w-[17.5rem] border-l border-border/70 bg-background"
               >
                 <SheetHeader>
                   <SheetTitle>{siteConfig.name}</SheetTitle>
@@ -108,7 +108,7 @@ export function SiteHeader() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="border-b px-4 py-3 my-1 text-sm font-medium transition hover:border-border hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
+                      className="my-1 border-b px-4 py-3 text-sm font-medium transition active:scale-[0.99] hover:border-border hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       {item.label}
                     </Link>
@@ -128,7 +128,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full border border-border/80 bg-card px-3.5 py-2 text-sm text-muted-foreground transition hover:border-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
+                className="rounded-full border border-border/80 bg-card px-3.5 py-2 text-sm text-muted-foreground transition active:scale-[0.99] hover:border-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {item.label}
               </Link>

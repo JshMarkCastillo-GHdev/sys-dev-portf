@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, GitBranch, ImageIcon } from "lucide-react";
 
@@ -25,8 +26,13 @@ const DESCRIPTION_PREVIEW_LIMIT = 240;
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [hasProjectImageError, setHasProjectImageError] = useState(false);
   const hasLongDescription =
     project.description.length > DESCRIPTION_PREVIEW_LIMIT;
+  const projectCoverImageSrc =
+    project.coverImageSrc ?? project.screenshotImageSrcs?.[0];
+  const canRenderProjectImage =
+    Boolean(projectCoverImageSrc) && !hasProjectImageError;
   const visibleDescription =
     showFullDescription || !hasLongDescription
       ? project.description
@@ -61,23 +67,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <CardContent className="flex flex-1 flex-col gap-5">
           <div className="rounded-[1.45rem] border border-dashed border-border/80 bg-background/80 p-5 sm:p-6">
-            <div className="flex items-center gap-3">
-              <IconBadge size="md" className="bg-card/80">
-                <ImageIcon className="text-foreground/80" />
-              </IconBadge>
-              <div className="min-w-0">
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                  {project.screenshotPlaceholder.label}
-                </p>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                  {project.screenshotPlaceholder.caption}
-                </p>
-              </div>
-            </div>
-            <div className="mt-5 grid min-h-40 place-items-center rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2 sm:min-h-44">
-              <p className="font-sans text-sm text-foreground/72">
-                [ Replace with real info: Project screenshots ]
-              </p>
+            <div className="relative min-h-40 overflow-hidden rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2 sm:min-h-44">
+              {canRenderProjectImage ? (
+                <Image
+                  src={projectCoverImageSrc!}
+                  alt={`${project.title} preview`}
+                  fill
+                  onError={() => setHasProjectImageError(true)}
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              ) : (
+                <div className="grid min-h-40 place-items-center sm:min-h-44">
+                  <p className="font-sans text-sm text-foreground/72">
+                    [ Replace with real info: Project screenshots ]
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -92,7 +98,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <button
                 type="button"
                 onClick={() => setShowFullDescription((value) => !value)}
-                className="mt-4 inline-flex w-fit items-center rounded-full border border-border/80 bg-background px-3 py-1.5 text-sm text-foreground transition hover:border-foreground hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
+                className="mt-4 inline-flex w-fit items-center rounded-full border border-border/80 bg-background px-3 py-1.5 text-sm text-foreground transition active:scale-[0.99] hover:border-foreground hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {showFullDescription ? "Show less" : "Show more"}
               </button>

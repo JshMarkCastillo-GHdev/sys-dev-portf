@@ -60,26 +60,30 @@ Primary asset directories:
 
 - Each project lives under `featuredProjects`
 - Replace text fields directly in `portfolio-content.ts`
+- Current route slugs:
+  `featuredProjects[0].slug = project_1`
+  `featuredProjects[1].slug = project_2`
+  `featuredProjects[2].slug = project_3`
 - Asset paths now support:
   `coverImageSrc`
   `screenshotImageSrcs`
 
 Current project asset paths:
 - `featuredProjects[0].coverImageSrc`
-  `/assets/projects/portfolio-command-center/cover.png`
+  `/assets/projects/project_1/cover.png`
 - `featuredProjects[0].screenshotImageSrcs`
-  `/assets/projects/portfolio-command-center/screen-01.png`
-  `/assets/projects/portfolio-command-center/screen-02.png`
+  `/assets/projects/project_1/screen-01.png`
+  `/assets/projects/project_1/screen-02.png`
 - `featuredProjects[1].coverImageSrc`
-  `/assets/projects/case-study-library/cover.png`
+  `/assets/projects/project_2/cover.png`
 - `featuredProjects[1].screenshotImageSrcs`
-  `/assets/projects/case-study-library/screen-01.png`
-  `/assets/projects/case-study-library/screen-02.png`
+  `/assets/projects/project_2/screen-01.png`
+  `/assets/projects/project_2/screen-02.png`
 - `featuredProjects[2].coverImageSrc`
-  `/assets/projects/team-ops-dashboard/cover.png`
+  `/assets/projects/project_3/cover.png`
 - `featuredProjects[2].screenshotImageSrcs`
-  `/assets/projects/team-ops-dashboard/screen-01.png`
-  `/assets/projects/team-ops-dashboard/screen-02.png`
+  `/assets/projects/project_3/screen-01.png`
+  `/assets/projects/project_3/screen-02.png`
 
 Recommended screenshot sizes:
 - Feature screenshots: `16:10`
@@ -121,7 +125,7 @@ Recommended screenshot sizes:
   Preferred size: `1200x1200`
 
 - Project screenshots
-  Directory: `public/assets/projects/<project-slug>/`
+  Directory: `public/assets/projects/project_1/`, `project_2/`, `project_3/`
   Recommended files:
   `cover.png`
   `screen-01.png`

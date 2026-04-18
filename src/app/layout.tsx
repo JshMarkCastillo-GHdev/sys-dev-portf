@@ -1,18 +1,18 @@
-import type { Metadata } from "next"
-import { GeistMono } from "geist/font/mono"
-import { GeistSans } from "geist/font/sans"
+import type { Metadata } from "next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 
-import "./globals.css"
+import "./globals.css";
 
-import { SiteFooter } from "@/components/layout/site-footer"
-import { SiteHeader } from "@/components/layout/site-header"
-import { getSiteConfig } from "@/lib/site-config"
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
+import { getSiteConfig } from "@/lib/site-config";
 
-const siteConfig = getSiteConfig()
+const siteConfig = getSiteConfig();
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
   title: {
     default: `${siteConfig.name} | ${siteConfig.role}`,
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.shortBio,
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html
@@ -50,5 +50,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }

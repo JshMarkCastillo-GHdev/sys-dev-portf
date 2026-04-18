@@ -1,29 +1,32 @@
-import Link from "next/link"
+import Link from "next/link";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
   FileDown,
   GitBranch,
   Mail,
-} from "lucide-react"
+} from "lucide-react";
 
-import { contactLinks, siteConfig } from "@/features/portfolio/data/portfolio-content"
-import { IconBadge } from "@/features/portfolio/components/icon-badge"
-import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  contactLinks,
+  siteConfig,
+} from "@/features/portfolio/data/portfolio-content";
+import { IconBadge } from "@/features/portfolio/components/icon-badge";
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const iconMap = {
   github: GitBranch,
   email: Mail,
   briefcase: BriefcaseBusiness,
   resume: FileDown,
-} as const
+} as const;
 
 export function ContactPanel() {
   const githubContactLink =
-    contactLinks.find((link) => link.icon === "github") ?? contactLinks[0]
+    contactLinks.find((link) => link.icon === "github") ?? contactLinks[0];
 
   return (
     <ScrollReveal>
@@ -74,7 +77,9 @@ export function ContactPanel() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Portfolio Signature
                 </p>
-                <p className="mt-3 text-sm text-foreground/92">&copy; {siteConfig.name}</p>
+                <p className="mt-3 text-sm text-foreground/92">
+                  &copy; {siteConfig.name}
+                </p>
               </div>
             </div>
           </div>
@@ -88,16 +93,16 @@ export function ContactPanel() {
                 Professional links and resume access.
               </CardTitle>
               <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                Find the main places to view projects, send a message, and review
-                current career information.
+                Find the main places to view projects, send a message, and
+                review current career information.
               </p>
             </CardHeader>
 
             <div className="mt-5 grid gap-3">
               {contactLinks.map((link) => {
-                const Icon = iconMap[link.icon as keyof typeof iconMap]
-                const isExternal = link.href.startsWith("http")
-                const isDownload = link.href.endsWith(".pdf")
+                const Icon = iconMap[link.icon as keyof typeof iconMap];
+                const isExternal = link.href.startsWith("http");
+                const isDownload = link.href.endsWith(".pdf");
 
                 return (
                   <Link
@@ -105,7 +110,9 @@ export function ContactPanel() {
                     href={link.href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noreferrer" : undefined}
-                    download={isDownload ? "joshua-mark-castillo-resume.pdf" : undefined}
+                    download={
+                      isDownload ? "joshua-mark-castillo-resume.pdf" : undefined
+                    }
                     className="group rounded-[1.4rem] border border-border/70 bg-muted/35 p-5 transition duration-300 hover:-translate-y-0.5 hover:border-foreground/40 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -120,7 +127,9 @@ export function ContactPanel() {
                           <p className="text-base font-semibold text-foreground">
                             {link.label}
                           </p>
-                          <p className="mt-1 text-sm text-foreground/92">{link.value}</p>
+                          <p className="mt-1 text-sm text-foreground/92">
+                            {link.value}
+                          </p>
                           <p className="mt-2 text-sm leading-6 text-muted-foreground">
                             {link.helperText}
                           </p>
@@ -129,7 +138,7 @@ export function ContactPanel() {
                       <ArrowUpRight className="mt-1 size-4 text-muted-foreground transition group-hover:text-foreground" />
                     </div>
                   </Link>
-                )
+                );
               })}
             </div>
 
@@ -165,5 +174,5 @@ export function ContactPanel() {
         </CardContent>
       </Card>
     </ScrollReveal>
-  )
+  );
 }

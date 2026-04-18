@@ -1,39 +1,60 @@
-import { UserRound } from "lucide-react"
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { UserRound } from "lucide-react";
 
 import {
   aboutContent,
   siteConfig,
-} from "@/features/portfolio/data/portfolio-content"
-import { IconBadge } from "@/features/portfolio/components/icon-badge"
-import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+} from "@/features/portfolio/data/portfolio-content";
+import { IconBadge } from "@/features/portfolio/components/icon-badge";
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function AboutCard() {
+  const [hasProfileImageError, setHasProfileImageError] = useState(false);
+  const canRenderProfileImage =
+    Boolean(siteConfig.profileImageSrc) && !hasProfileImageError;
+
   return (
     <ScrollReveal>
       <Card className="rounded-[1.9rem] border border-border/70 bg-card/95 shadow-2xl shadow-black/25">
         <CardContent className="grid gap-5 p-0 lg:grid-cols-[0.88fr_1.12fr]">
           <div className="border-b border-border/70 p-5 lg:border-r lg:border-b-0 lg:p-6">
             <div className="rounded-[1.7rem] border border-border/70 bg-background/80 p-6">
-              <div className="rounded-[1.5rem] border border-dashed border-border/80 bg-gradient-to-b from-white/6 to-white/2 p-6">
+              <div className="rounded-[1.5rem] border border-dashed border-border/80 bg-linear-to-b from-white/6 to-white/2 p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   {aboutContent.profilePlaceholder.label}
                 </p>
-                <div className="mt-5 flex min-h-64 items-center justify-center rounded-[1.35rem] border border-border/70 bg-card/70">
-                  <div className="flex flex-col items-center gap-4 text-center">
-                    <span className="flex size-20 items-center justify-center rounded-full border border-border/80 bg-background">
-                      <UserRound className="size-9 text-foreground/80" />
-                    </span>
-                    <div className="space-y-2">
-                      <p className="text-lg font-semibold text-foreground">
-                        {siteConfig.name}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {aboutContent.profilePlaceholder.caption}
-                      </p>
+
+                <div className="mt-5 flex min-h-64 items-center justify-center rounded-[1.35rem] border border-border/70 bg-card/70 p-5">
+                  {canRenderProfileImage ? (
+                    <Image
+                      src={siteConfig.profileImageSrc!}
+                      alt={`${siteConfig.name} profile photo`}
+                      width={1200}
+                      height={1200}
+                      onError={() => setHasProfileImageError(true)}
+                      className="h-52 w-52 rounded-full border border-border/80 object-cover shadow-lg shadow-black/20 sm:h-64 sm:w-64"
+                      sizes="(max-width: 640px) 208px, 256px"
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center gap-4 text-center">
+                      <span className="flex size-20 items-center justify-center rounded-full border border-border/80 bg-background">
+                        <UserRound className="size-9 text-foreground/80" />
+                      </span>
+                      <div className="space-y-2">
+                        <p className="text-lg font-semibold text-foreground">
+                          {siteConfig.name}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {aboutContent.profilePlaceholder.caption}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
 
@@ -123,5 +144,5 @@ export function AboutCard() {
         </CardContent>
       </Card>
     </ScrollReveal>
-  )
+  );
 }
