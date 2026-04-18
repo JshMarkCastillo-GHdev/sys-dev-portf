@@ -6,7 +6,7 @@ import { getPortfolioData } from "@/features/portfolio/lib/project-data"
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Featured and archived portfolio projects with live GitHub enrichment.",
+  description: "Featured and archived portfolio projects sourced from local portfolio content.",
 }
 
 export default async function ProjectsPage() {

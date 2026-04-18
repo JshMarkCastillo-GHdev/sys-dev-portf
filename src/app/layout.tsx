@@ -6,14 +6,13 @@ import "./globals.css";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { env } from "@/lib/env";
 import { getSiteConfig } from "@/lib/site-config";
 
 const siteConfig = getSiteConfig();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  ),
+  metadataBase: new URL(env.publicSiteUrl),
   title: {
     default: `${siteConfig.name} | ${siteConfig.role}`,
     template: `%s | ${siteConfig.name}`,
