@@ -217,11 +217,10 @@ export const featuredProjects: ProjectItem[] = [
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption:
-        `Recommended directory: /assets/projects/${projectAssetFolders.portfolio}/ (16:10, 1600x1000 preferred)`,
+      caption: `Recommended directory: /assets/projects/${projectAssetFolders.portfolio}/ (16:10, 1600x1000 preferred)`,
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
-    liveUrl: "https://your-live-project-url.example",
+    liveUrl: "https://sys-dev-portf.vercel.app/",
     imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: true,
     githubRepo: "sys-dev-portf",
@@ -254,8 +253,7 @@ export const featuredProjects: ProjectItem[] = [
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption:
-        `Recommended directory: /assets/projects/${projectAssetFolders.yolov8}/ (16:10, 1600x1000 preferred)`,
+      caption: `Recommended directory: /assets/projects/${projectAssetFolders.yolov8}/ (16:10, 1600x1000 preferred)`,
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
     liveUrl: "https://licenseplaterecogwebapp.vercel.app/",
@@ -291,8 +289,7 @@ export const featuredProjects: ProjectItem[] = [
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption:
-        `Recommended directory: /assets/projects/${projectAssetFolders.pos}/ (16:10, 1600x1000 preferred)`,
+      caption: `Recommended directory: /assets/projects/${projectAssetFolders.pos}/ (16:10, 1600x1000 preferred)`,
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
     liveUrl: "https://your-live-project-url.example",

@@ -23,7 +23,7 @@ export function SiteFooter() {
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-              className="rounded-full border border-border/80 bg-card px-4 py-2.5 text-sm transition hover:border-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
+              className="w-full rounded-full border border-border/80 bg-card px-4 py-2.5 text-center text-sm transition hover:border-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99] sm:w-auto"
             >
               {link.label}
             </Link>

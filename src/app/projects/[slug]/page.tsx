@@ -75,7 +75,10 @@ export default async function ProjectDetailPage({
             </p>
             <ul className="space-y-3">
               {project.highlights.map((item) => (
-                <li key={item} className="flex gap-3 text-sm text-muted-foreground">
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-muted-foreground"
+                >
                   <span className="mt-2 size-1.5 rounded-full bg-primary" />
                   <span>{item}</span>
                 </li>

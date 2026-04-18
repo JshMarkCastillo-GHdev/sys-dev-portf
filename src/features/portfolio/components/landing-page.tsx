@@ -42,14 +42,14 @@ export function LandingPage() {
             </div>
           </div>
 
-          <div className="animate-fade-up animate-delay-2 rounded-[2rem] border border-border/70 bg-card/95 p-6 shadow-2xl shadow-black/30">
-            <div className="rounded-[1.5rem] border border-border/70 bg-background/90 p-6">
-              <div className="flex items-center justify-between border-b border-border/70 pb-4">
-                <div>
+          <div className="animate-fade-up animate-delay-2 rounded-[2rem] border border-border/70 bg-card/95 p-4 shadow-2xl shadow-black/30 sm:p-6">
+            <div className="rounded-[1.5rem] border border-border/70 bg-background/90 p-5 sm:p-6">
+              <div className="flex items-start justify-between gap-4 border-b border-border/70 pb-4">
+                <div className="min-w-0">
                   <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground">
                     Core strengths
                   </p>
-                  <p className="mt-2 text-xl font-semibold">
+                  <p className="mt-2 text-lg font-semibold sm:text-xl">
                     Comfortable with full stack delivery
                   </p>
                 </div>
@@ -79,19 +79,19 @@ export function LandingPage() {
                   Working style
                 </p>
                 <div className="mt-4 space-y-3 text-sm text-foreground/84">
-                  <div className="flex items-start justify-between gap-4 border-b border-border/70 pb-3">
+                  <div className="flex flex-col gap-1 border-b border-border/70 pb-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                     <span>Frontend systems</span>
                     <span className="font-mono text-muted-foreground">
                       Next.js / Tailwind
                     </span>
                   </div>
-                  <div className="flex items-start justify-between gap-4 border-b border-border/70 pb-3">
+                  <div className="flex flex-col gap-1 border-b border-border/70 pb-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                     <span>Backend mindset</span>
                     <span className="font-mono text-muted-foreground">
                       APIs / automation
                     </span>
                   </div>
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                     <span>Delivery style</span>
                     <span className="font-mono text-muted-foreground">
                       Clean + scalable

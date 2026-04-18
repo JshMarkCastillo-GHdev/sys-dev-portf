@@ -26,12 +26,12 @@ export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
       <Card className="rounded-[1.85rem] border border-border/70 bg-card/95 shadow-lg shadow-black/20 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/35">
         <CardHeader className="space-y-4">
           <div className="flex items-start justify-between gap-4">
-            <div className="space-y-2">
+            <div className="min-w-0 space-y-2">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                 {subtitle}
               </p>
-              <CardTitle className="text-2xl">{heading}</CardTitle>
-              <p className="text-sm text-muted-foreground">{secondary}</p>
+              <CardTitle className="text-2xl break-words">{heading}</CardTitle>
+              <p className="break-words text-sm text-muted-foreground">{secondary}</p>
             </div>
             <IconBadge size="lg">
               {isIndustry ? (
@@ -44,15 +44,15 @@ export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
         </CardHeader>
 
         <CardContent className="space-y-5">
-          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 sm:p-6">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
               Duration
             </p>
-            <p className="mt-3 text-sm text-foreground/92">{duration}</p>
+            <p className="mt-3 break-words text-sm text-foreground/92">{duration}</p>
           </div>
 
           {summary ? (
-            <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
+            <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 sm:p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                 Overview
               </p>
@@ -60,7 +60,7 @@ export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
             </div>
           ) : null}
 
-          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 sm:p-6">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
               {isIndustry ? "Responsibilities" : "Education Details"}
             </p>
