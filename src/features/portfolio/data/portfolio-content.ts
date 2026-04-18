@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
   role: "Jr. Full Stack Developer",
   tagline:
     "Building scalable web applications for innovation and process automation.",
-  location: "On-site or Remote - Open to opportunities worldwide",
+  location: "On-site or Remote",
   email: "joshuamarkcastillo0319@gmail.com",
   shortBio:
     "Computer Engineering student with a passion for full stack development, focused on building scalable web applications that drive innovation and process automation.",
@@ -220,7 +220,7 @@ export const featuredProjects: ProjectItem[] = [
       caption: `Recommended directory: /assets/projects/${projectAssetFolders.portfolio}/ (16:10, 1600x1000 preferred)`,
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
-    liveUrl: "https://sys-dev-portf.vercel.app/",
+    liveUrl: "https://joshua-fs-dev.vercel.app/",
     imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: true,
     githubRepo: "sys-dev-portf",
