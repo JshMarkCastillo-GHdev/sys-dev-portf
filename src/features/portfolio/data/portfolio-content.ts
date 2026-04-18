@@ -10,22 +10,23 @@ import type {
   SkillGroup,
   SocialLink,
   StatItem,
-} from "@/types/portfolio"
+} from "@/features/portfolio/types/portfolio"
 
 export const siteConfig: SiteConfig = {
   name: "Joshua Mark Castillo",
   role: "Jr. Full Stack Developer",
   tagline: "Building scalable web applications for innovation and process automation.",
-  location: "Remote / Asia",
-  email: "hello@example.dev",
+  location: "[ Replace with real info: Work location or preferred setup ]",
+  email: "[ Replace with real info: Professional email address ]",
   shortBio:
-    "Jr. full stack developer focused on scalable web applications, practical automation, and clean user experiences.",
+    "[ Replace with real info: Short professional introduction for the landing page ]",
   longBio:
-    "I build modern web experiences with a strong focus on maintainability, thoughtful interfaces, and process automation. I enjoy turning operational pain points into reliable products that help teams move faster with less friction.",
-  availability: "Open to junior full stack opportunities and collaborative product work.",
+    "[ Replace with real info: Longer developer bio for the About section snapshot ]",
+  availability:
+    "[ Replace with real info: Current availability status for work, freelance, or collaboration ]",
   resumeUrl: "/resume/joshua-mark-castillo-resume.pdf",
-  githubUsername: "octocat",
-  repoAllowlist: ["hello-world", "Spoon-Knife"],
+  githubUsername: "your-github-username",
+  repoAllowlist: ["your-featured-repo-1", "your-featured-repo-2"],
 }
 
 export const navigationItems: NavItem[] = [
@@ -43,56 +44,56 @@ export const homeAnchorItems: HomeAnchorItem[] = [
 export const socialLinks: SocialLink[] = [
   {
     label: "GitHub",
-    href: "https://github.com/octocat",
-    value: "@octocat",
+    href: "https://github.com/your-github-username",
+    value: "[ Replace with real info: GitHub username ]",
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/your-profile",
-    value: "linkedin.com/in/your-profile",
+    href: "https://www.linkedin.com/in/your-linkedin-slug",
+    value: "[ Replace with real info: LinkedIn profile URL ]",
   },
   {
     label: "Email",
-    href: "mailto:hello@example.dev",
-    value: "hello@example.dev",
+    href: "mailto:your-email@example.com",
+    value: "[ Replace with real info: Professional email address ]",
   },
 ]
 
 export const contactLinks: ContactLink[] = [
   {
     label: "GitHub Link #1",
-    href: "https://github.com/your-placeholder-profile",
-    value: "@your-placeholder-profile",
-    helperText: "Primary public portfolio and code repository link.",
+    href: "https://github.com/your-github-username",
+    value: "[ Replace with real info: GitHub profile link ]",
+    helperText: "[ Replace with real info: Short note about your GitHub profile or pinned work ]",
     icon: "github",
   },
   {
     label: "Email",
-    href: "mailto:hello@example.dev",
-    value: "hello@example.dev",
-    helperText: "Direct email contact for professional opportunities.",
+    href: "mailto:your-email@example.com",
+    value: "[ Replace with real info: Primary email address ]",
+    helperText: "[ Replace with real info: Preferred contact use or response note ]",
     icon: "email",
   },
   {
     label: "Indeed",
-    href: "https://www.indeed.com",
-    value: "Indeed profile placeholder",
-    helperText: "Professional profile placeholder for future job visibility.",
+    href: "https://www.indeed.com/your-profile",
+    value: "[ Replace with real info: Indeed or alternate professional profile URL ]",
+    helperText: "[ Replace with real info: Short note about this professional profile ]",
     icon: "briefcase",
   },
   {
     label: "Resume",
     href: "/resume/joshua-mark-castillo-resume.pdf",
-    value: "Download current resume",
-    helperText: "Use this to review the latest resume snapshot.",
+    value: "[ Replace with real info: Resume file title or version ]",
+    helperText: "[ Replace with real info: Resume summary or last updated note ]",
     icon: "resume",
   },
 ]
 
 export const heroStats: StatItem[] = [
-  { label: "Focus", value: "Scalable Web Apps" },
-  { label: "Workflow", value: "Process Automation" },
-  { label: "Stack", value: "Next.js + TypeScript" },
+  { label: "Focus", value: "[ Replace with real info: Core specialization ]" },
+  { label: "Workflow", value: "[ Replace with real info: Preferred delivery style ]" },
+  { label: "Stack", value: "[ Replace with real info: Primary stack summary ]" },
 ]
 
 export const aboutContent: AboutContent = {
@@ -111,7 +112,7 @@ export const aboutContent: AboutContent = {
   ],
   profilePlaceholder: {
     label: "Profile Photo",
-    caption: "Placeholder image for now",
+    caption: "[ Replace with real info: Profile photo image ]",
   },
 }
 
@@ -169,68 +170,82 @@ export const skillGroups: SkillGroup[] = [
 export const featuredProjects: ProjectItem[] = [
   {
     slug: "portfolio-command-center",
-    title: "Project Template #1",
+    title: "[ Replace with real info: Project title ]",
     summary:
-      "Placeholder project description for introducing the project scope, goals, and expected outcome.",
+      "[ Replace with real info: Project summary ]",
     description:
-      "Use this template to present a project title, a concise description, the stack used, screenshot slots, and relevant links.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+      "[ Replace with real info: Project description ]",
+    techStack: [
+      "[ Replace with real info: Project tech stack item 1 ]",
+      "[ Replace with real info: Project tech stack item 2 ]",
+      "[ Replace with real info: Project tech stack item 3 ]",
+    ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption: "Place UI previews or product screenshots here.",
+      caption: "[ Replace with real info: Project screenshot set or preview image ]",
     },
-    repoUrl: "https://github.com/octocat/hello-world",
-    liveUrl: "https://example.dev",
-    imageHint: "dashboard gradients",
+    repoUrl: "https://github.com/your-github-username/your-project-repo",
+    liveUrl: "https://your-live-project-url.example",
+    imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: true,
-    githubRepo: "hello-world",
+    githubRepo: "your-project-repo",
     highlights: [
-      "Server-rendered portfolio sections with typed content modules.",
-      "Reusable cards and layout primitives for fast iteration.",
-      "Live GitHub repo enrichment with graceful fallback behavior.",
+      "[ Replace with real info: Project highlight #1 ]",
+      "[ Replace with real info: Project highlight #2 ]",
+      "[ Replace with real info: Project highlight #3 ]",
     ],
   },
   {
     slug: "case-study-library",
-    title: "Project Template #1",
+    title: "[ Replace with real info: Project title ]",
     summary:
-      "Placeholder summary for another reusable project card entry within the same portfolio template system.",
+      "[ Replace with real info: Project summary ]",
     description:
-      "This blank-style project card can be reused by updating only the content fields for links, screenshots, and stack details.",
-    techStack: ["React", "TypeScript", "MDX", "Design Systems"],
+      "[ Replace with real info: Project description ]",
+    techStack: [
+      "[ Replace with real info: Project tech stack item 1 ]",
+      "[ Replace with real info: Project tech stack item 2 ]",
+      "[ Replace with real info: Project tech stack item 3 ]",
+    ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption: "Use this area for visual snapshots or walkthrough images.",
+      caption: "[ Replace with real info: Project screenshot set or preview image ]",
     },
-    repoUrl: "https://github.com/octocat/Spoon-Knife",
-    imageHint: "notebook cards",
+    repoUrl: "https://github.com/your-github-username/your-project-repo",
+    liveUrl: "https://your-live-project-url.example",
+    imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: true,
-    githubRepo: "Spoon-Knife",
+    githubRepo: "your-project-repo",
     highlights: [
-      "Structured content model for case-study style portfolio entries.",
-      "Mobile-first layout that keeps content easy to scan.",
-      "Focused on clarity over visual noise.",
+      "[ Replace with real info: Project highlight #1 ]",
+      "[ Replace with real info: Project highlight #2 ]",
+      "[ Replace with real info: Project highlight #3 ]",
     ],
   },
   {
     slug: "team-ops-dashboard",
-    title: "Project Template #1",
+    title: "[ Replace with real info: Project title ]",
     summary:
-      "Placeholder summary for a future project card that still follows the same reusable layout.",
+      "[ Replace with real info: Project summary ]",
     description:
-      "Keep this template ready for later project additions by filling in screenshots, stack details, and repository links.",
-    techStack: ["Next.js", "Charts", "UX Writing", "Component Systems"],
+      "[ Replace with real info: Project description ]",
+    techStack: [
+      "[ Replace with real info: Project tech stack item 1 ]",
+      "[ Replace with real info: Project tech stack item 2 ]",
+      "[ Replace with real info: Project tech stack item 3 ]",
+    ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption: "Reserve this panel for dashboard or product screenshots.",
+      caption: "[ Replace with real info: Project screenshot set or preview image ]",
     },
-    repoUrl: "https://github.com/octocat/octocat.github.io",
-    imageHint: "analytics board",
+    repoUrl: "https://github.com/your-github-username/your-project-repo",
+    liveUrl: "https://your-live-project-url.example",
+    imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: false,
     highlights: [
-      "Component-driven information architecture.",
-      "Sharp hierarchy for denser data surfaces.",
-      "Optimized for maintainability under iteration.",
+      "[ Replace with real info: Project highlight #1 ]",
+      "[ Replace with real info: Project highlight #2 ]",
+      "[ Replace with real info: Project highlight #3 ]",
     ],
   },
 ]
@@ -238,30 +253,30 @@ export const featuredProjects: ProjectItem[] = [
 export const experienceItems: ExperienceItem[] = [
   {
     id: "industry-template-1-remote",
-    company: "Company Placeholder",
-    role: "Industry Experience Template #1",
-    duration: "Duration Placeholder",
-    location: "Remote",
+    company: "[ Replace with real info: Company name ]",
+    role: "[ Replace with real info: Job title ]",
+    duration: "[ Replace with real info: Employment duration ]",
+    location: "[ Replace with real info: Work setup or location ]",
     summary:
-      "Use this template card to present company, role, duration, and the core responsibilities for industry experience.",
+      "[ Replace with real info: Short summary of your responsibilities or impact ]",
     responsibilities: [
-      "Responsibility placeholder #1",
-      "Responsibility placeholder #2",
-      "Responsibility placeholder #3",
+      "[ Replace with real info: Responsibility or achievement #1 ]",
+      "[ Replace with real info: Responsibility or achievement #2 ]",
+      "[ Replace with real info: Responsibility or achievement #3 ]",
     ],
   },
   {
     id: "industry-template-1-hybrid",
-    company: "Company Placeholder",
-    role: "Industry Experience Template #1",
-    duration: "Duration Placeholder",
-    location: "Hybrid",
+    company: "[ Replace with real info: Company name ]",
+    role: "[ Replace with real info: Job title ]",
+    duration: "[ Replace with real info: Employment duration ]",
+    location: "[ Replace with real info: Work setup or location ]",
     summary:
-      "Another reusable blank card for adding more industry experience entries later.",
+      "[ Replace with real info: Short summary of your responsibilities or impact ]",
     responsibilities: [
-      "Responsibility placeholder #1",
-      "Responsibility placeholder #2",
-      "Responsibility placeholder #3",
+      "[ Replace with real info: Responsibility or achievement #1 ]",
+      "[ Replace with real info: Responsibility or achievement #2 ]",
+      "[ Replace with real info: Responsibility or achievement #3 ]",
     ],
   },
 ]
@@ -271,12 +286,12 @@ export const educationItems: EducationItem[] = [
     id: "education-template-1-urs-morong",
     degree: "Computer Engineering",
     institution: "University of Rizal System Morong",
-    duration: "Education Experience #1",
+    duration: "[ Replace with real info: Education duration ]",
     summary:
-      "Reusable education template entry for academic background and foundational engineering studies.",
+      "[ Replace with real info: Education summary or focus area ]",
     details: [
       "Computer Engineering from University of Rizal System Morong",
-      "Use this template to add honors, projects, or academic highlights later.",
+      "[ Replace with real info: Honors, thesis, capstone, or academic highlight ]",
     ],
   },
 ]

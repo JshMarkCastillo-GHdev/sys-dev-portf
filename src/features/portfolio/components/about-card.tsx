@@ -4,7 +4,7 @@ import {
   aboutContent,
   siteConfig,
 } from "@/features/portfolio/data/portfolio-content"
-import { ScrollReveal } from "@/components/portfolio/scroll-reveal"
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 

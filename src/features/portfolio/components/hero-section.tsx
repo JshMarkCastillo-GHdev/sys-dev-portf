@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowRight, GitBranch, MapPin } from "lucide-react"
 
 import { heroStats, socialLinks } from "@/features/portfolio/data/portfolio-content"
-import type { GithubProfile } from "@/types/portfolio"
+import type { GithubProfile } from "@/features/portfolio/types/portfolio"
 import { getSiteConfig } from "@/lib/site-config"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"

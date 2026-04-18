@@ -14,7 +14,7 @@ export function SiteFooter() {
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
             Footer
           </p>
-          <p className="text-sm text-zinc-100">© {siteConfig.name}</p>
+          <p className="text-sm text-zinc-100">&copy; {siteConfig.name}</p>
         </div>
         <div className="flex flex-wrap gap-3">
           {socialLinks.map((link) => (

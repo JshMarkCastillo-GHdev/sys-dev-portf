@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
-import { ExperienceCard } from "@/components/portfolio/experience-card"
-import { SectionShell } from "@/components/portfolio/section-shell"
+import { ExperienceCard } from "@/features/portfolio/components/experience-card"
+import { SectionShell } from "@/features/portfolio/components/section-shell"
 import {
   educationItems,
   experienceItems,

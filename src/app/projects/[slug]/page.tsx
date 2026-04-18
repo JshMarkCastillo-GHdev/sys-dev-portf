@@ -3,7 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowUpRight } from "lucide-react"
 
-import { SectionShell } from "@/components/portfolio/section-shell"
+import { SectionShell } from "@/features/portfolio/components/section-shell"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
-import { SectionShell } from "@/components/portfolio/section-shell"
-import { SkillsGrid } from "@/components/portfolio/skills-grid"
+import { SectionShell } from "@/features/portfolio/components/section-shell"
+import { SkillsGrid } from "@/features/portfolio/components/skills-grid"
 
 export const metadata: Metadata = {
   title: "Skills",

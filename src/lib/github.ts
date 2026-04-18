@@ -1,6 +1,10 @@
 import "server-only"
 
-import type { GithubProfile, GithubProjectRepo, ProjectItem } from "@/types/portfolio"
+import type {
+  GithubProfile,
+  GithubProjectRepo,
+  ProjectItem,
+} from "@/features/portfolio/types/portfolio"
 
 type GithubProfileResponse = {
   avatar_url: string

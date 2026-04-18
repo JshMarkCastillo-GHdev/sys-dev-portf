@@ -8,10 +8,10 @@ import {
 } from "lucide-react"
 
 import { contactLinks, siteConfig } from "@/features/portfolio/data/portfolio-content"
-import { ScrollReveal } from "@/components/portfolio/scroll-reveal"
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const iconMap = {
   github: GitBranch,
@@ -21,6 +21,9 @@ const iconMap = {
 } as const
 
 export function ContactPanel() {
+  const githubContactLink =
+    contactLinks.find((link) => link.icon === "github") ?? contactLinks[0]
+
   return (
     <ScrollReveal>
       <Card className="rounded-[1.9rem] border border-border/70 bg-card/95 shadow-2xl shadow-black/25">
@@ -71,9 +74,7 @@ export function ContactPanel() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Footer Mark
                 </p>
-                <p className="mt-3 text-sm text-zinc-100">
-                  © {siteConfig.name}
-                </p>
+                <p className="mt-3 text-sm text-zinc-100">&copy; {siteConfig.name}</p>
               </div>
             </div>
           </div>
@@ -132,18 +133,29 @@ export function ContactPanel() {
 
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <Button
-                render={<Link href="/resume/joshua-mark-castillo-resume.pdf" download="joshua-mark-castillo-resume.pdf" />}
+                render={
+                  <Link
+                    href="/resume/joshua-mark-castillo-resume.pdf"
+                    download="joshua-mark-castillo-resume.pdf"
+                  />
+                }
                 className="rounded-full"
               >
                 Download Resume
                 <FileDown className="size-4" />
               </Button>
               <Button
-                render={<Link href="https://github.com/your-placeholder-profile" target="_blank" rel="noreferrer" />}
+                render={
+                  <Link
+                    href={githubContactLink.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  />
+                }
                 variant="outline"
                 className="rounded-full border-border/80 bg-background"
               >
-                View GitHub Link #1
+                {githubContactLink.label}
                 <GitBranch className="size-4" />
               </Button>
             </div>

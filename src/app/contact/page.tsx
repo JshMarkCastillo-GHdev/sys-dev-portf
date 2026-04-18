@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
-import { ContactPanel } from "@/components/portfolio/contact-panel"
-import { SectionShell } from "@/components/portfolio/section-shell"
+import { ContactPanel } from "@/features/portfolio/components/contact-panel"
+import { SectionShell } from "@/features/portfolio/components/section-shell"
 
 export const metadata: Metadata = {
   title: "Contact",

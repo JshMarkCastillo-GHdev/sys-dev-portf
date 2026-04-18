@@ -1,8 +1,8 @@
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight, GitBranch, ImageIcon } from "lucide-react"
 
-import type { ProjectItem } from "@/types/portfolio"
-import { ScrollReveal } from "@/components/portfolio/scroll-reveal"
+import type { ProjectItem } from "@/features/portfolio/types/portfolio"
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
 import { Badge } from "@/components/ui/badge"
 import {
   Card,
@@ -25,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-2">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                Project Template #1
+                Project Template
               </p>
               <CardTitle className="text-2xl">{project.title}</CardTitle>
               <p className="text-sm leading-7 text-muted-foreground">
@@ -37,7 +37,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 variant="outline"
                 className="rounded-full border-border/80 bg-background px-3 py-1 font-sans text-sm"
               >
-                Placeholder
+                Featured
               </Badge>
             ) : null}
           </div>
@@ -60,7 +60,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </div>
             <div className="mt-5 grid min-h-36 place-items-center rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-zinc-900 to-zinc-800">
               <p className="font-sans text-sm text-zinc-300">
-                Screenshot placeholder panel
+                [ Replace with real info: Project screenshots ]
               </p>
             </div>
           </div>

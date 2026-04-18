@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
-import { AboutCard } from "@/components/portfolio/about-card"
-import { SectionShell } from "@/components/portfolio/section-shell"
+import { AboutCard } from "@/features/portfolio/components/about-card"
+import { SectionShell } from "@/features/portfolio/components/section-shell"
 
 export const metadata: Metadata = {
   title: "About",

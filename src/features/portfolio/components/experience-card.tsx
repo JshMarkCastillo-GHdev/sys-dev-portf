@@ -1,7 +1,10 @@
 import { BriefcaseBusiness, GraduationCap } from "lucide-react"
 
-import type { EducationItem, ExperienceItem } from "@/types/portfolio"
-import { ScrollReveal } from "@/components/portfolio/scroll-reveal"
+import type {
+  EducationItem,
+  ExperienceItem,
+} from "@/features/portfolio/types/portfolio"
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type ExperienceCardProps = {
