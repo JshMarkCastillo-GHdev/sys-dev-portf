@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Download, Menu } from "lucide-react";
@@ -22,9 +23,46 @@ import { Container } from "@/components/layout/container";
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollYRef = useRef(0);
+
+  useEffect(() => {
+    const scrollThreshold = 80;
+    const deltaThreshold = 8;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const lastScrollY = lastScrollYRef.current;
+      const scrollDelta = currentScrollY - lastScrollY;
+
+      if (currentScrollY <= scrollThreshold) {
+        setIsHeaderVisible(true);
+        lastScrollYRef.current = currentScrollY;
+        return;
+      }
+
+      if (Math.abs(scrollDelta) < deltaThreshold) {
+        return;
+      }
+
+      setIsHeaderVisible(scrollDelta < 0);
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    lastScrollYRef.current = window.scrollY;
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-xl">
+    <header
+      className={`sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-xl transition-transform duration-300 ease-out ${
+        isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <Container className="py-4">
         <div className="flex items-center justify-between gap-4">
           <Link

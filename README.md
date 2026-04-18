@@ -1,4 +1,4 @@
-# sys-dev-portf
+# Full Stack Developer Portfolio
 
 Developer portfolio scaffold built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn/ui.
 
@@ -34,13 +34,13 @@ npm run dev
 
 ## Environment Variables
 
-| Variable | Required | Purpose |
-| --- | --- | --- |
-| `GITHUB_USERNAME` | Yes | GitHub username used for profile and repository fetching |
-| `GITHUB_TOKEN` | No | Optional token for higher GitHub API rate limits |
-| `FEATURED_GITHUB_REPOS` | No | Comma-separated allowlist for featured repositories |
-| `NEXT_PUBLIC_SITE_URL` | Yes | Public site URL for metadata and deployment |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | No | Email shown in the static contact section |
+| Variable                    | Required | Purpose                                                  |
+| --------------------------- | -------- | -------------------------------------------------------- |
+| `GITHUB_USERNAME`           | Yes      | GitHub username used for profile and repository fetching |
+| `GITHUB_TOKEN`              | No       | Optional token for higher GitHub API rate limits         |
+| `FEATURED_GITHUB_REPOS`     | No       | Comma-separated allowlist for featured repositories      |
+| `NEXT_PUBLIC_SITE_URL`      | Yes      | Public site URL for metadata and deployment              |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | No       | Email shown in the static contact section                |
 
 ## GitHub Integration
 
