@@ -220,7 +220,7 @@ export const featuredProjects: ProjectItem[] = [
       caption: `Recommended directory: /assets/projects/${projectAssetFolders.portfolio}/ (16:10, 1600x1000 preferred)`,
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
-    liveUrl: "https://sys-dev-portf.vercel.app/",
+    liveUrl: "https://joshua-fs-dev.vercel.app/",
     imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: true,
     githubRepo: "sys-dev-portf",
