@@ -50,6 +50,8 @@ export type ProjectItem = {
   summary: string
   description: string
   techStack: string[]
+  coverImageSrc?: string
+  screenshotImageSrcs?: string[]
   screenshotPlaceholder: {
     label: string
     caption: string
@@ -91,6 +93,11 @@ export type SiteConfig = {
   longBio: string
   availability: string
   resumeUrl: string
+  profileImageSrc?: string
+  logoMarkSrc?: string
+  logoWordmarkSrc?: string
+  logoFullSrc?: string
+  faviconSourceSrc?: string
   githubUsername: string
   repoAllowlist: string[]
 }

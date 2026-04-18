@@ -3,163 +3,108 @@
 Primary edit file:
 - `src/features/portfolio/data/portfolio-content.ts`
 
-Primary asset paths:
-- `public/resume/joshua-mark-castillo-resume.pdf`
-- `public/profile-placeholder.png` or your final profile image path
+Primary asset directories:
+- `public/assets/profile/`
+- `public/assets/projects/`
+- `public/assets/brand/`
+- `public/assets/icons/`
+- `public/resume/`
 
 ## Site Identity
 
 - `siteConfig.name`
   Current value: `Joshua Mark Castillo`
-  Replace if needed with your final public developer name.
 - `siteConfig.role`
   Current value: `Jr. Full Stack Developer`
-  Replace if your preferred title changes.
 - `siteConfig.location`
-  Current value: `[ Replace with real info: Work location or preferred setup ]`
+  Current value: `On-site or Remote - Open to opportunities worldwide`
 - `siteConfig.email`
-  Current value: `[ Replace with real info: Professional email address ]`
+  Current value: `joshuamarkcastillo0319@gmail.com`
+- `siteConfig.tagline`
+  Current value: `Building scalable web applications for innovation and process automation.`
 
 ## Hero / Landing
 
-- `siteConfig.tagline`
-  Current value: `Building scalable web applications for innovation and process automation.`
-  Replace if you want a different headline.
 - `siteConfig.shortBio`
-  Current value: `[ Replace with real info: Short professional introduction for the landing page ]`
+  Current value: `Computer Engineering student with a passion for full stack development, focused on building scalable web applications that drive innovation and process automation.`
 - `heroStats[0].value`
-  Current value: `[ Replace with real info: Core specialization ]`
+  Current value: `Intelligent Automation with secure practices`
 - `heroStats[1].value`
-  Current value: `[ Replace with real info: Preferred delivery style ]`
+  Current value: `Streamlining development processes for efficient project delivery and collaboration`
 - `heroStats[2].value`
-  Current value: `[ Replace with real info: Primary stack summary ]`
+  Current value: `Modern web development stack with a focus on performance and scalability`
 
 ## About
 
 - `siteConfig.longBio`
-  Current value: `[ Replace with real info: Longer developer bio for the About section snapshot ]`
+  Current value: your full long-form biography in `portfolio-content.ts`
 - `siteConfig.availability`
-  Current value: `[ Replace with real info: Current availability status for work, freelance, or collaboration ]`
+  Current value: `Available for full-time opportunities. Open to remote, hybrid, or collaborative work environments.`
 - `aboutContent.techJourney`
-  Current value: `I chose Full Stack Development to eliminate tiring processes and become one of the stepping stones to full automations.`
-  Replace only if you want different wording.
+  Current value: your current tech journey statement
 - `aboutContent.softSkills`
-  Current values:
-  `Team Communication`
-  `Project Collaboration`
-  `Critical Problem Solving`
-  `Proper Escalation`
-  `Technical Documentation`
+  Current values: your current soft-skills list
 - `aboutContent.hobbies`
-  Current values:
-  `Game Development`
-  `Fantasy Genre Animes Streaming`
+  Current values: your current hobbies list
+- `siteConfig.profileImageSrc`
+  Current value: `/assets/profile/joshua-mark-castillo-profile.jpg`
 - `aboutContent.profilePlaceholder.caption`
-  Current value: `[ Replace with real info: Profile photo image ]`
+  Current value: `Recommended path: /assets/profile/joshua-mark-castillo-profile.jpg (1:1, 1200x1200 preferred)`
 
 ## Skills
 
 - `skillGroups`
-  Current skills are already filled with your requested stack.
-  Replace only if you want to change or expand categories and technologies.
+  Current values: your current frontend, backend, databases, tools, deployment, and agents lists
 
 ## Projects
 
-- `featuredProjects[0].title`
-  Current value: `[ Replace with real info: Project title ]`
-- `featuredProjects[0].summary`
-  Current value: `[ Replace with real info: Project summary ]`
-- `featuredProjects[0].description`
-  Current value: `[ Replace with real info: Project description ]`
-- `featuredProjects[0].techStack`
-  Current values:
-  `[ Replace with real info: Project tech stack item 1 ]`
-  `[ Replace with real info: Project tech stack item 2 ]`
-  `[ Replace with real info: Project tech stack item 3 ]`
-- `featuredProjects[0].screenshotPlaceholder.caption`
-  Current value: `[ Replace with real info: Project screenshot set or preview image ]`
-- `featuredProjects[0].repoUrl`
-  Current value: `https://github.com/your-github-username/your-project-repo`
-- `featuredProjects[0].liveUrl`
-  Current value: `https://your-live-project-url.example`
-- `featuredProjects[0].imageHint`
-  Current value: `[ Replace with real info: Screenshot style hint ]`
-- `featuredProjects[0].githubRepo`
-  Current value: `your-project-repo`
-- `featuredProjects[0].highlights`
-  Current values:
-  `[ Replace with real info: Project highlight #1 ]`
-  `[ Replace with real info: Project highlight #2 ]`
-  `[ Replace with real info: Project highlight #3 ]`
+- Each project lives under `featuredProjects`
+- Replace text fields directly in `portfolio-content.ts`
+- Asset paths now support:
+  `coverImageSrc`
+  `screenshotImageSrcs`
 
-- `featuredProjects[1]`
-  Replace the same fields as project 1.
-- `featuredProjects[2]`
-  Replace the same fields as project 1.
+Current project asset paths:
+- `featuredProjects[0].coverImageSrc`
+  `/assets/projects/portfolio-command-center/cover.png`
+- `featuredProjects[0].screenshotImageSrcs`
+  `/assets/projects/portfolio-command-center/screen-01.png`
+  `/assets/projects/portfolio-command-center/screen-02.png`
+- `featuredProjects[1].coverImageSrc`
+  `/assets/projects/case-study-library/cover.png`
+- `featuredProjects[1].screenshotImageSrcs`
+  `/assets/projects/case-study-library/screen-01.png`
+  `/assets/projects/case-study-library/screen-02.png`
+- `featuredProjects[2].coverImageSrc`
+  `/assets/projects/team-ops-dashboard/cover.png`
+- `featuredProjects[2].screenshotImageSrcs`
+  `/assets/projects/team-ops-dashboard/screen-01.png`
+  `/assets/projects/team-ops-dashboard/screen-02.png`
+
+Recommended screenshot sizes:
+- Feature screenshots: `16:10`
+- Preferred export: `1600x1000`
+- Smaller acceptable export: `1280x800`
+- Mobile screenshots: around `9:19.5`
+- Mobile export: `1080x2340`
 
 ## Experience
 
-- `experienceItems[0].company`
-  Current value: `[ Replace with real info: Company name ]`
-- `experienceItems[0].role`
-  Current value: `[ Replace with real info: Job title ]`
-- `experienceItems[0].duration`
-  Current value: `[ Replace with real info: Employment duration ]`
-- `experienceItems[0].location`
-  Current value: `[ Replace with real info: Work setup or location ]`
-- `experienceItems[0].summary`
-  Current value: `[ Replace with real info: Short summary of your responsibilities or impact ]`
-- `experienceItems[0].responsibilities`
-  Current values:
-  `[ Replace with real info: Responsibility or achievement #1 ]`
-  `[ Replace with real info: Responsibility or achievement #2 ]`
-  `[ Replace with real info: Responsibility or achievement #3 ]`
-
-- `experienceItems[1]`
-  Replace the same fields as experience item 1 if you want a second role listed.
+- `experienceItems`
+  Current values: your current internship and freelance/full stack entries
+  Replace these directly if your experience changes
 
 ## Education
 
-- `educationItems[0].degree`
-  Current value: `Computer Engineering`
-- `educationItems[0].institution`
-  Current value: `University of Rizal System Morong`
-- `educationItems[0].duration`
-  Current value: `[ Replace with real info: Education duration ]`
-- `educationItems[0].summary`
-  Current value: `[ Replace with real info: Education summary or focus area ]`
-- `educationItems[0].details[0]`
-  Current value: `Computer Engineering from University of Rizal System Morong`
-- `educationItems[0].details[1]`
-  Current value: `[ Replace with real info: Honors, thesis, capstone, or academic highlight ]`
+- `educationItems`
+  Current values: your current `Computer Engineering` entry and project/thesis detail
 
 ## Contact
 
-- `socialLinks[0].href`
-  Current value: `https://github.com/your-github-username`
-- `socialLinks[0].value`
-  Current value: `[ Replace with real info: GitHub username ]`
-- `socialLinks[1].href`
-  Current value: `https://www.linkedin.com/in/your-linkedin-slug`
-- `socialLinks[1].value`
-  Current value: `[ Replace with real info: LinkedIn profile URL ]`
-- `socialLinks[2].href`
-  Current value: `mailto:your-email@example.com`
-- `socialLinks[2].value`
-  Current value: `[ Replace with real info: Professional email address ]`
-
-- `contactLinks[0]`
-  Label: `GitHub Link #1`
-  Replace `href`, `value`, and `helperText`.
-- `contactLinks[1]`
-  Label: `Email`
-  Replace `href`, `value`, and `helperText`.
-- `contactLinks[2]`
-  Label: `Indeed`
-  Replace `href`, `value`, and `helperText`.
-- `contactLinks[3]`
-  Label: `Resume`
-  Replace `value` and `helperText` if desired.
+- `socialLinks`
+  Current values: your GitHub, LinkedIn, and email
+- `contactLinks`
+  Current values: your GitHub, email, Indeed, and resume cards
 
 ## Footer
 
@@ -168,16 +113,39 @@ Primary asset paths:
 
 ## Assets
 
-- Resume file
-  Replace `public/resume/joshua-mark-castillo-resume.pdf` with your final resume PDF.
 - Profile photo
-  Add your real image file and update the About section to use it when ready.
+  Directory: `public/assets/profile/`
+  Recommended file: `joshua-mark-castillo-profile.jpg`
+  Recommended ratio: `1:1`
+  Minimum size: `800x800`
+  Preferred size: `1200x1200`
+
 - Project screenshots
-  Add real screenshots for each project and replace the current screenshot placeholder text.
+  Directory: `public/assets/projects/<project-slug>/`
+  Recommended files:
+  `cover.png`
+  `screen-01.png`
+  `screen-02.png`
+  `mobile-01.png` if needed
+
+- Brand/logo files
+  Directory: `public/assets/brand/`
+  Recommended files:
+  `logo-mark.svg`
+  `logo-wordmark.svg`
+  `logo-full.svg`
+  `favicon-source.svg`
+
+- Custom SVGs
+  Directory: `public/assets/icons/`
+  Use for future section graphics, custom icons, or lightweight decorative SVGs
+
+- Resume file
+  Path: `public/resume/joshua-mark-castillo-resume.pdf`
 
 ## Recommended Next Step
 
-- Start by updating `siteConfig`, `socialLinks`, and `contactLinks`.
-- Then fill `featuredProjects`.
-- Then finish `experienceItems` and `educationItems`.
-- Finally replace the resume PDF and add your profile photo/screenshots.
+- Add your real profile image to `public/assets/profile/`
+- Add screenshot folders under `public/assets/projects/`
+- Add brand/logo SVGs later under `public/assets/brand/`
+- Keep updating only `src/features/portfolio/data/portfolio-content.ts` for centralized content changes

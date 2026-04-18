@@ -8,6 +8,7 @@ import {
 } from "lucide-react"
 
 import { skillGroups } from "@/features/portfolio/data/portfolio-content"
+import { IconBadge } from "@/features/portfolio/components/icon-badge"
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -30,12 +31,12 @@ export function SkillsGrid() {
             <CardHeader className="space-y-4">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-3">
-                  <span className="inline-flex size-12 items-center justify-center rounded-2xl border border-border/80 bg-background text-foreground">
+                  <IconBadge size="lg">
                     {(() => {
                       const Icon = iconMap[group.icon as keyof typeof iconMap]
                       return <Icon className="size-5" />
                     })()}
-                  </span>
+                  </IconBadge>
                   <div className="space-y-2">
                     <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                       Skill Category
@@ -48,7 +49,7 @@ export function SkillsGrid() {
                 {group.description}
               </p>
             </CardHeader>
-            <CardContent className="flex flex-wrap gap-2">
+            <CardContent className="flex flex-wrap gap-2.5 pb-1">
               {group.items.map((item) => (
                 <Badge
                   key={item}

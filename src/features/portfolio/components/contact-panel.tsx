@@ -8,6 +8,7 @@ import {
 } from "lucide-react"
 
 import { contactLinks, siteConfig } from "@/features/portfolio/data/portfolio-content"
+import { IconBadge } from "@/features/portfolio/components/icon-badge"
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -29,8 +30,8 @@ export function ContactPanel() {
       <Card className="rounded-[1.9rem] border border-border/70 bg-card/95 shadow-2xl shadow-black/25">
         <CardContent className="grid gap-5 p-0 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="border-b border-border/70 p-5 lg:border-b-0 lg:border-r lg:p-6">
-            <div className="rounded-[1.65rem] border border-border/70 bg-background/80 p-5">
-              <div className="rounded-[1.45rem] border border-border/70 bg-muted/35 p-5">
+            <div className="rounded-[1.65rem] border border-border/70 bg-background/80 p-6">
+              <div className="rounded-[1.45rem] border border-border/70 bg-muted/35 p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Contact Template
                 </p>
@@ -44,7 +45,7 @@ export function ContactPanel() {
                 </p>
               </div>
 
-              <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/35 p-5">
+              <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/35 p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Quick Access
                 </p>
@@ -70,11 +71,11 @@ export function ContactPanel() {
                 </div>
               </div>
 
-              <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/35 p-5">
+              <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/35 p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Footer Mark
                 </p>
-                <p className="mt-3 text-sm text-zinc-100">&copy; {siteConfig.name}</p>
+                <p className="mt-3 text-sm text-foreground/92">&copy; {siteConfig.name}</p>
               </div>
             </div>
           </div>
@@ -107,18 +108,21 @@ export function ContactPanel() {
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noreferrer" : undefined}
                     download={isDownload ? "joshua-mark-castillo-resume.pdf" : undefined}
-                    className="group rounded-[1.4rem] border border-border/70 bg-muted/35 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-foreground/40 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
+                    className="group rounded-[1.4rem] border border-border/70 bg-muted/35 p-5 transition duration-300 hover:-translate-y-0.5 hover:border-foreground/40 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
-                        <span className="inline-flex size-11 items-center justify-center rounded-2xl border border-border/70 bg-background text-foreground transition group-hover:border-foreground/40">
+                        <IconBadge
+                          size="md"
+                          className="shrink-0 group-hover:border-foreground/40"
+                        >
                           <Icon className="size-5" />
-                        </span>
+                        </IconBadge>
                         <div>
                           <p className="text-base font-semibold text-foreground">
                             {link.label}
                           </p>
-                          <p className="mt-1 text-sm text-zinc-100">{link.value}</p>
+                          <p className="mt-1 text-sm text-foreground/92">{link.value}</p>
                           <p className="mt-2 text-sm leading-6 text-muted-foreground">
                             {link.helperText}
                           </p>

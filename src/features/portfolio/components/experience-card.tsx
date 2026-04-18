@@ -4,6 +4,7 @@ import type {
   EducationItem,
   ExperienceItem,
 } from "@/features/portfolio/types/portfolio"
+import { IconBadge } from "@/features/portfolio/components/icon-badge"
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -32,41 +33,41 @@ export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
               <CardTitle className="text-2xl">{heading}</CardTitle>
               <p className="text-sm text-muted-foreground">{secondary}</p>
             </div>
-            <span className="inline-flex size-12 items-center justify-center rounded-2xl border border-border/80 bg-background text-foreground">
+            <IconBadge size="lg">
               {isIndustry ? (
                 <BriefcaseBusiness className="size-5" />
               ) : (
                 <GraduationCap className="size-5" />
               )}
-            </span>
+            </IconBadge>
           </div>
         </CardHeader>
 
         <CardContent className="space-y-5">
-          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
               Duration
             </p>
-            <p className="mt-3 text-sm text-zinc-100">{duration}</p>
+            <p className="mt-3 text-sm text-foreground/92">{duration}</p>
           </div>
 
           {summary ? (
-            <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+            <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                 Overview
               </p>
-              <p className="mt-3 text-sm leading-7 text-zinc-100">{summary}</p>
+              <p className="mt-3 text-sm leading-7 text-foreground/92">{summary}</p>
             </div>
           ) : null}
 
-          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
               {isIndustry ? "Responsibilities" : "Education Details"}
             </p>
-            <ul className="mt-4 space-y-3 text-sm text-zinc-100">
+            <ul className="mt-4 space-y-3 text-sm text-foreground/92">
               {details.map((detail) => (
                 <li key={detail} className="flex gap-3">
-                  <span className="mt-2 size-1.5 rounded-full bg-zinc-100" />
+                  <span className="mt-2 size-1.5 rounded-full bg-foreground/85" />
                   <span>{detail}</span>
                 </li>
               ))}

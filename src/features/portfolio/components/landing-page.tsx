@@ -3,6 +3,7 @@ import { ArrowRight, Download, Sparkles } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { AboutCard } from "@/features/portfolio/components/about-card"
+import { IconBadge } from "@/features/portfolio/components/icon-badge"
 import { SectionShell } from "@/features/portfolio/components/section-shell"
 import { SkillsGrid } from "@/features/portfolio/components/skills-grid"
 import {
@@ -35,7 +36,7 @@ export function LandingPage() {
             </div>
 
             <div className="animate-fade-up animate-delay-1 space-y-5">
-              <p className="max-w-3xl text-lg leading-8 text-zinc-200 sm:text-xl">
+              <p className="max-w-3xl text-lg leading-8 text-foreground/90 sm:text-xl">
                 {siteConfig.tagline}
               </p>
               <p className="max-w-2xl text-base leading-7 text-muted-foreground">
@@ -81,8 +82,8 @@ export function LandingPage() {
             </div>
           </div>
 
-          <div className="animate-fade-up animate-delay-2 rounded-[2rem] border border-border/70 bg-card/95 p-5 shadow-2xl shadow-black/30">
-            <div className="rounded-[1.5rem] border border-border/70 bg-background p-5">
+          <div className="animate-fade-up animate-delay-2 rounded-[2rem] border border-border/70 bg-card/95 p-6 shadow-2xl shadow-black/30">
+            <div className="rounded-[1.5rem] border border-border/70 bg-background/90 p-6">
               <div className="flex items-center justify-between border-b border-border/70 pb-4">
                 <div>
                   <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground">
@@ -92,14 +93,16 @@ export function LandingPage() {
                     Comfortable with full stack delivery
                   </p>
                 </div>
-                <Sparkles className="size-5 text-zinc-300" />
+                <IconBadge size="md">
+                  <Sparkles className="text-foreground/80" />
+                </IconBadge>
               </div>
 
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 {heroStats.map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-[1.4rem] border border-border/70 bg-card p-4 transition hover:border-foreground/40 hover:bg-accent"
+                    className="rounded-[1.4rem] border border-border/70 bg-card p-5 transition hover:border-foreground/40 hover:bg-accent"
                   >
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                       {item.label}
@@ -111,11 +114,11 @@ export function LandingPage() {
                 ))}
               </div>
 
-              <div className="mt-5 rounded-[1.4rem] border border-border/70 bg-card p-4">
+              <div className="mt-5 rounded-[1.4rem] border border-border/70 bg-card p-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                   Preferred workflow
                 </p>
-                <div className="mt-4 space-y-3 text-sm text-zinc-200">
+                <div className="mt-4 space-y-3 text-sm text-foreground/84">
                   <div className="flex items-start justify-between gap-4 border-b border-border/70 pb-3">
                     <span>Frontend systems</span>
                     <span className="font-mono text-muted-foreground">

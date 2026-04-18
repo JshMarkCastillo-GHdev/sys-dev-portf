@@ -1,21 +1,22 @@
-import Link from "next/link"
-import { ArrowRight, ArrowUpRight, GitBranch, ImageIcon } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, GitBranch, ImageIcon } from "lucide-react";
 
-import type { ProjectItem } from "@/features/portfolio/types/portfolio"
-import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
-import { Badge } from "@/components/ui/badge"
+import type { ProjectItem } from "@/features/portfolio/types/portfolio";
+import { IconBadge } from "@/features/portfolio/components/icon-badge";
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 type ProjectCardProps = {
-  project: ProjectItem
-}
+  project: ProjectItem;
+};
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
@@ -44,11 +45,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </CardHeader>
 
         <CardContent className="space-y-5">
-          <div className="rounded-[1.45rem] border border-dashed border-border/80 bg-background/80 p-5">
+          <div className="rounded-[1.45rem] border border-dashed border-border/80 bg-background/80 p-6">
             <div className="flex items-center gap-3">
-              <span className="inline-flex size-11 items-center justify-center rounded-2xl border border-border/70 bg-card">
-                <ImageIcon className="size-5 text-zinc-200" />
-              </span>
+              <IconBadge size="md" className="bg-card/80">
+                <ImageIcon className="text-foreground/80" />
+              </IconBadge>
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                   {project.screenshotPlaceholder.label}
@@ -58,23 +59,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 </p>
               </div>
             </div>
-            <div className="mt-5 grid min-h-36 place-items-center rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-zinc-900 to-zinc-800">
-              <p className="font-sans text-sm text-zinc-300">
+            <div className="mt-5 grid min-h-36 place-items-center rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2">
+              <p className="font-sans text-sm text-foreground/72">
                 [ Replace with real info: Project screenshots ]
               </p>
             </div>
           </div>
 
-          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
               Description
             </p>
-            <p className="mt-3 text-sm leading-7 text-zinc-100">
+            <p className="mt-3 text-sm leading-7 text-foreground/92">
               {project.description}
             </p>
           </div>
 
-          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5">
+          <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
               Tech Stack
             </p>
@@ -92,7 +93,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </CardContent>
 
-        <CardFooter className="flex flex-wrap gap-3 bg-transparent px-4 pb-5 pt-0">
+        <CardFooter className="flex flex-wrap gap-3 bg-transparent px-5 pb-6 pt-5">
           <Button
             render={<Link href={`/projects/${project.slug}`} />}
             variant="outline"
@@ -129,5 +130,5 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </CardFooter>
       </Card>
     </ScrollReveal>
-  )
+  );
 }

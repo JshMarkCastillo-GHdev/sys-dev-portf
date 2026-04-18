@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
   role: "Jr. Full Stack Developer",
   tagline:
     "Building scalable web applications for innovation and process automation.",
-  location: "[ Replace with real info: Work location or preferred setup ]",
+  location: "On-site or Remote - Open to opportunities worldwide",
   email: "joshuamarkcastillo0319@gmail.com",
   shortBio:
     "Computer Engineering student with a passion for full stack development, focused on building scalable web applications that drive innovation and process automation.",
@@ -26,6 +26,11 @@ export const siteConfig: SiteConfig = {
   availability:
     "Available for full-time opportunities. Open to remote, hybrid, or collaborative work environments.",
   resumeUrl: "/resume/joshua-mark-castillo-resume.pdf",
+  profileImageSrc: "/assets/profile/joshua-mark-castillo-profile.jpg",
+  logoMarkSrc: "/assets/brand/logo-mark.svg",
+  logoWordmarkSrc: "/assets/brand/logo-wordmark.svg",
+  logoFullSrc: "/assets/brand/logo-full.svg",
+  faviconSourceSrc: "/assets/brand/favicon-source.svg",
   githubUsername: "JshMarkCastillo-GHdev",
   repoAllowlist: [
     "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
@@ -127,7 +132,8 @@ export const aboutContent: AboutContent = {
   hobbies: ["Game Development", "Fantasy Genre Animes Streaming"],
   profilePlaceholder: {
     label: "Profile Photo",
-    caption: "Leaders for God and Country",
+    caption:
+      "Recommended path: /assets/profile/joshua-mark-castillo-profile.jpg (1:1, 1200x1200 preferred)",
   },
 };
 
@@ -198,10 +204,15 @@ export const featuredProjects: ProjectItem[] = [
       "Tailwind CSS",
       "shadcn/ui",
     ],
+    coverImageSrc: "/assets/projects/portfolio-command-center/cover.png",
+    screenshotImageSrcs: [
+      "/assets/projects/portfolio-command-center/screen-01.png",
+      "/assets/projects/portfolio-command-center/screen-02.png",
+    ],
     screenshotPlaceholder: {
       label: "Screenshots",
       caption:
-        "[ Replace with real info: Project screenshot set or preview image ]",
+        "Recommended directory: /assets/projects/portfolio-command-center/ (16:10, 1600x1000 preferred)",
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
     liveUrl: "https://your-live-project-url.example",
@@ -216,7 +227,7 @@ export const featuredProjects: ProjectItem[] = [
   },
   {
     slug: "case-study-library",
-    title: "YoloV8 Web App with React/Vite",
+    title: "YoloV8 App with React/Vite",
     summary:
       "License plate for a YoloV8 object detection web application built with React and Vite.",
     description:
@@ -230,10 +241,15 @@ export const featuredProjects: ProjectItem[] = [
       "DaisyUI",
       "Tesseract.js",
     ],
+    coverImageSrc: "/assets/projects/case-study-library/cover.png",
+    screenshotImageSrcs: [
+      "/assets/projects/case-study-library/screen-01.png",
+      "/assets/projects/case-study-library/screen-02.png",
+    ],
     screenshotPlaceholder: {
       label: "Screenshots",
       caption:
-        "[ Replace with real info: Project screenshot set or preview image ]",
+        "Recommended directory: /assets/projects/case-study-library/ (16:10, 1600x1000 preferred)",
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
     liveUrl: "https://licenseplaterecogwebapp.vercel.app/",
@@ -262,10 +278,15 @@ export const featuredProjects: ProjectItem[] = [
       "Tailwind CSS",
       "shadcn/ui",
     ],
+    coverImageSrc: "/assets/projects/team-ops-dashboard/cover.png",
+    screenshotImageSrcs: [
+      "/assets/projects/team-ops-dashboard/screen-01.png",
+      "/assets/projects/team-ops-dashboard/screen-02.png",
+    ],
     screenshotPlaceholder: {
       label: "Screenshots",
       caption:
-        "[ Replace with real info: Project screenshot set or preview image ]",
+        "Recommended directory: /assets/projects/team-ops-dashboard/ (16:10, 1600x1000 preferred)",
     },
     repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
     liveUrl: "https://your-live-project-url.example",
