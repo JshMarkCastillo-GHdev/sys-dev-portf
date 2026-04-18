@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
   role: "Jr. Full Stack Developer",
   tagline:
     "Building scalable web applications for innovation and process automation.",
-  location: "On-site or Remote - Open to opportunities worldwide",
+  location: "On-site or Remote",
   email: "joshuamarkcastillo0319@gmail.com",
   shortBio:
     "Computer Engineering student with a passion for full stack development, focused on building scalable web applications that drive innovation and process automation.",
