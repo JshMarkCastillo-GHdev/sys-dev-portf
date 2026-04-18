@@ -57,7 +57,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.featured ? (
               <Badge
                 variant="outline"
-                className="shrink-0 rounded-full border-border/80 bg-background px-3 py-1 text-xs font-medium sm:text-sm"
+                className="shrink-0 self-start rounded-full border-border/80 bg-background px-3 py-1 text-xs font-medium sm:text-sm"
               >
                 Featured
               </Badge>

@@ -23,14 +23,14 @@ export function AboutCard() {
     <ScrollReveal>
       <Card className="rounded-[1.9rem] border border-border/70 bg-card/95 shadow-2xl shadow-black/25">
         <CardContent className="grid gap-5 p-0 lg:grid-cols-[0.88fr_1.12fr]">
-          <div className="border-b border-border/70 p-5 lg:border-r lg:border-b-0 lg:p-6">
-            <div className="rounded-[1.7rem] border border-border/70 bg-background/80 p-6">
-              <div className="rounded-[1.5rem] border border-dashed border-border/80 bg-linear-to-b from-white/6 to-white/2 p-6">
+          <div className="border-b border-border/70 p-4 sm:p-5 lg:border-r lg:border-b-0 lg:p-6">
+            <div className="rounded-[1.7rem] border border-border/70 bg-background/80 p-4 sm:p-6">
+              <div className="rounded-[1.5rem] border border-dashed border-border/80 bg-linear-to-b from-white/6 to-white/2 p-5 sm:p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   {aboutContent.profilePlaceholder.label}
                 </p>
 
-                <div className="mt-5 flex min-h-64 items-center justify-center rounded-[1.35rem] border border-border/70 bg-card/70 p-5">
+                <div className="mt-5 flex min-h-56 items-center justify-center rounded-[1.35rem] border border-border/70 bg-card/70 p-5 sm:min-h-64">
                   {canRenderProfileImage ? (
                     <Image
                       src={siteConfig.profileImageSrc!}
@@ -59,7 +59,7 @@ export function AboutCard() {
                 </div>
               </div>
 
-              <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/40 p-6">
+              <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 sm:p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Snapshot
                 </p>
@@ -70,7 +70,7 @@ export function AboutCard() {
             </div>
           </div>
 
-          <div className="p-5 lg:p-6">
+          <div className="p-4 sm:p-5 lg:p-6">
             <CardHeader className="px-0 pb-2">
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                 Profile
@@ -85,7 +85,7 @@ export function AboutCard() {
             </CardHeader>
 
             <div className="mt-5 grid gap-4">
-              <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6 transition hover:border-foreground/35 hover:bg-accent">
+              <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 transition hover:border-foreground/35 hover:bg-accent sm:p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Tech Journey
                 </p>
@@ -94,7 +94,7 @@ export function AboutCard() {
                 </p>
               </div>
 
-              <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6 transition hover:border-foreground/35 hover:bg-accent">
+              <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 transition hover:border-foreground/35 hover:bg-accent sm:p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Soft Skills
                 </p>
@@ -111,7 +111,7 @@ export function AboutCard() {
                 </div>
               </div>
 
-              <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-6 transition hover:border-foreground/35 hover:bg-accent">
+              <div className="rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 transition hover:border-foreground/35 hover:bg-accent sm:p-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                   Hobbies
                 </p>
@@ -127,7 +127,7 @@ export function AboutCard() {
                 </ul>
               </div>
 
-              <div className="rounded-[1.45rem] border border-border/70 bg-background/70 p-6">
+              <div className="rounded-[1.45rem] border border-border/70 bg-background/70 p-5 sm:p-6">
                 <div className="flex items-center gap-3">
                   <IconBadge size="md">
                     <UserRound className="text-foreground/80" />

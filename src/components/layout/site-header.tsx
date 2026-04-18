@@ -115,7 +115,7 @@ export function SiteHeader() {
               }
               size="lg"
               variant="outline"
-              className="rounded-full border-border/80 bg-card px-5"
+              className="hidden rounded-full border-border/80 bg-card px-5 sm:inline-flex"
             >
               My Resume
               <Download className="size-4" />
@@ -142,6 +142,13 @@ export function SiteHeader() {
                   <SheetTitle>{siteConfig.name}</SheetTitle>
                 </SheetHeader>
                 <div className="mt-8 flex flex-col">
+                  <Link
+                    href={siteConfig.resumeUrl}
+                    download="joshua-mark-castillo-resume.pdf"
+                    className="my-1 border-b px-4 py-3 text-sm font-medium transition active:scale-[0.99] hover:border-border hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    My Resume
+                  </Link>
                   {navigationItems.map((item) => (
                     <Link
                       key={item.href}
