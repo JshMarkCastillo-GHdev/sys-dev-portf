@@ -9,12 +9,12 @@ const siteConfig = getSiteConfig()
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/70 bg-background/95">
-      <Container className="flex flex-col gap-6 py-10 md:flex-row md:items-end md:justify-between">
+      <Container className="flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between">
         <div className="space-y-2">
-          <p className="text-lg font-semibold tracking-tight">{siteConfig.name}</p>
-          <p className="max-w-xl text-sm text-muted-foreground">
-            {siteConfig.shortBio}
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+            Footer
           </p>
+          <p className="text-sm text-zinc-100">© {siteConfig.name}</p>
         </div>
         <div className="flex flex-wrap gap-3">
           {socialLinks.map((link) => (

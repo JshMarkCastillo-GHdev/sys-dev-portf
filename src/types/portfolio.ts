@@ -14,6 +14,14 @@ export type SocialLink = {
   value: string
 }
 
+export type ContactLink = {
+  label: string
+  href: string
+  value: string
+  helperText: string
+  icon: string
+}
+
 export type StatItem = {
   label: string
   value: string

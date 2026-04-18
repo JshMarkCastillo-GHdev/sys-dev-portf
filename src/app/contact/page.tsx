@@ -12,8 +12,8 @@ export default function ContactPage() {
   return (
     <SectionShell
       eyebrow="Contact"
-      title="Reach out through direct, intentional channels."
-      description="This version keeps the contact flow simple and secure with static links only."
+      title="Static reach-out links and resume access."
+      description="This contact page is a reusable static template focused on GitHub, email, resume download, and future professional profile links."
     >
       <ContactPanel />
     </SectionShell>

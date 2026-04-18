@@ -1,5 +1,6 @@
 import type {
   AboutContent,
+  ContactLink,
   EducationItem,
   ExperienceItem,
   HomeAnchorItem,
@@ -54,6 +55,37 @@ export const socialLinks: SocialLink[] = [
     label: "Email",
     href: "mailto:hello@example.dev",
     value: "hello@example.dev",
+  },
+]
+
+export const contactLinks: ContactLink[] = [
+  {
+    label: "GitHub Link #1",
+    href: "https://github.com/your-placeholder-profile",
+    value: "@your-placeholder-profile",
+    helperText: "Primary public portfolio and code repository link.",
+    icon: "github",
+  },
+  {
+    label: "Email",
+    href: "mailto:hello@example.dev",
+    value: "hello@example.dev",
+    helperText: "Direct email contact for professional opportunities.",
+    icon: "email",
+  },
+  {
+    label: "Indeed",
+    href: "https://www.indeed.com",
+    value: "Indeed profile placeholder",
+    helperText: "Professional profile placeholder for future job visibility.",
+    icon: "briefcase",
+  },
+  {
+    label: "Resume",
+    href: "/resume/joshua-mark-castillo-resume.pdf",
+    value: "Download current resume",
+    helperText: "Use this to review the latest resume snapshot.",
+    icon: "resume",
   },
 ]
 

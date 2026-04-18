@@ -1,36 +1,155 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  FileDown,
+  GitBranch,
+  Mail,
+} from "lucide-react"
 
-import { socialLinks } from "@/features/portfolio/data/portfolio-content"
+import { contactLinks, siteConfig } from "@/features/portfolio/data/portfolio-content"
+import { ScrollReveal } from "@/components/portfolio/scroll-reveal"
+import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+
+const iconMap = {
+  github: GitBranch,
+  email: Mail,
+  briefcase: BriefcaseBusiness,
+  resume: FileDown,
+} as const
 
 export function ContactPanel() {
   return (
-    <Card className="rounded-[1.75rem] border border-border/60 bg-card/90 shadow-sm">
-      <CardHeader className="space-y-3">
-        <CardTitle className="text-2xl">Static contact section</CardTitle>
-        <p className="text-sm leading-7 text-muted-foreground">
-          This portfolio keeps contact intentionally simple: direct links, no
-          client-side form, and no exposed write endpoint.
-        </p>
-      </CardHeader>
-      <CardContent className="grid gap-3">
-        {socialLinks.map((link) => (
-          <Link
-            key={link.label}
-            href={link.href}
-            target={link.href.startsWith("http") ? "_blank" : undefined}
-            rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-            className="flex items-center justify-between rounded-[1.25rem] border border-border/70 bg-background px-4 py-4 transition hover:border-primary hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
-          >
-            <div>
-              <p className="font-medium">{link.label}</p>
-              <p className="text-sm text-muted-foreground">{link.value}</p>
+    <ScrollReveal>
+      <Card className="rounded-[1.9rem] border border-border/70 bg-card/95 shadow-2xl shadow-black/25">
+        <CardContent className="grid gap-5 p-0 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="border-b border-border/70 p-5 lg:border-b-0 lg:border-r lg:p-6">
+            <div className="rounded-[1.65rem] border border-border/70 bg-background/80 p-5">
+              <div className="rounded-[1.45rem] border border-border/70 bg-muted/35 p-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Contact Template
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                  Reach Joshua Mark Castillo
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  This contact section stays intentionally static and secure. It
+                  gives visitors clear ways to connect without exposing a public
+                  write endpoint.
+                </p>
+              </div>
+
+              <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/35 p-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Quick Access
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Badge
+                    variant="outline"
+                    className="rounded-full border-border/80 bg-background px-3 py-1.5 font-sans text-sm font-medium"
+                  >
+                    GitHub
+                  </Badge>
+                  <Badge
+                    variant="outline"
+                    className="rounded-full border-border/80 bg-background px-3 py-1.5 font-sans text-sm font-medium"
+                  >
+                    Email
+                  </Badge>
+                  <Badge
+                    variant="outline"
+                    className="rounded-full border-border/80 bg-background px-3 py-1.5 font-sans text-sm font-medium"
+                  >
+                    Resume
+                  </Badge>
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-[1.45rem] border border-border/70 bg-muted/35 p-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Footer Mark
+                </p>
+                <p className="mt-3 text-sm text-zinc-100">
+                  © {siteConfig.name}
+                </p>
+              </div>
             </div>
-            <ArrowUpRight className="size-4 text-primary" />
-          </Link>
-        ))}
-      </CardContent>
-    </Card>
+          </div>
+
+          <div className="p-5 lg:p-6">
+            <CardHeader className="px-0 pb-2">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                Direct Reach-Out Paths
+              </p>
+              <CardTitle className="pt-2 text-3xl font-semibold tracking-tight text-foreground">
+                Static contact links and downloadable resume.
+              </CardTitle>
+              <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
+                Use these cards as a reusable contact template. Replace the
+                placeholders with your real GitHub, email, and professional
+                profile links when you are ready.
+              </p>
+            </CardHeader>
+
+            <div className="mt-5 grid gap-3">
+              {contactLinks.map((link) => {
+                const Icon = iconMap[link.icon as keyof typeof iconMap]
+                const isExternal = link.href.startsWith("http")
+                const isDownload = link.href.endsWith(".pdf")
+
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer" : undefined}
+                    download={isDownload ? "joshua-mark-castillo-resume.pdf" : undefined}
+                    className="group rounded-[1.4rem] border border-border/70 bg-muted/35 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-foreground/40 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.99]"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start gap-4">
+                        <span className="inline-flex size-11 items-center justify-center rounded-2xl border border-border/70 bg-background text-foreground transition group-hover:border-foreground/40">
+                          <Icon className="size-5" />
+                        </span>
+                        <div>
+                          <p className="text-base font-semibold text-foreground">
+                            {link.label}
+                          </p>
+                          <p className="mt-1 text-sm text-zinc-100">{link.value}</p>
+                          <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                            {link.helperText}
+                          </p>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="mt-1 size-4 text-muted-foreground transition group-hover:text-foreground" />
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <Button
+                render={<Link href="/resume/joshua-mark-castillo-resume.pdf" download="joshua-mark-castillo-resume.pdf" />}
+                className="rounded-full"
+              >
+                Download Resume
+                <FileDown className="size-4" />
+              </Button>
+              <Button
+                render={<Link href="https://github.com/your-placeholder-profile" target="_blank" rel="noreferrer" />}
+                variant="outline"
+                className="rounded-full border-border/80 bg-background"
+              >
+                View GitHub Link #1
+                <GitBranch className="size-4" />
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </ScrollReveal>
   )
 }
