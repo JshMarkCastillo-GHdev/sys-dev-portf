@@ -1,6 +1,7 @@
 import { Bot, Boxes, Braces, Database, Rocket, Wrench } from "lucide-react";
 
 import { skillGroups } from "@/features/portfolio/data/portfolio-content";
+import { getTechBadgeClass } from "@/features/portfolio/lib/badge-styles";
 import { IconBadge } from "@/features/portfolio/components/icon-badge";
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
 import { Badge } from "@/components/ui/badge";
@@ -47,7 +48,7 @@ export function SkillsGrid() {
                 <Badge
                   key={item}
                   variant="outline"
-                  className="rounded-full border-border/80 bg-background px-3 py-1.5 font-sans text-sm font-medium text-foreground transition hover:border-foreground/45 hover:bg-card"
+                  className={getTechBadgeClass(item)}
                 >
                   {item}
                 </Badge>

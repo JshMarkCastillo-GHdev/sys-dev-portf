@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { ArrowUpRight } from "lucide-react"
 
 import { SectionShell } from "@/features/portfolio/components/section-shell"
+import { getTechBadgeClass } from "@/features/portfolio/lib/badge-styles"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -61,7 +62,7 @@ export default async function ProjectDetailPage({
                 <Badge
                   key={tech}
                   variant="outline"
-                  className="rounded-full border-border/70 px-3 py-1"
+                  className={getTechBadgeClass(tech)}
                 >
                   {tech}
                 </Badge>

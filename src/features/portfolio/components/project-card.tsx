@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, GitBranch, ImageIcon } from "lucide-react";
+import { ArrowRight, ArrowUpRight, GitBranch } from "lucide-react";
 
 import type { ProjectItem } from "@/features/portfolio/types/portfolio";
-import { IconBadge } from "@/features/portfolio/components/icon-badge";
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
+import { getTechBadgeClass } from "@/features/portfolio/lib/badge-styles";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -114,7 +114,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <Badge
                   key={tech}
                   variant="outline"
-                  className="rounded-full border-border/80 bg-background px-3 py-1.5 font-sans text-sm font-medium text-foreground transition hover:border-foreground/45 hover:bg-card"
+                  className={getTechBadgeClass(tech)}
                 >
                   {tech}
                 </Badge>

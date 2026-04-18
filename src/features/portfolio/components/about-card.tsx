@@ -9,6 +9,7 @@ import {
   siteConfig,
 } from "@/features/portfolio/data/portfolio-content";
 import { IconBadge } from "@/features/portfolio/components/icon-badge";
+import { getSoftSkillBadgeClass } from "@/features/portfolio/lib/badge-styles";
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -98,11 +99,11 @@ export function AboutCard() {
                   Soft Skills
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {aboutContent.softSkills.map((skill) => (
+                  {aboutContent.softSkills.map((skill, index) => (
                     <Badge
                       key={skill}
                       variant="outline"
-                      className="rounded-full border-border/80 bg-background px-3 py-1.5 font-sans text-sm font-medium text-foreground transition hover:border-foreground/45 hover:bg-card"
+                      className={getSoftSkillBadgeClass(index)}
                     >
                       {skill}
                     </Badge>
