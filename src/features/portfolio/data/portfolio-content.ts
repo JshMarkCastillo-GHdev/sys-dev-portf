@@ -10,91 +10,107 @@ import type {
   SkillGroup,
   SocialLink,
   StatItem,
-} from "@/features/portfolio/types/portfolio"
+} from "@/features/portfolio/types/portfolio";
 
 export const siteConfig: SiteConfig = {
   name: "Joshua Mark Castillo",
   role: "Jr. Full Stack Developer",
-  tagline: "Building scalable web applications for innovation and process automation.",
+  tagline:
+    "Building scalable web applications for innovation and process automation.",
   location: "[ Replace with real info: Work location or preferred setup ]",
-  email: "[ Replace with real info: Professional email address ]",
+  email: "joshuamarkcastillo0319@gmail.com",
   shortBio:
-    "[ Replace with real info: Short professional introduction for the landing page ]",
+    "Computer Engineering student with a passion for full stack development, focused on building scalable web applications that drive innovation and process automation.",
   longBio:
-    "[ Replace with real info: Longer developer bio for the About section snapshot ]",
+    "I am a Computer Engineering student with a strong passion for full stack development. My focus is on building scalable web applications that drive innovation and process automation. I am dedicated to continuously learning and applying new technologies to create efficient and impactful solutions in the field of software development.",
   availability:
-    "[ Replace with real info: Current availability status for work, freelance, or collaboration ]",
+    "Available for full-time opportunities. Open to remote, hybrid, or collaborative work environments.",
   resumeUrl: "/resume/joshua-mark-castillo-resume.pdf",
-  githubUsername: "your-github-username",
-  repoAllowlist: ["your-featured-repo-1", "your-featured-repo-2"],
-}
+  githubUsername: "JshMarkCastillo-GHdev",
+  repoAllowlist: [
+    "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
+    "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
+  ],
+};
 
 export const navigationItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/experience", label: "Experience" },
   { href: "/contact", label: "Contact" },
-]
+];
 
 export const homeAnchorItems: HomeAnchorItem[] = [
   { href: "/#about", label: "About" },
   { href: "/#skills", label: "Skills" },
-]
+];
 
 export const socialLinks: SocialLink[] = [
   {
     label: "GitHub",
-    href: "https://github.com/your-github-username",
-    value: "[ Replace with real info: GitHub username ]",
+    href: "https://github.com/JshMarkCastillo-GHdev",
+    value: "JshMarkCastillo-GHdev",
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/your-linkedin-slug",
-    value: "[ Replace with real info: LinkedIn profile URL ]",
+    href: "https://www.linkedin.com/in/castillo-joshua-mark-76b0b4370/",
+    value: "LinkedIn Profile: Joshua Mark Castillo",
   },
   {
     label: "Email",
-    href: "mailto:your-email@example.com",
-    value: "[ Replace with real info: Professional email address ]",
+    href: "mailto:joshuamarkcastillo0319@gmail.com",
+    value: "joshuamarkcastillo0319@gmail.com",
   },
-]
+];
 
 export const contactLinks: ContactLink[] = [
   {
-    label: "GitHub Link #1",
-    href: "https://github.com/your-github-username",
-    value: "[ Replace with real info: GitHub profile link ]",
-    helperText: "[ Replace with real info: Short note about your GitHub profile or pinned work ]",
+    label: "GitHub",
+    href: "https://github.com/JshMarkCastillo-GHdev",
+    value: "https://github.com/JshMarkCastillo-GHdev",
+    helperText:
+      "Joshua Mark Castillo - GitHub Profile showcasing repositories, contributions, and activity.",
     icon: "github",
   },
   {
     label: "Email",
-    href: "mailto:your-email@example.com",
-    value: "[ Replace with real info: Primary email address ]",
-    helperText: "[ Replace with real info: Preferred contact use or response note ]",
+    href: "mailto:joshuamarkcastillo0319@gmail.com",
+    value: "joshuamarkcastillo0319@gmail.com",
+    helperText:
+      "Joshua Mark Castillo - Email contact for professional inquiries.",
     icon: "email",
   },
   {
     label: "Indeed",
     href: "https://www.indeed.com/your-profile",
-    value: "[ Replace with real info: Indeed or alternate professional profile URL ]",
-    helperText: "[ Replace with real info: Short note about this professional profile ]",
+    value: "Joshua Mark Castillo - Indeed Profile",
+    helperText:
+      "Joshua Mark Castillo - Indeed Profile showcasing work history, skills, and endorsements.",
     icon: "briefcase",
   },
   {
     label: "Resume",
     href: "/resume/joshua-mark-castillo-resume.pdf",
-    value: "[ Replace with real info: Resume file title or version ]",
-    helperText: "[ Replace with real info: Resume summary or last updated note ]",
+    value: "Download Resume",
+    helperText:
+      "Joshua Mark Castillo - Resume highlighting education, experience, skills, and projects relevant to full stack development roles.",
     icon: "resume",
   },
-]
+];
 
 export const heroStats: StatItem[] = [
-  { label: "Focus", value: "[ Replace with real info: Core specialization ]" },
-  { label: "Workflow", value: "[ Replace with real info: Preferred delivery style ]" },
-  { label: "Stack", value: "[ Replace with real info: Primary stack summary ]" },
-]
+  { label: "Focus", value: "Intelligent Automation with secure practices" },
+  {
+    label: "Workflow",
+    value:
+      "Streamlining development processes for efficient project delivery and collaboration",
+  },
+  {
+    label: "Stack",
+    value:
+      "Modern web development stack with a focus on performance and scalability",
+  },
+];
 
 export const aboutContent: AboutContent = {
   techJourney:
@@ -105,16 +121,15 @@ export const aboutContent: AboutContent = {
     "Critical Problem Solving",
     "Proper Escalation",
     "Technical Documentation",
+    "Client-focused Communication",
+    "Technical to Non-Technical Translation",
   ],
-  hobbies: [
-    "Game Development",
-    "Fantasy Genre Animes Streaming",
-  ],
+  hobbies: ["Game Development", "Fantasy Genre Animes Streaming"],
   profilePlaceholder: {
     label: "Profile Photo",
-    caption: "[ Replace with real info: Profile photo image ]",
+    caption: "Leaders for God and Country",
   },
-}
+};
 
 export const skillGroups: SkillGroup[] = [
   {
@@ -156,7 +171,7 @@ export const skillGroups: SkillGroup[] = [
     icon: "deployment",
     description:
       "Comfortable shipping and maintaining applications on modern hosting platforms.",
-    items: ["Vercel", "Render"],
+    items: ["Vercel", "Render", "Hostinger"],
   },
   {
     title: "Agents familiar with",
@@ -165,133 +180,147 @@ export const skillGroups: SkillGroup[] = [
       "AI-assisted development tools I am familiar with for code generation and workflow acceleration.",
     items: ["Cursor", "Codex"],
   },
-]
+];
 
 export const featuredProjects: ProjectItem[] = [
   {
     slug: "portfolio-command-center",
-    title: "[ Replace with real info: Project title ]",
+    title: "Full Stack Developer Portfolio",
     summary:
-      "[ Replace with real info: Project summary ]",
+      "Developer portfolio scaffold built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn/ui.",
     description:
-      "[ Replace with real info: Project description ]",
+      "This developer portfolio scaffold is designed to provide a clean and modern template for showcasing your skills, projects, and experience as a full stack developer. Built with Next.js App Router for seamless navigation, Turbopack for optimized performance, React and TypeScript for a robust frontend, Tailwind CSS for styling, and shadcn/ui for pre-built UI components, this portfolio serves as a solid foundation for creating a personalized online presence that highlights your expertise and projects effectively.",
     techStack: [
-      "[ Replace with real info: Project tech stack item 1 ]",
-      "[ Replace with real info: Project tech stack item 2 ]",
-      "[ Replace with real info: Project tech stack item 3 ]",
+      "Next.js App Router",
+      "Turbopack",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption: "[ Replace with real info: Project screenshot set or preview image ]",
+      caption:
+        "[ Replace with real info: Project screenshot set or preview image ]",
     },
-    repoUrl: "https://github.com/your-github-username/your-project-repo",
+    repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
     liveUrl: "https://your-live-project-url.example",
     imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: true,
-    githubRepo: "your-project-repo",
+    githubRepo: "sys-dev-portf",
     highlights: [
-      "[ Replace with real info: Project highlight #1 ]",
-      "[ Replace with real info: Project highlight #2 ]",
-      "[ Replace with real info: Project highlight #3 ]",
+      "Clean and modern design with sections for about me, skills, projects, experience, education, and contact information.",
+      "Linked GitHub repositories for each project with a focus on showcasing code quality and project structure.",
+      "showcases a variety of projects with detailed descriptions, tech stacks, and highlights to demonstrate versatility and expertise.",
     ],
   },
   {
     slug: "case-study-library",
-    title: "[ Replace with real info: Project title ]",
+    title: "YoloV8 Web App with React/Vite",
     summary:
-      "[ Replace with real info: Project summary ]",
+      "License plate for a YoloV8 object detection web application built with React and Vite.",
     description:
-      "[ Replace with real info: Project description ]",
+      "Showcase License plate detection capabilities of the YoloV8 model in a web application built with React and Vite. This project demonstrates the integration of a powerful object detection model into a user-friendly interface, allowing users to upload images and see real-time license plate detection results. The application is optimized for performance and responsiveness, making use of Vite's fast development server and React's efficient rendering capabilities.",
     techStack: [
-      "[ Replace with real info: Project tech stack item 1 ]",
-      "[ Replace with real info: Project tech stack item 2 ]",
-      "[ Replace with real info: Project tech stack item 3 ]",
+      "React",
+      "Vite",
+      "YoloV8",
+      "ONNX Runtime Web",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Tesseract.js",
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption: "[ Replace with real info: Project screenshot set or preview image ]",
+      caption:
+        "[ Replace with real info: Project screenshot set or preview image ]",
     },
-    repoUrl: "https://github.com/your-github-username/your-project-repo",
-    liveUrl: "https://your-live-project-url.example",
+    repoUrl: "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
+    liveUrl: "https://licenseplaterecogwebapp.vercel.app/",
     imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: true,
-    githubRepo: "your-project-repo",
+    githubRepo: "yolov8-webApp-reactVite",
     highlights: [
-      "[ Replace with real info: Project highlight #1 ]",
-      "[ Replace with real info: Project highlight #2 ]",
-      "[ Replace with real info: Project highlight #3 ]",
+      "Real-time license plate detection using the YoloV8 model integrated into a React application.",
+      "ONNX Runtime Web for efficient model inference directly in the browser, ensuring fast and responsive user experience.",
+      "Run AI models in the browser with ONNX Runtime Web, eliminating the need for server-side processing and enabling instant results.",
     ],
   },
   {
     slug: "team-ops-dashboard",
-    title: "[ Replace with real info: Project title ]",
+    title: "Point-of-Sale Generic System",
     summary:
-      "[ Replace with real info: Project summary ]",
+      "Point-of-Sale system template built with Next.js, Prisma, PostgreSQL, NextAuth, Tailwind CSS, and shadcn/ui.",
     description:
-      "[ Replace with real info: Project description ]",
+      "This Point-of-Sale (POS) system template is designed to provide a solid foundation for building a customizable POS application. It features a clean and intuitive interface for managing products, processing sales, and handling user authentication. The project is built using Next.js for server-side rendering and routing, Prisma as an ORM for database management with PostgreSQL, NextAuth for secure authentication, Tailwind CSS for styling, and shadcn/ui for pre-built UI components. This template serves as a starting point for developers looking to create a tailored POS solution that can be adapted to various business needs.",
     techStack: [
-      "[ Replace with real info: Project tech stack item 1 ]",
-      "[ Replace with real info: Project tech stack item 2 ]",
-      "[ Replace with real info: Project tech stack item 3 ]",
+      "Next.js",
+      "Turbopack",
+      "TypeScript",
+      "Prisma + PostgreSQL",
+      "NextAuth",
+      "Tailwind CSS",
+      "shadcn/ui",
     ],
     screenshotPlaceholder: {
       label: "Screenshots",
-      caption: "[ Replace with real info: Project screenshot set or preview image ]",
+      caption:
+        "[ Replace with real info: Project screenshot set or preview image ]",
     },
-    repoUrl: "https://github.com/your-github-username/your-project-repo",
+    repoUrl: "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
     liveUrl: "https://your-live-project-url.example",
     imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: false,
     highlights: [
-      "[ Replace with real info: Project highlight #1 ]",
-      "[ Replace with real info: Project highlight #2 ]",
-      "[ Replace with real info: Project highlight #3 ]",
+      "Clean and intuitive interface for managing products, processing sales, and handling user authentication.",
+      "Role-based access control with NextAuth, allowing for secure authentication and authorization for different user types (e.g., admin, cashier).",
+      "Comprehensive product management features, including adding, editing, and deleting products, as well as inventory tracking and sales reporting capabilities.",
     ],
   },
-]
+];
 
 export const experienceItems: ExperienceItem[] = [
   {
     id: "industry-template-1-remote",
-    company: "[ Replace with real info: Company name ]",
-    role: "[ Replace with real info: Job title ]",
-    duration: "[ Replace with real info: Employment duration ]",
-    location: "[ Replace with real info: Work setup or location ]",
+    company: "Datamatics Global Services",
+    role: "IT Support Intern",
+    duration: "2024 to 2025",
+    location: "Pasig City Ortigas Center, Philippines",
     summary:
-      "[ Replace with real info: Short summary of your responsibilities or impact ]",
+      "Provided technical support and troubleshooting for hardware and software issues, ensuring smooth IT operations and user satisfaction.",
     responsibilities: [
-      "[ Replace with real info: Responsibility or achievement #1 ]",
-      "[ Replace with real info: Responsibility or achievement #2 ]",
-      "[ Replace with real info: Responsibility or achievement #3 ]",
+      "Provided technical support for hardware and software issues, including troubleshooting and resolving problems to ensure smooth IT operations.",
+      "Assisted in the maintenance and setup of computer systems, including installing and configuring software, updating systems, and ensuring security protocols were followed.",
+      "Collaborated with the IT team to identify and implement improvements in support processes, contributing to increased efficiency and user satisfaction.",
     ],
   },
   {
     id: "industry-template-1-hybrid",
-    company: "[ Replace with real info: Company name ]",
-    role: "[ Replace with real info: Job title ]",
-    duration: "[ Replace with real info: Employment duration ]",
-    location: "[ Replace with real info: Work setup or location ]",
+    company: "Freelance Full Stack Developer",
+    role: "Jr. Full Stack Developer",
+    duration: "Current",
+    location: "Remote",
     summary:
-      "[ Replace with real info: Short summary of your responsibilities or impact ]",
+      "Building and maintaining web applications for clients, utilizing a full stack development skill set to deliver high-quality solutions that meet client needs and enhance user experience.",
     responsibilities: [
-      "[ Replace with real info: Responsibility or achievement #1 ]",
-      "[ Replace with real info: Responsibility or achievement #2 ]",
-      "[ Replace with real info: Responsibility or achievement #3 ]",
+      "Developed and maintained web applications using a full stack development approach, ensuring high performance, scalability, and responsiveness.",
+      "Collaborated with clients to gather requirements, provide technical insights, and deliver solutions that align with their business goals and enhance user experience.",
+      "Implemented best practices in coding, testing, and deployment to ensure the reliability and maintainability of applications, while continuously learning and adapting to new technologies and industry trends.",
     ],
   },
-]
+];
 
 export const educationItems: EducationItem[] = [
   {
     id: "education-template-1-urs-morong",
     degree: "Computer Engineering",
     institution: "University of Rizal System Morong",
-    duration: "[ Replace with real info: Education duration ]",
+    duration: "2021 to 2025",
     summary:
-      "[ Replace with real info: Education summary or focus area ]",
+      "Pursuing a degree in Computer Engineering, gaining a strong foundation in computer science principles, programming, and hardware knowledge, while actively engaging in projects and coursework that enhance technical skills and prepare for a career in full stack development.",
     details: [
       "Computer Engineering from University of Rizal System Morong",
-      "[ Replace with real info: Honors, thesis, capstone, or academic highlight ]",
+      "Parking Allocation System with Artificial Intelligence for License Plate Recognition using YoloV8 and EasyOCR",
     ],
   },
-]
+];
