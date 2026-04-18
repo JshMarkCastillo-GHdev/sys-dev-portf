@@ -1,6 +1,6 @@
 # Full Stack Developer Portfolio
 
-Developer portfolio scaffold built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn/ui.
+Developer portfolio built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn/ui.
 
 ## Stack
 
@@ -9,7 +9,6 @@ Developer portfolio scaffold built with Next.js App Router, Turbopack, React, Ty
 - TypeScript
 - Tailwind CSS v4
 - shadcn/ui
-- Live GitHub repository integration
 - Deployment targets for Vercel and Render
 
 ## Getting Started
@@ -36,17 +35,15 @@ npm run dev
 
 | Variable                    | Required | Purpose                                                  |
 | --------------------------- | -------- | -------------------------------------------------------- |
-| `GITHUB_USERNAME`           | Yes      | GitHub username used for profile and repository fetching |
-| `GITHUB_TOKEN`              | No       | Optional token for higher GitHub API rate limits         |
-| `FEATURED_GITHUB_REPOS`     | No       | Comma-separated allowlist for featured repositories      |
-| `NEXT_PUBLIC_SITE_URL`      | Yes      | Public site URL for metadata and deployment              |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | No       | Email shown in the static contact section                |
+| `NEXT_PUBLIC_SITE_URL`      | Yes      | Public site URL used for metadata and deployment         |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | No       | Optional public email override for the contact section   |
+| `NEXT_PUBLIC_RESUME_URL`    | No       | Optional public resume path override                     |
 
-## GitHub Integration
+## Production Behavior
 
-- Portfolio project cards start from local typed content.
-- If GitHub data is available, repositories are fetched server-side and merged into those project cards.
-- If GitHub fails or rate-limits, the UI stays stable and falls back to local content.
+- Production uses local portfolio content only.
+- No live GitHub API requests are required for the deployed site.
+- Project, profile, and contact content are sourced from `src/features/portfolio/data/portfolio-content.ts`.
 - GitHub Actions CI runs lint, typecheck, and build on pushes and pull requests.
 
 ## Deployment
@@ -56,6 +53,22 @@ npm run dev
 - Import the GitHub repository into Vercel.
 - Set the environment variables from `.env.example`.
 - Keep the default Next.js build settings.
+- Recommended manual setup:
+  1. Import the repository into Vercel.
+  2. Set `NEXT_PUBLIC_SITE_URL` to your final production domain.
+  3. Optionally set `NEXT_PUBLIC_CONTACT_EMAIL` and `NEXT_PUBLIC_RESUME_URL`.
+  4. Deploy using the default Vercel Next.js build settings.
+  5. After deployment, verify:
+     `/`
+     `/about`
+     `/skills`
+     `/projects`
+     `/projects/project_1`
+     `/projects/project_2`
+     `/projects/project_3`
+     `/experience`
+     `/contact`
+  6. Confirm profile and project images load from `public/assets/...`.
 
 ### Render
 
@@ -85,3 +98,8 @@ src/
 - The portfolio is content-first and does not require a database in v1.
 - Contact is intentionally static-only for a simpler and safer public surface.
 - Update the placeholder portfolio content in `src/features/portfolio/data/portfolio-content.ts` with your real information.
+- Production assets should live in:
+  `public/assets/profile/`
+  `public/assets/projects/`
+  `public/assets/brand/`
+  `public/assets/icons/`

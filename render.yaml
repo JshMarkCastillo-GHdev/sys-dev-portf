@@ -9,13 +9,9 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 22.19.0
-      - key: GITHUB_USERNAME
-        sync: false
-      - key: GITHUB_TOKEN
-        sync: false
-      - key: FEATURED_GITHUB_REPOS
-        sync: false
       - key: NEXT_PUBLIC_SITE_URL
         sync: false
       - key: NEXT_PUBLIC_CONTACT_EMAIL
+        sync: false
+      - key: NEXT_PUBLIC_RESUME_URL
         sync: false
