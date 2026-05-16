@@ -618,11 +618,9 @@ export const featuredProjects: ProjectItem[] = [
     summary:
 
       "Collaborative photobooth application built with the repo owner—real-time capture, custom overlays, and instant sharing for events.",
-      "Collaborative photobooth application built with the repo owner—real-time capture, custom overlays, and instant sharing for events.",
 
     description:
 
-      "A collaborative photobooth project developed with Ryan Magdalita (ryMGDLT) featuring real-time camera capture, customizable photo frames and overlays, filter effects, and instant digital sharing. Built together with a focus on smooth user experience and high-quality image processing for memorable event experiences. This portfolio entry showcases my contribution as a collaborator, not as the sole owner of the project.",
       "A collaborative photobooth project developed with Ryan Magdalita (ryMGDLT) featuring real-time camera capture, customizable photo frames and overlays, filter effects, and instant digital sharing. Built together with a focus on smooth user experience and high-quality image processing for memorable event experiences. This portfolio entry showcases my contribution as a collaborator, not as the sole owner of the project.",
 
     techStack: [
@@ -668,8 +666,6 @@ export const featuredProjects: ProjectItem[] = [
     featured: false,
 
     highlights: [
-
-      "Collaborative project with Ryan Magdalita (ryMGDLT) as the repo owner—developed as a team effort.",
 
       "Collaborative project with Ryan Magdalita (ryMGDLT) as the repo owner—developed as a team effort.",
 
