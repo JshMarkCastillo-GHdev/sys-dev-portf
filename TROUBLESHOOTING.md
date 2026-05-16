@@ -2,6 +2,35 @@
 
 Common issues and solutions for the portfolio project.
 
+## Runtime fetch fails with certificate/SSL errors (GitHub API, etc.)
+
+### Symptom
+```
+Failed to fetch GitHub profile [TypeError: fetch failed] {
+  [cause]: Error: unable to verify the first certificate
+  code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'
+}
+```
+
+### Cause
+Same as npm issue—antivirus SSL interception. The `.npmrc` fix only helps npm, not Node.js runtime.
+
+### Fix
+The `package.json` scripts now include `NODE_OPTIONS=--use-system-ca` automatically:
+- `npm run dev`
+- `npm run build`
+- `npm run start`
+
+Just run the commands normally—the env var is built-in.
+
+### Manual Fix (if scripts don't work)
+```powershell
+$env:NODE_OPTIONS = "--use-system-ca"
+npm run dev
+```
+
+---
+
 ## npm install fails with certificate/SSL errors
 
 ### Symptom
