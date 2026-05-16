@@ -5,7 +5,6 @@ import { SectionShell } from "@/features/portfolio/components/section-shell"
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Professional contact links and resume access.",
 }
 
 export default function ContactPage() {
@@ -13,7 +12,6 @@ export default function ContactPage() {
     <SectionShell
       eyebrow="Contact"
       title="Professional links and resume access."
-      description="Connect through GitHub, email, resume download, and career profiles from one place."
     >
       <ContactPanel />
     </SectionShell>

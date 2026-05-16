@@ -5,7 +5,6 @@ import { SkillsGrid } from "@/features/portfolio/components/skills-grid"
 
 export const metadata: Metadata = {
   title: "Skills",
-  description: "Core frontend, backend, and delivery skills.",
 }
 
 export default function SkillsPage() {
@@ -13,7 +12,6 @@ export default function SkillsPage() {
     <SectionShell
       eyebrow="Skills"
       title="Skills behind the build process."
-      description="A practical look at the frontend, backend, and workflow tools used to create scalable applications and process-focused solutions."
     >
       <SkillsGrid />
     </SectionShell>
