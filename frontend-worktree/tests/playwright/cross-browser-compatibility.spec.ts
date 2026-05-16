@@ -199,12 +199,13 @@ test.describe('Cross-Browser - Functionality', () => {
       has: page.locator('text=Photobooth Application'),
     });
     
-    // Test View Project button click
-    const viewBtn = photoboothCard.locator('[data-testid="view-project-btn"]');
-    await expect(viewBtn).toBeEnabled();
+    // Test project image link click
+    const imageLink = photoboothCard.locator('[data-testid="project-image-link"]');
+    await expect(imageLink).toBeVisible();
+    await expect(imageLink).toHaveAttribute('role', 'link');
     
     // Click should navigate
-    await viewBtn.click();
+    await imageLink.click();
     
     // Should navigate to project detail
     await page.waitForURL(/\/projects\/project_4/, { timeout: 5000 });
@@ -223,37 +224,20 @@ test.describe('Cross-Browser - Functionality', () => {
       has: page.locator('text=Photobooth Application'),
     });
     
-    // Focus on card or link inside
-    const viewBtn = photoboothCard.locator('[data-testid="view-project-btn"]');
+    // Focus on image link
+    const imageLink = photoboothCard.locator('[data-testid="project-image-link"]');
+    await imageLink.focus();
     
-    // Tab to focus
-    await page.keyboard.press('Tab');
+    // Verify image link is focused
+    await expect(imageLink).toBeFocused();
     
-    // Check if any element has focus
-    const focusedElement = await page.evaluate(() => {
-      const el = document.activeElement;
-      return el ? el.tagName : null;
-    });
+    // Press Enter to navigate
+    await imageLink.press('Enter');
     
-    expect(focusedElement).toBeTruthy();
+    // Should navigate to project detail
+    await page.waitForURL(/\/projects\/project_4/, { timeout: 5000 });
     
-    // Tab to get to our button
-    for (let i = 0; i < 10; i++) {
-      await page.keyboard.press('Tab');
-      const isFocused = await viewBtn.evaluate(el => el === document.activeElement);
-      if (isFocused) break;
-    }
-    
-    // Press Enter to activate
-    await page.keyboard.press('Enter');
-    
-    // Should navigate
-    await page.waitForURL(/\/projects\//, { timeout: 5000, waitUntil: 'domcontentloaded' }).catch(() => {
-      // Navigation might not happen if not focused correctly
-      console.log(`[${browserName}] Keyboard navigation may require additional focus management`);
-    });
-    
-    console.log(`[${browserName}] Keyboard interaction completed`);
+    console.log(`[${browserName}] Keyboard navigation successful to: ${page.url()}`);
   });
 
   test('show more/less toggle works in all browsers', async ({ page, browserName }) => {
