@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, GitBranch } from "lucide-react";
+import { ArrowRight, ArrowUpRight, GitBranch, Star, GitFork, Calendar } from "lucide-react";
 
 import type { ProjectItem } from "@/features/portfolio/types/portfolio";
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
@@ -24,6 +24,19 @@ type ProjectCardProps = {
 
 const DESCRIPTION_PREVIEW_LIMIT = 240;
 
+// Extract GitHub stats from project highlights (enriched by backend)
+function extractGithubStats(highlights: string[]) {
+  const starsMatch = highlights.find(h => h.includes('GitHub stars'))?.match(/(\d+)/);
+  const forksMatch = highlights.find(h => h.includes('Forks'))?.match(/(\d+)/);
+  const updatedMatch = highlights.find(h => h.includes('Last updated'))?.replace('Last updated: ', '');
+  
+  return {
+    stars: starsMatch ? parseInt(starsMatch[1], 10) : null,
+    forks: forksMatch ? parseInt(forksMatch[1], 10) : null,
+    updated: updatedMatch || null,
+  };
+}
+
 export function ProjectCard({ project }: ProjectCardProps) {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [hasProjectImageError, setHasProjectImageError] = useState(false);
@@ -33,6 +46,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
     project.coverImageSrc ?? project.screenshotImageSrcs?.[0];
   const canRenderProjectImage =
     Boolean(projectCoverImageSrc) && !hasProjectImageError;
+  
+  // Extract GitHub stats from enriched highlights
+  const githubStats = extractGithubStats(project.highlights || []);
+  
   const visibleDescription =
     showFullDescription || !hasLongDescription
       ? project.description
@@ -53,6 +70,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <p className="line-clamp-3 min-h-[5.25rem] text-sm leading-7 text-muted-foreground">
                 {project.summary}
               </p>
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <Star className="mr-1 size-3 text-yellow-500" />
+                  {githubStats.stars !== null ? githubStats.stars : "—"}
+                </Badge>
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <GitFork className="mr-1 size-3 text-blue-500" />
+                  {githubStats.forks !== null ? githubStats.forks : "—"}
+                </Badge>
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <Calendar className="mr-1 size-3 text-muted-foreground" />
+                  {githubStats.updated || "—"}
+                </Badge>
+              </div>
             </div>
             {project.featured ? (
               <Badge
