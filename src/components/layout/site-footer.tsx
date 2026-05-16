@@ -11,9 +11,6 @@ export function SiteFooter() {
     <footer className="border-t border-border/70 bg-background/95">
       <Container className="flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
         <div className="space-y-2">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-            Footer
-          </p>
           <p className="text-sm text-foreground/90">&copy; {siteConfig.name}</p>
         </div>
         <div className="flex flex-wrap gap-3">
