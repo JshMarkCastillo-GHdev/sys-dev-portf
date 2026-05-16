@@ -9,7 +9,6 @@ import {
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: "Industry and education experience.",
 }
 
 export default function ExperiencePage() {
@@ -17,7 +16,6 @@ export default function ExperiencePage() {
     <SectionShell
       eyebrow="Experience"
       title="Industry experience and education."
-      description="A concise timeline of roles, impact, and academic background."
     >
       <div className="grid gap-5 lg:grid-cols-2">
         {experienceItems.map((item) => (
