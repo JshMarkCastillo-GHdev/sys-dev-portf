@@ -17,7 +17,7 @@ Primary asset directories:
 - `siteConfig.role`
   Current value: `Jr. Full Stack Developer`
 - `siteConfig.location`
-  Current value: `On-site or Remote - Open to opportunities worldwide`
+  Current value: `On-site or Remote`
 - `siteConfig.email`
   Current value: `joshuamarkcastillo0319@gmail.com`
 - `siteConfig.tagline`
@@ -60,6 +60,8 @@ Primary asset directories:
 
 - Each project lives under `featuredProjects`
 - Replace text fields directly in `portfolio-content.ts`
+- Keep public project URLs production-ready; avoid example domains on public cards
+- Keep GitHub repository configuration aligned with the matching logic in `src/lib/github.ts`
 - Current route slugs:
   `featuredProjects[0].slug = project_1`
   `featuredProjects[1].slug = project_2`
@@ -109,6 +111,8 @@ Recommended screenshot sizes:
   Current values: your GitHub, LinkedIn, and email
 - `contactLinks`
   Current values: your GitHub, email, Indeed, and resume cards
+- Replace placeholder professional profile links before production use
+- Public email exposure should remain intentional and approved
 
 ## Footer
 
@@ -153,3 +157,13 @@ Recommended screenshot sizes:
 - Add screenshot folders under `public/assets/projects/`
 - Add brand/logo SVGs later under `public/assets/brand/`
 - Keep updating only `src/features/portfolio/data/portfolio-content.ts` for centralized content changes
+
+## Production Readiness Checklist
+
+- Replace `https://your-live-project-url.example` with a real live URL or remove it
+- Replace `https://www.indeed.com/your-profile` with a real profile URL or remove it
+- Replace `[ Replace with real info: Screenshot style hint ]` values with useful image notes or remove the field if unused
+- Replace scaffold-style IDs such as `industry-template-*` and `education-template-*` with stable content IDs
+- Confirm all project screenshots exist at the configured paths
+- Confirm `FEATURED_GITHUB_REPOS` uses the same format expected by the repository matching logic
+- Keep README, `render.yaml`, and deployment environment variables synchronized

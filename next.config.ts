@@ -1,19 +1,9 @@
 import type { NextConfig } from "next"
 
-const isProduction = process.env.NODE_ENV === "production"
-const contentSecurityPolicy = [
-  "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isProduction ? "" : " 'unsafe-eval'"}`,
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
-  "font-src 'self' data:",
-  "connect-src 'self'",
-  "object-src 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "frame-ancestors 'none'",
-  "upgrade-insecure-requests",
-].join("; ")
+// Parse dev origins from env var (comma-separated) or default to localhost
+const devOrigins = process.env.NEXT_PUBLIC_DEV_ORIGINS
+  ? process.env.NEXT_PUBLIC_DEV_ORIGINS.split(",").map((o) => o.trim())
+  : ["localhost"]
 
 const securityHeaders = [
   {
@@ -29,26 +19,37 @@ const securityHeaders = [
     value: "DENY",
   },
   {
-    key: "Content-Security-Policy",
-    value: contentSecurityPolicy,
-  },
-  {
-    key: "Permissions-Policy",
-    value:
-      "camera=(), microphone=(), geolocation=(), browsing-topics=(), interest-cohort=()",
-  },
-  {
-    key: "X-DNS-Prefetch-Control",
-    value: "off",
+    key: "X-XSS-Protection",
+    value: "1; mode=block",
   },
   {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
   },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+  },
+  {
+    key: "Content-Security-Policy",
+    value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://avatars.githubusercontent.com https://opengraph.githubassets.com data: blob:; font-src 'self'; connect-src 'self' https://api.github.com; frame-ancestors 'none'; upgrade-insecure-requests",
+  },
 ]
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["192.168.100.4"],
+  allowedDevOrigins: devOrigins,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "opengraph.githubassets.com",
+      },
+    ],
+  },
   async headers() {
     return [
       {

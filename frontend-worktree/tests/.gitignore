@@ -1,0 +1,13 @@
+# Playwright Test Results
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Debug files
+*.webm
+*.png
+!baseline-screenshots/*.png
+
+# Local env
+.env.local
+.env.*.local

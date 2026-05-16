@@ -5,7 +5,6 @@ import { SectionShell } from "@/features/portfolio/components/section-shell"
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn more about the developer behind this portfolio.",
 }
 
 export default function AboutPage() {
@@ -13,7 +12,6 @@ export default function AboutPage() {
     <SectionShell
       eyebrow="About"
       title="Developer profile and delivery mindset."
-      description="A closer look at Joshua Mark Castillo's background, working style, and approach to building scalable web applications."
     >
       <AboutCard />
     </SectionShell>

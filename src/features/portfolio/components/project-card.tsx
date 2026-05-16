@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, GitBranch } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { GitBranch, Star, GitFork, Calendar } from "lucide-react";
 
 import type { ProjectItem } from "@/features/portfolio/types/portfolio";
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
@@ -24,6 +25,72 @@ type ProjectCardProps = {
 
 const DESCRIPTION_PREVIEW_LIMIT = 240;
 
+// Clickable project image component
+type ProjectImageProps = {
+  project: ProjectItem;
+  projectCoverImageSrc: string | undefined;
+  canRenderProjectImage: boolean;
+  onError: () => void;
+};
+
+function ProjectImage({ project, projectCoverImageSrc, canRenderProjectImage, onError }: ProjectImageProps) {
+  const router = useRouter();
+  
+  const handleClick = () => {
+    router.push(`/projects/${project.slug}`);
+  };
+  
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      router.push(`/projects/${project.slug}`);
+    }
+  };
+  
+  return (
+    <div 
+      data-testid="project-image-link"
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      role="link"
+      tabIndex={0}
+      aria-label={`View ${project.title} project details`}
+      className="relative min-h-40 overflow-hidden rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2 cursor-pointer transition hover:border-primary/50 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:min-h-44"
+    >
+      {canRenderProjectImage ? (
+        <Image
+          src={projectCoverImageSrc!}
+          alt={`${project.title} preview`}
+          fill
+          priority
+          onError={onError}
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      ) : (
+        <div className="grid min-h-40 place-items-center sm:min-h-44">
+          <p className="font-sans text-sm text-foreground/72">
+            [ Replace with real info: Project screenshots ]
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Extract GitHub stats from project highlights (enriched by backend)
+function extractGithubStats(highlights: string[]) {
+  const starsMatch = highlights.find(h => h.includes('GitHub stars'))?.match(/(\d+)/);
+  const forksMatch = highlights.find(h => h.includes('Forks'))?.match(/(\d+)/);
+  const updatedMatch = highlights.find(h => h.includes('Last updated'))?.replace('Last updated: ', '');
+  
+  return {
+    stars: starsMatch ? parseInt(starsMatch[1], 10) : null,
+    forks: forksMatch ? parseInt(forksMatch[1], 10) : null,
+    updated: updatedMatch || null,
+  };
+}
+
 export function ProjectCard({ project }: ProjectCardProps) {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [hasProjectImageError, setHasProjectImageError] = useState(false);
@@ -33,6 +100,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
     project.coverImageSrc ?? project.screenshotImageSrcs?.[0];
   const canRenderProjectImage =
     Boolean(projectCoverImageSrc) && !hasProjectImageError;
+  
+  // Extract GitHub stats from enriched highlights
+  const githubStats = extractGithubStats(project.highlights || []);
+  
   const visibleDescription =
     showFullDescription || !hasLongDescription
       ? project.description
@@ -53,6 +124,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <p className="line-clamp-3 min-h-[5.25rem] text-sm leading-7 text-muted-foreground">
                 {project.summary}
               </p>
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <Star className="mr-1 size-3 text-yellow-500" />
+                  {githubStats.stars !== null ? githubStats.stars : "—"}
+                </Badge>
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <GitFork className="mr-1 size-3 text-blue-500" />
+                  {githubStats.forks !== null ? githubStats.forks : "—"}
+                </Badge>
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <Calendar className="mr-1 size-3 text-muted-foreground" />
+                  {githubStats.updated || "—"}
+                </Badge>
+              </div>
             </div>
             {project.featured ? (
               <Badge
@@ -67,24 +152,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <CardContent className="flex flex-1 flex-col gap-5">
           <div className="rounded-[1.45rem] border border-dashed border-border/80 bg-background/80 p-5 sm:p-6">
-            <div className="relative min-h-40 overflow-hidden rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2 sm:min-h-44">
-              {canRenderProjectImage ? (
-                <Image
-                  src={projectCoverImageSrc!}
-                  alt={`${project.title} preview`}
-                  fill
-                  onError={() => setHasProjectImageError(true)}
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              ) : (
-                <div className="grid min-h-40 place-items-center sm:min-h-44">
-                  <p className="font-sans text-sm text-foreground/72">
-                    [ Replace with real info: Project screenshots ]
-                  </p>
-                </div>
-              )}
-            </div>
+            <ProjectImage 
+              project={project} 
+              projectCoverImageSrc={projectCoverImageSrc}
+              canRenderProjectImage={canRenderProjectImage}
+              onError={() => setHasProjectImageError(true)}
+            />
           </div>
 
           <div className="flex flex-1 flex-col rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 sm:p-6">
@@ -125,14 +198,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <CardFooter className="mt-auto flex flex-col gap-3 bg-transparent px-5 pb-6 pt-5 sm:flex-row sm:flex-wrap">
           <Button
-            render={<Link href={`/projects/${project.slug}`} />}
-            variant="outline"
-            className="w-full rounded-full border-border/80 bg-background sm:w-auto"
-          >
-            View Project
-            <ArrowRight className="size-4" />
-          </Button>
-          <Button
             render={
               <Link
                 href={project.repoUrl || "#"}
@@ -145,18 +210,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
             GitHub
             <GitBranch className="size-4" />
           </Button>
-          {project.repoUrl ? (
-            <Button
-              render={
-                <Link href={project.repoUrl} target="_blank" rel="noreferrer" />
-              }
-              variant="ghost"
-              className="w-full rounded-full sm:w-auto"
-            >
-              Open Repo
-              <ArrowUpRight className="size-4" />
-            </Button>
-          ) : null}
         </CardFooter>
       </Card>
     </ScrollReveal>

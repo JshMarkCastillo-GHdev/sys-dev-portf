@@ -6,7 +6,6 @@ import { getPortfolioData } from "@/features/portfolio/lib/project-data"
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Featured and archived portfolio projects sourced from local portfolio content.",
 }
 
 export default async function ProjectsPage() {
@@ -16,7 +15,6 @@ export default async function ProjectsPage() {
     <SectionShell
       eyebrow="Projects"
       title="Portfolio projects and technical case studies."
-      description="Selected projects that highlight product thinking, implementation quality, and the tools used to ship them."
     >
       <div className="grid gap-5 lg:grid-cols-2">
         {projects.map((project) => (
