@@ -147,34 +147,35 @@ export default async function ProjectDetailPage({
               </p>
             </CardHeader>
             <CardContent className="flex flex-col gap-3">
-            {project.liveUrl ? (
+              {project.liveUrl ? (
+                <Button
+                  render={<Link href={project.liveUrl} target="_blank" rel="noreferrer" />}
+                  className="w-full rounded-full"
+                >
+                  Live preview
+                  <ArrowUpRight className="size-4" />
+                </Button>
+              ) : null}
+              {project.repoUrl ? (
+                <Button
+                  render={<Link href={project.repoUrl} target="_blank" rel="noreferrer" />}
+                  variant="outline"
+                  className="w-full rounded-full"
+                >
+                  Repository
+                  <ArrowUpRight className="size-4" />
+                </Button>
+              ) : null}
               <Button
-                render={<Link href={project.liveUrl} target="_blank" rel="noreferrer" />}
+                render={<Link href="/projects" />}
+                variant="ghost"
                 className="w-full rounded-full"
               >
-                Live preview
-                <ArrowUpRight className="size-4" />
+                Back to projects
               </Button>
-            ) : null}
-            {project.repoUrl ? (
-              <Button
-                render={<Link href={project.repoUrl} target="_blank" rel="noreferrer" />}
-                variant="outline"
-                className="w-full rounded-full"
-              >
-                Repository
-                <ArrowUpRight className="size-4" />
-              </Button>
-            ) : null}
-            <Button
-              render={<Link href="/projects" />}
-              variant="ghost"
-              className="w-full rounded-full"
-            >
-              Back to projects
-            </Button>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </SectionShell>
   )
