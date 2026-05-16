@@ -618,11 +618,11 @@ export const featuredProjects: ProjectItem[] = [
 
     summary:
 
-      "Interactive photobooth application for capturing photos with custom overlays, filters, and instant sharing capabilities.",
+      "Collaborative photobooth application built with the repo owner—real-time capture, custom overlays, and instant sharing for events.",
 
     description:
 
-      "A modern photobooth application designed for events and parties, featuring real-time camera capture, customizable photo frames and overlays, filter effects, and instant digital sharing. Built with a focus on smooth user experience and high-quality image processing for memorable event experiences.",
+      "A collaborative photobooth project developed with Ryan Layug (ryMGDLT) featuring real-time camera capture, customizable photo frames and overlays, filter effects, and instant digital sharing. Built together with a focus on smooth user experience and high-quality image processing for memorable event experiences. This portfolio entry showcases my contribution as a collaborator, not as the sole owner of the project.",
 
     techStack: [
 
@@ -667,6 +667,8 @@ export const featuredProjects: ProjectItem[] = [
     featured: false,
 
     highlights: [
+
+      "Collaborative project with Ryan Layug (ryMGDLT) as the repo owner—developed as a team effort.",
 
       "Real-time camera capture with browser Camera API integration for seamless photo taking experience.",
 
