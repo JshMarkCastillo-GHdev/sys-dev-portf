@@ -187,21 +187,15 @@ export const contactLinks: ContactLink[] = [
 
   },
 
-  {
-
-    label: "Indeed",
-
-    href: "https://www.indeed.com/your-profile",
-
-    value: "Joshua Mark Castillo - Indeed Profile",
-
-    helperText:
-
-      "Joshua Mark Castillo - Indeed Profile showcasing work history, skills, and endorsements.",
-
-    icon: "briefcase",
-
-  },
+  // TODO: Uncomment and replace with actual Indeed profile URL before production
+  // {
+  //   label: "Indeed",
+  //   href: "https://www.indeed.com/profile/your-actual-profile",
+  //   value: "Joshua Mark Castillo - Indeed Profile",
+  //   helperText:
+  //     "Joshua Mark Castillo - Indeed Profile showcasing work history, skills, and endorsements.",
+  //   icon: "briefcase",
+  // },
 
   {
 

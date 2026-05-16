@@ -61,10 +61,10 @@ test.describe('Mobile View - Layout Adaptation', () => {
     
     const cardBox = await photoboothCard.boundingBox();
     
-    if (cardBox) {
+    if (cardBox && viewport) {
       // Card width should not exceed viewport width (with some padding tolerance)
       expect(cardBox.width).toBeLessThanOrEqual(viewport.width + 32); // Allow for padding
-      
+
       // Card should be horizontally centered or properly positioned
       expect(cardBox.x).toBeGreaterThanOrEqual(-16); // Allow for negative margin
     }
@@ -260,9 +260,11 @@ test.describe('Mobile View - Interaction', () => {
     
     // Check document width vs viewport width
     const docWidth = await page.evaluate(() => document.documentElement.scrollWidth);
-    
-    // Document should not be wider than viewport (no horizontal scroll needed)
-    expect(docWidth).toBeLessThanOrEqual(viewport.width + 32); // Allow for scrollbar
+
+    if (viewport) {
+      // Document should not be wider than viewport (no horizontal scroll needed)
+      expect(docWidth).toBeLessThanOrEqual(viewport.width + 32); // Allow for scrollbar
+    }
   });
 
   test('cards are accessible via swipe/scroll on mobile', async ({ page, viewport }) => {

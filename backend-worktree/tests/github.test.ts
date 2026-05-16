@@ -264,7 +264,7 @@ describe('GitHub API Integration', () => {
       expect(result[0].name).toBe('active')
     })
 
-    it('should return empty allowlist means allow all', async () => {
+    it('should return empty array when allowlist is empty', async () => {
       const mockRepos = [
         {
           id: 1,
@@ -289,7 +289,8 @@ describe('GitHub API Integration', () => {
 
       const result = await getGithubRepos('test', [])
 
-      expect(result).toHaveLength(1)
+      // Empty allowlist now returns empty array (security fix)
+      expect(result).toHaveLength(0)
     })
 
     it('should sort repos by updated date descending', async () => {

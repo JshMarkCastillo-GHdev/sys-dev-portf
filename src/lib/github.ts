@@ -248,7 +248,7 @@ export async function getGithubRepos(
 
       .filter((repo) => !repo.archived && !repo.fork)
 
-      .filter((repo) => allowed.size === 0 || allowed.has(repo.name.toLowerCase()))
+      .filter((repo) => allowed.has(repo.name.toLowerCase()))
 
       .map((repo) => ({
 
