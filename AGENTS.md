@@ -294,6 +294,17 @@ Examples:
 - Avoid broad refactors unless explicitly requested.
 - Prefer incremental, reviewable changes.
 
+## Documentation and Workflow Rules
+
+- Keep README setup instructions, deployment configuration, and environment variable documentation synchronized.
+- If an environment variable is added, removed, or renamed, update README and deployment configuration in the same change when applicable.
+- Keep public portfolio placeholders tracked in documentation until they are replaced with real content.
+- Do not leave example domains, scaffold labels, or template IDs in production-facing portfolio content.
+- Document major portfolio features briefly enough for a future maintainer to understand where content, rendering, and deployment behavior live.
+- When adding GitHub integration behavior, document the expected repository allowlist format and keep it aligned with matching logic.
+- When encountering environment-specific issues (antivirus SSL scanning, proxy configs, OS-specific behaviors), document workarounds in TROUBLESHOOTING.md and commit project-level configs (.npmrc) when safe.
+- Prefer documenting findings and follow-ups in markdown before starting broad refactors.
+
 ## Agent Execution Rules
 
 All AI agents working in this project must:
@@ -310,6 +321,8 @@ All AI agents working in this project must:
 - choose clarity over cleverness
 - choose maintainability over speed
 - choose security over convenience
+- keep documentation changes close to the feature or configuration they describe
+- flag public placeholder content, exposed personal contact data, and missing deployment variables during reviews
 
 ## Final Rule
 

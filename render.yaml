@@ -19,3 +19,5 @@ services:
         sync: false
       - key: NEXT_PUBLIC_CONTACT_EMAIL
         sync: false
+      - key: NEXT_PUBLIC_RESUME_URL
+        sync: false
