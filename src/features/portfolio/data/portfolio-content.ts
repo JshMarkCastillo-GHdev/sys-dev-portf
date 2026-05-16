@@ -82,6 +82,8 @@ export const siteConfig: SiteConfig = {
 
   repoAllowlist: [
 
+    "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
+
     "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
 
     "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
