@@ -40,10 +40,22 @@ function ProjectImage({ project, projectCoverImageSrc, canRenderProjectImage, on
     router.push(`/projects/${project.slug}`);
   };
   
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      router.push(`/projects/${project.slug}`);
+    }
+  };
+  
   return (
     <div 
+      data-testid="project-image-link"
       onClick={handleClick}
-      className="relative min-h-40 overflow-hidden rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2 cursor-pointer transition hover:border-primary/50 hover:shadow-lg sm:min-h-44"
+      onKeyDown={handleKeyDown}
+      role="link"
+      tabIndex={0}
+      aria-label={`View ${project.title} project details`}
+      className="relative min-h-40 overflow-hidden rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2 cursor-pointer transition hover:border-primary/50 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:min-h-44"
     >
       {canRenderProjectImage ? (
         <Image

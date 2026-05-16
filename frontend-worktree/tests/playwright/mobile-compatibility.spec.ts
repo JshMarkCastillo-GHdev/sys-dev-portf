@@ -216,7 +216,7 @@ test.describe('Mobile View - Layout Adaptation', () => {
     
     // Check all interactive elements
     const interactiveElements = [
-      photoboothCard.locator('[data-testid="view-project-btn"]'),
+      photoboothCard.locator('[data-testid="project-image-link"]'),
       photoboothCard.locator('[data-testid="github-btn"]'),
       photoboothCard.locator('[data-testid="show-more-btn"]').first(),
     ];

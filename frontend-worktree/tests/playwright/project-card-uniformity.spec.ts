@@ -80,15 +80,13 @@ test.describe('Project Card UI Uniformity', () => {
     await expect(techBadges).toHaveCount(6); // React, TypeScript, Next.js, Tailwind CSS, shadcn/ui, Camera API
     
     // Verify action buttons
-    const viewButton = photoboothCard.locator('[data-testid="view-project-btn"]');
+    const imageLink = photoboothCard.locator('[data-testid="project-image-link"]');
     const githubButton = photoboothCard.locator('[data-testid="github-btn"]');
     
-    await expect(viewButton).toBeVisible();
+    await expect(imageLink).toBeVisible();
+    await expect(imageLink).toHaveAttribute('role', 'link');
+    await expect(imageLink).toHaveAttribute('tabindex', '0');
     await expect(githubButton).toBeVisible();
-    
-    // Verify button styling consistency
-    const viewButtonClass = await viewButton.getAttribute('class');
-    expect(viewButtonClass).toContain('rounded-full');
   });
 
   test('tech stack badges render with consistent styling across all cards', async ({ page }) => {
@@ -233,8 +231,8 @@ test.describe('Project Card UI Uniformity', () => {
       const footer = card.locator('[data-testid="project-actions"]');
       const buttons = footer.locator('button, a').all();
       
-      // All cards should have at least 2 action buttons
-      expect((await buttons).length).toBeGreaterThanOrEqual(2);
+      // All cards should have at least 1 action button (GitHub)
+      expect((await buttons).length).toBeGreaterThanOrEqual(1);
       
       // Check footer layout
       const footerBox = await footer.boundingBox();
@@ -310,15 +308,38 @@ test.describe('Project Card Content Uniformity', () => {
     }
   });
 
-  test('view project links navigate correctly', async ({ page }) => {
+  test('project image links navigate correctly via click', async ({ page }) => {
     const photoboothCard = page.locator('[data-testid="project-card"]', {
       has: page.locator('text=Photobooth Application'),
     });
     
-    const viewBtn = photoboothCard.locator('[data-testid="view-project-btn"]');
-    const link = viewBtn.locator('a');
-    const href = await link.getAttribute('href');
+    const imageLink = photoboothCard.locator('[data-testid="project-image-link"]');
     
-    expect(href).toBe('/projects/project_4');
+    // Verify it has correct ARIA attributes
+    await expect(imageLink).toHaveAttribute('role', 'link');
+    await expect(imageLink).toHaveAttribute('tabindex', '0');
+    await expect(imageLink).toHaveAttribute('aria-label', 'View Photobooth Application project details');
+    
+    // Click and verify navigation
+    await imageLink.click();
+    await expect(page).toHaveURL('/projects/project_4');
+  });
+
+  test('project image links are keyboard accessible', async ({ page }) => {
+    const photoboothCard = page.locator('[data-testid="project-card"]', {
+      has: page.locator('text=Photobooth Application'),
+    });
+    
+    const imageLink = photoboothCard.locator('[data-testid="project-image-link"]');
+    
+    // Focus the image link
+    await imageLink.focus();
+    
+    // Verify it's focused
+    await expect(imageLink).toBeFocused();
+    
+    // Press Enter and verify navigation
+    await imageLink.press('Enter');
+    await expect(page).toHaveURL('/projects/project_4');
   });
 });
