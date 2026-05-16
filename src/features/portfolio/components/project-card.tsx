@@ -62,6 +62,7 @@ function ProjectImage({ project, projectCoverImageSrc, canRenderProjectImage, on
           src={projectCoverImageSrc!}
           alt={`${project.title} preview`}
           fill
+          priority
           onError={onError}
           className="object-cover"
           sizes="(max-width: 1024px) 100vw, 50vw"
