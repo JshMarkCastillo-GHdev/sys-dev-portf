@@ -56,11 +56,11 @@ export const siteConfig: SiteConfig = {
 
   shortBio:
 
-    "Computer Engineering student with a passion for full stack development, focused on building scalable web applications that drive innovation and process automation.",
+    "Established Agentic Fullstack Engineer specializing in Next.js, TypeScript, and Agentic Software Workflows. I architect scalable, security-first web applications and automated enterprise modules using advanced agentic development methodologies.",
 
   longBio:
 
-    "I am a Computer Engineering student with a strong passion for full stack development. My focus is on building scalable web applications that drive innovation and process automation. I am dedicated to continuously learning and applying new technologies to create efficient and impactful solutions in the field of software development.",
+    "I am a Full Stack Engineer specializing in Next.js, TypeScript, and Agentic Software Workflows - I architect scalable, security-first web applications and automated enterprise modules. By leveraging advanced agentic development methodologies guided by strict architectural rules, I bridge the gap between high-velocity feature deployment and robust system security. I don't just write code—I engineer self-documenting, zero-regression full-stack solutions.",
 
   availability:
 

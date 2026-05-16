@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, GitBranch, Star, GitFork, Calendar } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { GitBranch, Star, GitFork, Calendar } from "lucide-react";
 
 import type { ProjectItem } from "@/features/portfolio/types/portfolio";
 import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
@@ -23,6 +24,46 @@ type ProjectCardProps = {
 };
 
 const DESCRIPTION_PREVIEW_LIMIT = 240;
+
+// Clickable project image component
+type ProjectImageProps = {
+  project: ProjectItem;
+  projectCoverImageSrc: string | undefined;
+  canRenderProjectImage: boolean;
+  onError: () => void;
+};
+
+function ProjectImage({ project, projectCoverImageSrc, canRenderProjectImage, onError }: ProjectImageProps) {
+  const router = useRouter();
+  
+  const handleClick = () => {
+    router.push(`/projects/${project.slug}`);
+  };
+  
+  return (
+    <div 
+      onClick={handleClick}
+      className="relative min-h-40 overflow-hidden rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2 cursor-pointer transition hover:border-primary/50 hover:shadow-lg sm:min-h-44"
+    >
+      {canRenderProjectImage ? (
+        <Image
+          src={projectCoverImageSrc!}
+          alt={`${project.title} preview`}
+          fill
+          onError={onError}
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      ) : (
+        <div className="grid min-h-40 place-items-center sm:min-h-44">
+          <p className="font-sans text-sm text-foreground/72">
+            [ Replace with real info: Project screenshots ]
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // Extract GitHub stats from project highlights (enriched by backend)
 function extractGithubStats(highlights: string[]) {
@@ -98,24 +139,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <CardContent className="flex flex-1 flex-col gap-5">
           <div className="rounded-[1.45rem] border border-dashed border-border/80 bg-background/80 p-5 sm:p-6">
-            <div className="relative min-h-40 overflow-hidden rounded-[1.2rem] border border-border/70 bg-gradient-to-br from-white/6 to-white/2 sm:min-h-44">
-              {canRenderProjectImage ? (
-                <Image
-                  src={projectCoverImageSrc!}
-                  alt={`${project.title} preview`}
-                  fill
-                  onError={() => setHasProjectImageError(true)}
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              ) : (
-                <div className="grid min-h-40 place-items-center sm:min-h-44">
-                  <p className="font-sans text-sm text-foreground/72">
-                    [ Replace with real info: Project screenshots ]
-                  </p>
-                </div>
-              )}
-            </div>
+            <ProjectImage 
+              project={project} 
+              projectCoverImageSrc={projectCoverImageSrc}
+              canRenderProjectImage={canRenderProjectImage}
+              onError={() => setHasProjectImageError(true)}
+            />
           </div>
 
           <div className="flex flex-1 flex-col rounded-[1.45rem] border border-border/70 bg-muted/40 p-5 sm:p-6">
@@ -156,14 +185,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <CardFooter className="mt-auto flex flex-col gap-3 bg-transparent px-5 pb-6 pt-5 sm:flex-row sm:flex-wrap">
           <Button
-            render={<Link href={`/projects/${project.slug}`} />}
-            variant="outline"
-            className="w-full rounded-full border-border/80 bg-background sm:w-auto"
-          >
-            View Project
-            <ArrowRight className="size-4" />
-          </Button>
-          <Button
             render={
               <Link
                 href={project.repoUrl || "#"}
@@ -176,18 +197,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
             GitHub
             <GitBranch className="size-4" />
           </Button>
-          {project.repoUrl ? (
-            <Button
-              render={
-                <Link href={project.repoUrl} target="_blank" rel="noreferrer" />
-              }
-              variant="ghost"
-              className="w-full rounded-full sm:w-auto"
-            >
-              Open Repo
-              <ArrowUpRight className="size-4" />
-            </Button>
-          ) : null}
         </CardFooter>
       </Card>
     </ScrollReveal>
