@@ -16,6 +16,7 @@ const projectAssetFolders = {
   portfolio: "project_1",
   yolov8: "project_2",
   pos: "project_3",
+  photobooth: "project_4",
 } as const;
 
 export const siteConfig: SiteConfig = {
@@ -299,6 +300,40 @@ export const featuredProjects: ProjectItem[] = [
       "Clean and intuitive interface for managing products, processing sales, and handling user authentication.",
       "Role-based access control with NextAuth, allowing for secure authentication and authorization for different user types (e.g., admin, cashier).",
       "Comprehensive product management features, including adding, editing, and deleting products, as well as inventory tracking and sales reporting capabilities.",
+    ],
+  },
+  {
+    slug: "project_4",
+    title: "Photobooth Application",
+    summary:
+      "Interactive photobooth application for capturing photos with custom overlays, filters, and instant sharing capabilities.",
+    description:
+      "A modern photobooth application designed for events and parties, featuring real-time camera capture, customizable photo frames and overlays, filter effects, and instant digital sharing. Built with a focus on smooth user experience and high-quality image processing for memorable event experiences.",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Camera API",
+    ],
+    coverImageSrc: `/assets/projects/${projectAssetFolders.photobooth}/cover.png`,
+    screenshotImageSrcs: [
+      `/assets/projects/${projectAssetFolders.photobooth}/screen-01.png`,
+      `/assets/projects/${projectAssetFolders.photobooth}/screen-02.png`,
+    ],
+    screenshotPlaceholder: {
+      label: "Screenshots",
+      caption: `Recommended directory: /assets/projects/${projectAssetFolders.photobooth}/ (16:10, 1600x1000 preferred)`,
+    },
+    repoUrl: "https://github.com/JshMarkCastillo-GHdev/photobotth",
+    liveUrl: "https://your-live-project-url.example",
+    imageHint: "[ Replace with real info: Screenshot style hint ]",
+    featured: false,
+    highlights: [
+      "Real-time camera capture with browser Camera API integration for seamless photo taking experience.",
+      "Customizable photo frames and overlays to match event themes and branding requirements.",
+      "Filter effects and image enhancement options for high-quality photo output suitable for sharing.",
     ],
   },
 ];
