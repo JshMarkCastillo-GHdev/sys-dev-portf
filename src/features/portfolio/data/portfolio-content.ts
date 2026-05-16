@@ -82,6 +82,11 @@ export const siteConfig: SiteConfig = {
 
   repoAllowlist: [
 
+<<<<<<< C:/Users/shiro/dev-project-systems/sys-dev-portf/src/features/portfolio/data/portfolio-content.ts
+=======
+    "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
+
+>>>>>>> C:/Users/shiro/.windsurf/worktrees/sys-dev-portf/sys-dev-portf-6aedbfc2/src/features/portfolio/data/portfolio-content.ts
     "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
 
     "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
@@ -604,6 +609,7 @@ export const featuredProjects: ProjectItem[] = [
 
       "Comprehensive product management features, including adding, editing, and deleting products, as well as inventory tracking and sales reporting capabilities.",
 
+<<<<<<< C:/Users/shiro/dev-project-systems/sys-dev-portf/src/features/portfolio/data/portfolio-content.ts
     ],
 
   },
@@ -676,6 +682,82 @@ export const featuredProjects: ProjectItem[] = [
 
   },
 
+=======
+    ],
+
+  },
+
+  {
+
+    slug: "project_4",
+
+    title: "Photobooth Application",
+
+    summary:
+
+      "Collaborative photobooth application built with the repo owner—real-time capture, custom overlays, and instant sharing for events.",
+
+    description:
+
+      "A collaborative photobooth project developed with Ryan Magdalita (ryMGDLT) featuring real-time camera capture, customizable photo frames and overlays, filter effects, and instant digital sharing. Built together with a focus on smooth user experience and high-quality image processing for memorable event experiences. This portfolio entry showcases my contribution as a collaborator, not as the sole owner of the project.",
+
+    techStack: [
+
+      "React",
+
+      "TypeScript",
+
+      "Next.js",
+
+      "Tailwind CSS",
+
+      "shadcn/ui",
+
+      "Camera API",
+
+    ],
+
+    coverImageSrc: `/assets/projects/${projectAssetFolders.photobooth}/cover.png`,
+
+    screenshotImageSrcs: [
+
+      `/assets/projects/${projectAssetFolders.photobooth}/screen-01.png`,
+
+      `/assets/projects/${projectAssetFolders.photobooth}/screen-02.png`,
+
+    ],
+
+    screenshotPlaceholder: {
+
+      label: "Screenshots",
+
+      caption: `Recommended directory: /assets/projects/${projectAssetFolders.photobooth}/ (16:10, 1600x1000 preferred)`,
+
+    },
+
+    repoUrl: "https://github.com/ryMGDLT/photobotth",
+
+    liveUrl: "https://photobotth-sand.vercel.app/",
+
+    imageHint: "[ Replace with real info: Screenshot style hint ]",
+
+    featured: false,
+
+    highlights: [
+
+      "Collaborative project with Ryan Magdalita (ryMGDLT) as the repo owner—developed as a team effort.",
+
+      "Real-time camera capture with browser Camera API integration for seamless photo taking experience.",
+
+      "Customizable photo frames and overlays to match event themes and branding requirements.",
+
+      "Filter effects and image enhancement options for high-quality photo output suitable for sharing.",
+
+    ],
+
+  },
+
+>>>>>>> C:/Users/shiro/.windsurf/worktrees/sys-dev-portf/sys-dev-portf-6aedbfc2/src/features/portfolio/data/portfolio-content.ts
 ];
 
 
