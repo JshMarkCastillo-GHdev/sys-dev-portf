@@ -656,9 +656,9 @@ export const featuredProjects: ProjectItem[] = [
 
     },
 
-    repoUrl: "https://github.com/JshMarkCastillo-GHdev/photobotth",
+    repoUrl: "https://github.com/ryMGDLT/photobotth",
 
-    liveUrl: "https://your-live-project-url.example",
+    liveUrl: "https://photobotth-sand.vercel.app",
 
     imageHint: "[ Replace with real info: Screenshot style hint ]",
 
