@@ -42,6 +42,7 @@ export const siteConfig: SiteConfig = {
   repoAllowlist: [
     "https://github.com/JshMarkCastillo-GHdev/yolov8-webApp-reactVite",
     "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
+    "https://github.com/ryMGDLT/photobotth",
   ],
 };
 
@@ -296,6 +297,7 @@ export const featuredProjects: ProjectItem[] = [
     liveUrl: "https://your-live-project-url.example",
     imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: false,
+    githubRepo: "sys-pos-system",
     highlights: [
       "Clean and intuitive interface for managing products, processing sales, and handling user authentication.",
       "Role-based access control with NextAuth, allowing for secure authentication and authorization for different user types (e.g., admin, cashier).",
@@ -326,8 +328,8 @@ export const featuredProjects: ProjectItem[] = [
       label: "Screenshots",
       caption: `Recommended directory: /assets/projects/${projectAssetFolders.photobooth}/ (16:10, 1600x1000 preferred)`,
     },
-    repoUrl: "https://github.com/JshMarkCastillo-GHdev/photobotth",
-    liveUrl: "https://your-live-project-url.example",
+    repoUrl: "https://github.com/ryMGDLT/photobotth",
+    liveUrl: "https://photobotth-sand.vercel.app/",
     imageHint: "[ Replace with real info: Screenshot style hint ]",
     featured: false,
     highlights: [

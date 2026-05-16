@@ -100,7 +100,8 @@ sys-dev-portf/
 
 ### High
 
-- **Repository allowlist mismatch**: `siteConfig.repoAllowlist` contains full GitHub URLs, while `getGithubRepos` compares each allowlist entry to `repo.name`. This likely prevents intended live enrichment for allowlisted repositories.
+- ~~**Repository allowlist mismatch**: `siteConfig.repoAllowlist` contains full GitHub URLs, while `getGithubRepos` compares each allowlist entry to `repo.name`. This likely prevents intended live enrichment for allowlisted repositories.~~
+  - **RESOLVED (backend-worktree)**: Fixed in `src/lib/github.ts` by adding URL parsing to extract repo names from full URLs before comparison. Now supports both URL and plain repo name formats.
 
 ### Medium
 
@@ -115,7 +116,7 @@ sys-dev-portf/
 
 ## Recommended Follow-Ups
 
-1. Normalize `repoAllowlist` to repo names or update matching to support full URLs.
+1. ~~Normalize `repoAllowlist` to repo names or update matching to support full URLs.~~ ✅ Completed in `backend-worktree`.
 2. Consider adding `.env.example` and keep it synchronized with README and `render.yaml` if added.
 3. Replace public placeholder links, image hints, and template IDs before production promotion.
 4. Consider adding CSP and Permissions-Policy headers after confirming external asset and API needs.
