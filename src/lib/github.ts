@@ -208,7 +208,39 @@ export async function getGithubRepos(
 
 
 
-    const allowed = new Set(allowlist.map((repo) => repo.toLowerCase()))
+    // Extract repo names from allowlist (handles both full URLs and plain repo names)
+
+    const allowed = new Set(
+
+      allowlist.map((entry) => {
+
+        const trimmed = entry.trim().toLowerCase()
+
+        // If it's a URL, extract the repo name from the last path segment
+
+        if (trimmed.startsWith("http")) {
+
+          try {
+
+            const url = new URL(trimmed)
+
+            const segments = url.pathname.split("/").filter(Boolean)
+
+            return segments[segments.length - 1] || trimmed
+
+          } catch {
+
+            return trimmed
+
+          }
+
+        }
+
+        return trimmed
+
+      })
+
+    )
 
 
 

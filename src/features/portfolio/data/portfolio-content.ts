@@ -594,6 +594,8 @@ export const featuredProjects: ProjectItem[] = [
 
     featured: false,
 
+    githubRepo: "sys-pos-system",
+
     highlights: [
 
       "Clean and intuitive interface for managing products, processing sales, and handling user authentication.",
