@@ -1,6 +1,6 @@
 # Full Stack Developer Portfolio
 
-Developer portfolio built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn-style UI primitives.
+Developer portfolio built with Next.js App Router, Turbopack, React, TypeScript, Tailwind CSS, and shadcn/ui.
 
 ## Stack
 
@@ -8,8 +8,7 @@ Developer portfolio built with Next.js App Router, Turbopack, React, TypeScript,
 - React 19
 - TypeScript
 - Tailwind CSS v4
-- shadcn-style UI primitives
-- Live GitHub repository integration
+- shadcn/ui
 - Deployment targets for Vercel and Render
 
 ## Important Features
@@ -44,22 +43,17 @@ npm run dev
 
 ## Environment Variables
 
-| Variable                    | Required | Purpose                                                                 |
-| --------------------------- | -------- | ----------------------------------------------------------------------- |
-| `GITHUB_USERNAME`           | Yes      | GitHub username used for profile and repository fetching                |
-| `GITHUB_TOKEN`              | No       | Optional server-only token for higher GitHub API rate limits            |
-| `FEATURED_GITHUB_REPOS`     | No       | Comma-separated repository allowlist used for featured repository fetches |
-| `NEXT_PUBLIC_SITE_URL`      | Yes      | Public site URL for metadata and deployment                             |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | No       | Email shown in the static contact section                               |
-| `NEXT_PUBLIC_RESUME_URL`    | No       | Public resume path or URL used by header/contact resume links           |
+| Variable                    | Required | Purpose                                                  |
+| --------------------------- | -------- | -------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`      | Yes      | Public site URL used for metadata and deployment         |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | No       | Optional public email override for the contact section   |
+| `NEXT_PUBLIC_RESUME_URL`    | No       | Optional public resume path override                     |
 
-Keep `.env.local`, deployment environment variables, and `render.yaml` aligned when adding or removing configuration.
+## Production Behavior
 
-## GitHub Integration
-
-- Portfolio project cards start from local typed content.
-- If GitHub data is available, repositories are fetched server-side and merged into those project cards.
-- If GitHub fails or rate-limits, the UI stays stable and falls back to local content.
+- Production uses local portfolio content only.
+- No live GitHub API requests are required for the deployed site.
+- Project, profile, and contact content are sourced from `src/features/portfolio/data/portfolio-content.ts`.
 - GitHub Actions CI runs lint, typecheck, and build on pushes and pull requests.
 - `GITHUB_TOKEN` must stay server-only and must not use the `NEXT_PUBLIC_` prefix.
 - The repository allowlist should be documented and configured consistently with the matching logic in `src/lib/github.ts`.
@@ -71,6 +65,22 @@ Keep `.env.local`, deployment environment variables, and `render.yaml` aligned w
 - Import the GitHub repository into Vercel.
 - Set the environment variables from the table above.
 - Keep the default Next.js build settings.
+- Recommended manual setup:
+  1. Import the repository into Vercel.
+  2. Set `NEXT_PUBLIC_SITE_URL` to your final production domain.
+  3. Optionally set `NEXT_PUBLIC_CONTACT_EMAIL` and `NEXT_PUBLIC_RESUME_URL`.
+  4. Deploy using the default Vercel Next.js build settings.
+  5. After deployment, verify:
+     `/`
+     `/about`
+     `/skills`
+     `/projects`
+     `/projects/project_1`
+     `/projects/project_2`
+     `/projects/project_3`
+     `/experience`
+     `/contact`
+  6. Confirm profile and project images load from `public/assets/...`.
 
 ### Render
 
@@ -111,4 +121,8 @@ src/
 - The portfolio is content-first and does not require a database in v1.
 - Contact is intentionally static-only for a simpler and safer public surface.
 - Update the placeholder portfolio content in `src/features/portfolio/data/portfolio-content.ts` with your real information.
-- Replace public placeholder URLs, screenshot fallbacks, and template IDs before promoting the site as production-ready.
+- Production assets should live in:
+  `public/assets/profile/`
+  `public/assets/projects/`
+  `public/assets/brand/`
+  `public/assets/icons/`
