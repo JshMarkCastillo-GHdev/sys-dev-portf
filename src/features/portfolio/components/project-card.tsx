@@ -49,7 +49,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
   
   // Extract GitHub stats from enriched highlights
   const githubStats = extractGithubStats(project.highlights || []);
-  const hasGithubStats = githubStats.stars !== null || githubStats.forks !== null;
   
   const visibleDescription =
     showFullDescription || !hasLongDescription
@@ -71,28 +70,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <p className="line-clamp-3 min-h-[5.25rem] text-sm leading-7 text-muted-foreground">
                 {project.summary}
               </p>
-              {hasGithubStats ? (
-                <div className="flex flex-wrap items-center gap-2 pt-2">
-                  {githubStats.stars !== null ? (
-                    <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
-                      <Star className="mr-1 size-3 text-yellow-500" />
-                      {githubStats.stars}
-                    </Badge>
-                  ) : null}
-                  {githubStats.forks !== null ? (
-                    <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
-                      <GitFork className="mr-1 size-3 text-blue-500" />
-                      {githubStats.forks}
-                    </Badge>
-                  ) : null}
-                  {githubStats.updated ? (
-                    <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
-                      <Calendar className="mr-1 size-3 text-muted-foreground" />
-                      {githubStats.updated}
-                    </Badge>
-                  ) : null}
-                </div>
-              ) : null}
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <Star className="mr-1 size-3 text-yellow-500" />
+                  {githubStats.stars !== null ? githubStats.stars : "—"}
+                </Badge>
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <GitFork className="mr-1 size-3 text-blue-500" />
+                  {githubStats.forks !== null ? githubStats.forks : "—"}
+                </Badge>
+                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                  <Calendar className="mr-1 size-3 text-muted-foreground" />
+                  {githubStats.updated || "—"}
+                </Badge>
+              </div>
             </div>
             {project.featured ? (
               <Badge
