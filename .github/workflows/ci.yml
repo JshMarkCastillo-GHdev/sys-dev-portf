@@ -10,10 +10,8 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    env:
-      # Do not set NODE_ENV=production at the job level — npm ci skips
-      # devDependencies (eslint, prettier, jest) when NODE_ENV is production.
-
+    # Do not set NODE_ENV=production at the job level — npm ci skips
+    # devDependencies (eslint, prettier, jest) when NODE_ENV is production.
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
