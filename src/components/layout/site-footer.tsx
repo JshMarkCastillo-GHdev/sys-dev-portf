@@ -1,10 +1,10 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import { Container } from "@/components/layout/container"
-import { socialLinks } from "@/features/portfolio/data/portfolio-content"
-import { getSiteConfig } from "@/lib/site-config"
+import { Container } from "@/components/layout/container";
+import { socialLinks } from "@/features/portfolio/data/portfolio-content";
+import { getSiteConfig } from "@/lib/site-config";
 
-const siteConfig = getSiteConfig()
+const siteConfig = getSiteConfig();
 
 export function SiteFooter() {
   return (
@@ -28,5 +28,5 @@ export function SiteFooter() {
         </div>
       </Container>
     </footer>
-  )
+  );
 }

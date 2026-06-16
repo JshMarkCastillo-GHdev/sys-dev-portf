@@ -1,15 +1,15 @@
-import type { Metadata } from "next"
+import type { Metadata } from "next";
 
-import { ProjectCard } from "@/features/portfolio/components/project-card"
-import { SectionShell } from "@/features/portfolio/components/section-shell"
-import { getPortfolioData } from "@/features/portfolio/lib/project-data"
+import { ProjectCard } from "@/features/portfolio/components/project-card";
+import { SectionShell } from "@/features/portfolio/components/section-shell";
+import { getPortfolioData } from "@/features/portfolio/lib/project-data";
 
 export const metadata: Metadata = {
   title: "Projects",
-}
+};
 
 export default async function ProjectsPage() {
-  const { projects } = await getPortfolioData()
+  const { projects } = await getPortfolioData();
 
   return (
     <SectionShell
@@ -22,5 +22,5 @@ export default async function ProjectsPage() {
         ))}
       </div>
     </SectionShell>
-  )
+  );
 }

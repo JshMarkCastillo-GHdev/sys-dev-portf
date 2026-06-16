@@ -10,6 +10,9 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    env:
+      # Do not set NODE_ENV=production at the job level — npm ci skips
+      # devDependencies (eslint, prettier, jest) when NODE_ENV is production.
 
     steps:
       - name: Checkout repository
@@ -27,8 +30,13 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Typecheck
-        run: npm run typecheck
+      - name: Prettier format check
+        run: npm run format
+
+      - name: Unit tests (Jest)
+        run: npm run test:unit
 
       - name: Build
         run: npm run build
+        env:
+          NODE_ENV: production

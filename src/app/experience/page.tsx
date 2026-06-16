@@ -1,15 +1,15 @@
-import type { Metadata } from "next"
+import type { Metadata } from "next";
 
-import { ExperienceCard } from "@/features/portfolio/components/experience-card"
-import { SectionShell } from "@/features/portfolio/components/section-shell"
+import { ExperienceCard } from "@/features/portfolio/components/experience-card";
+import { SectionShell } from "@/features/portfolio/components/section-shell";
 import {
   educationItems,
   experienceItems,
-} from "@/features/portfolio/data/portfolio-content"
+} from "@/features/portfolio/data/portfolio-content";
 
 export const metadata: Metadata = {
   title: "Experience",
-}
+};
 
 export default function ExperiencePage() {
   return (
@@ -26,13 +26,9 @@ export default function ExperiencePage() {
           />
         ))}
         {educationItems.map((item) => (
-          <ExperienceCard
-            key={item.id}
-            item={item}
-            subtitle="Education"
-          />
+          <ExperienceCard key={item.id} item={item} subtitle="Education" />
         ))}
       </div>
     </SectionShell>
-  )
+  );
 }

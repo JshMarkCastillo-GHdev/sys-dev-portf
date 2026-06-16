@@ -1,16 +1,16 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils"
-import { Container } from "@/components/layout/container"
+import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/container";
 
 type SectionShellProps = {
-  id?: string
-  eyebrow?: string
-  title: string
-  description?: string
-  children: ReactNode
-  className?: string
-}
+  id?: string;
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  children: ReactNode;
+  className?: string;
+};
 
 export function SectionShell({
   id,
@@ -41,5 +41,5 @@ export function SectionShell({
         {children}
       </Container>
     </section>
-  )
+  );
 }
