@@ -9,7 +9,7 @@ on:
   pull_request:
     branches:
       - feat/app-development
-      
+
 jobs:
   validate:
     runs-on: ubuntu-latest
