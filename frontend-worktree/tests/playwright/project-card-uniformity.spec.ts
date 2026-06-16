@@ -233,6 +233,8 @@ test.describe("Project Card UI Uniformity", () => {
       // Photobooth and POS should NOT have featured badge
       if (title?.includes("Photobooth") || title?.includes("Point-of-Sale")) {
         expect(hasFeaturedBadge).toBe(false);
+      } else {
+        expect(hasFeaturedBadge).toBe(isFeaturedProject);
       }
 
       // Featured badge should have consistent styling

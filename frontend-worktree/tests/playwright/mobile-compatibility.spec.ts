@@ -175,16 +175,13 @@ test.describe("Mobile View - Layout Adaptation", () => {
       const secondButtonBox = await buttons.nth(1).boundingBox();
 
       if (firstButtonBox && secondButtonBox) {
-        // On very small screens, buttons should stack vertically
+        // On very small screens, buttons may stack vertically or sit side by side
         const isVerticalStack =
           secondButtonBox.y > firstButtonBox.y + firstButtonBox.height - 5;
+        const isHorizontalLayout =
+          secondButtonBox.x >= firstButtonBox.x + firstButtonBox.width - 5;
 
-        // Either vertical or horizontal is acceptable, but they should not overlap
-        const noOverlap =
-          secondButtonBox.x >= firstButtonBox.x + firstButtonBox.width - 5 ||
-          secondButtonBox.y >= firstButtonBox.y + firstButtonBox.height - 5;
-
-        expect(noOverlap).toBe(true);
+        expect(isVerticalStack || isHorizontalLayout).toBe(true);
       }
     }
 
@@ -448,6 +445,11 @@ test.describe("Responsive Breakpoint Tests", () => {
           if (isMobile) {
             // Should be stacked vertically
             expect(secondBox.y).toBeGreaterThan(firstBox.y);
+          } else if (isTablet) {
+            // Tablet may use 1 or 2 columns; cards should not occupy the same slot
+            const stacked = secondBox.y > firstBox.y;
+            const sideBySide = secondBox.x > firstBox.x;
+            expect(stacked || sideBySide).toBe(true);
           } else if (isDesktop) {
             // Should be side by side (2-column grid)
             expect(secondBox.x).toBeGreaterThan(firstBox.x);
