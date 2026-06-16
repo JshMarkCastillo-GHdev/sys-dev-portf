@@ -21,26 +21,26 @@ export function SkillsGrid() {
     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {skillGroups.map((group) => (
         <ScrollReveal key={group.title}>
-            <Card className="h-full rounded-[1.8rem] border border-border/70 bg-card/95 shadow-lg shadow-black/25 transition hover:border-foreground/35 hover:bg-accent/70">
-              <CardHeader className="space-y-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="min-w-0 space-y-3">
-                    <IconBadge size="lg">
-                      {(() => {
-                        const Icon = iconMap[group.icon as keyof typeof iconMap];
-                        return <Icon className="size-5" />;
-                      })()}
-                    </IconBadge>
-                    <div className="space-y-2">
-                      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                        Expertise
-                      </p>
-                      <CardTitle className="break-words text-2xl">
-                        {group.title}
-                      </CardTitle>
-                    </div>
+          <Card className="h-full rounded-[1.8rem] border border-border/70 bg-card/95 shadow-lg shadow-black/25 transition hover:border-foreground/35 hover:bg-accent/70">
+            <CardHeader className="space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0 space-y-3">
+                  <IconBadge size="lg">
+                    {(() => {
+                      const Icon = iconMap[group.icon as keyof typeof iconMap];
+                      return <Icon className="size-5" />;
+                    })()}
+                  </IconBadge>
+                  <div className="space-y-2">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                      Expertise
+                    </p>
+                    <CardTitle className="break-words text-2xl">
+                      {group.title}
+                    </CardTitle>
                   </div>
                 </div>
+              </div>
               <p className="text-sm leading-7 text-muted-foreground">
                 {group.description}
               </p>

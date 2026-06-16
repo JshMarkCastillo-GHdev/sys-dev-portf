@@ -1,18 +1,19 @@
 # Repository Public Setup Guide
 
 ## Goal
+
 Make your repos public so GitHub API can provide live stats (stars, forks, last updated) to your portfolio.
 
 ---
 
 ## Repos to Make Public
 
-| Priority | Repo | GitHub URL | Status |
-|----------|------|------------|--------|
-| 1 | Portfolio | `JshMarkCastillo-GHdev/sys-dev-portf` | ✅ In allowlist |
-| 2 | YoloV8 App | `JshMarkCastillo-GHdev/yolov8-webApp-reactVite` | ✅ In allowlist |
-| 3 | POS System | `JshMarkCastillo-GHdev/sys-pos-system` | ✅ In allowlist |
-| 4 | Photobooth | `ryMGDLT/photobotth` | ⚠️ External owner |
+| Priority | Repo       | GitHub URL                                      | Status            |
+| -------- | ---------- | ----------------------------------------------- | ----------------- |
+| 1        | Portfolio  | `JshMarkCastillo-GHdev/sys-dev-portf`           | ✅ In allowlist   |
+| 2        | YoloV8 App | `JshMarkCastillo-GHdev/yolov8-webApp-reactVite` | ✅ In allowlist   |
+| 3        | POS System | `JshMarkCastillo-GHdev/sys-pos-system`          | ✅ In allowlist   |
+| 4        | Photobooth | `ryMGDLT/photobotth`                            | ⚠️ External owner |
 
 ---
 
@@ -34,6 +35,7 @@ For each repo above (1-3):
 For each repo, add a license to protect your code:
 
 #### Quick Way (GitHub UI)
+
 1. Go to repo main page
 2. Click **"Add file"** → **"Create new file"**
 3. Name it `LICENSE`
@@ -43,6 +45,7 @@ For each repo, add a license to protect your code:
 7. Commit to main branch
 
 #### What MIT License Means
+
 - ✅ Others can view your code
 - ✅ Others can fork/study it
 - ❌ Others cannot claim they wrote it
@@ -68,6 +71,7 @@ build/
 ```
 
 #### Check for secrets in code:
+
 ```bash
 # Search for potential secrets
 grep -r "api_key" .
@@ -77,6 +81,7 @@ grep -r "token" .
 ```
 
 If you find any:
+
 1. Remove from code
 2. Move to `.env` file
 3. Add `.env` to `.gitignore`
@@ -98,6 +103,7 @@ This repository is a **portfolio project** demonstrating full-stack development 
 - See LICENSE file for usage terms
 
 ## Live Demo
+
 [Link to your Vercel deployment]
 ```
 
@@ -110,6 +116,7 @@ This repository is a **portfolio project** demonstrating full-stack development 
 Since this repo is under a different GitHub account, you have these options:
 
 ### Option A: Fork to Your Account (Recommended)
+
 1. Go to `https://github.com/ryMGDLT/photobotth`
 2. Click **"Fork"** button (top right)
 3. Fork to `JshMarkCastillo-GHdev`
@@ -119,12 +126,15 @@ Since this repo is under a different GitHub account, you have these options:
    - `githubRepo: "photobotth"`
 
 ### Option B: Keep Linking to Original
+
 - No changes needed
 - Portfolio will show static data only (no live stars/forks)
 - Original repo must be public for the link to work
 
 ### Option C: Create Your Own Version
+
 If you contributed significantly, consider creating a new repo with your implementation:
+
 1. Create new repo: `JshMarkCastillo-GHdev/photobooth-app`
 2. Push your branch code there
 3. Update portfolio config accordingly

@@ -19,7 +19,7 @@ Developer portfolio built with Next.js App Router, Turbopack, React, TypeScript,
 - **GitHub enrichment**: Public GitHub profile and repository data is fetched server-side and merged with local project content.
 - **Project detail routes**: Project pages are generated from stable local slugs under `src/app/projects/[slug]/`.
 - **Static contact surface**: Contact uses public links and resume download only; no public write endpoint is exposed.
-- **CI and deployment**: GitHub Actions validates lint, typecheck, and build. Render deployment is configured in `render.yaml`.
+- **CI and deployment**: GitHub Actions validates lint, Prettier format, unit tests, and build. Render deployment is configured in `render.yaml`.
 
 ## Getting Started
 
@@ -43,18 +43,18 @@ npm run dev
 
 ## Environment Variables
 
-| Variable                    | Required | Purpose                                                  |
-| --------------------------- | -------- | -------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`      | Yes      | Public site URL used for metadata and deployment         |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | No       | Optional public email override for the contact section   |
-| `NEXT_PUBLIC_RESUME_URL`    | No       | Optional public resume path override                     |
+| Variable                    | Required | Purpose                                                |
+| --------------------------- | -------- | ------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL`      | Yes      | Public site URL used for metadata and deployment       |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | No       | Optional public email override for the contact section |
+| `NEXT_PUBLIC_RESUME_URL`    | No       | Optional public resume path override                   |
 
 ## Production Behavior
 
 - Production uses local portfolio content only.
 - No live GitHub API requests are required for the deployed site.
 - Project, profile, and contact content are sourced from `src/features/portfolio/data/portfolio-content.ts`.
-- GitHub Actions CI runs lint, typecheck, and build on pushes and pull requests.
+- GitHub Actions CI runs lint, format check, unit tests (`test:unit`), and build on pushes and pull requests.
 - `GITHUB_TOKEN` must stay server-only and must not use the `NEXT_PUBLIC_` prefix.
 - The repository allowlist should be documented and configured consistently with the matching logic in `src/lib/github.ts`.
 

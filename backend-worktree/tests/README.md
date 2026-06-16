@@ -38,11 +38,11 @@ Tests cover:
 
 ### GitHub API Functions (`src/lib/github.ts`)
 
-| Function | Coverage |
-|----------|----------|
-| `getGithubProfile()` | ✅ Username validation, profile fetching, error handling |
-| `getGithubRepos()` | ✅ URL parsing from allowlist, filtering, sorting |
-| `mergeProjectsWithGithub()` | ✅ Data merging, enrichment, edge cases |
+| Function                    | Coverage                                                 |
+| --------------------------- | -------------------------------------------------------- |
+| `getGithubProfile()`        | ✅ Username validation, profile fetching, error handling |
+| `getGithubRepos()`          | ✅ URL parsing from allowlist, filtering, sorting        |
+| `mergeProjectsWithGithub()` | ✅ Data merging, enrichment, edge cases                  |
 
 ### Key Test Scenarios
 
@@ -55,6 +55,7 @@ Tests cover:
 ## Mocking
 
 Tests use Jest mocks for:
+
 - `global.fetch` - GitHub API calls
 - `console.error` - Suppressed during tests
 - `process.env.GITHUB_TOKEN` - Mock token
@@ -64,6 +65,7 @@ Tests use Jest mocks for:
 Jest config: `jest.config.js` (project root)
 
 Key settings:
+
 - Environment: `node`
 - Test location: `backend-worktree/tests/`
 - Coverage directory: `backend-worktree/tests/coverage/`
@@ -73,23 +75,23 @@ Key settings:
 
 ```typescript
 // Example test structure
-describe('Feature Name', () => {
+describe("Feature Name", () => {
   beforeEach(() => {
     // Reset mocks
-    jest.clearAllMocks()
-  })
+    jest.clearAllMocks();
+  });
 
-  it('should do something specific', () => {
+  it("should do something specific", () => {
     // Arrange
-    const input = 'test'
-    
+    const input = "test";
+
     // Act
-    const result = functionUnderTest(input)
-    
+    const result = functionUnderTest(input);
+
     // Assert
-    expect(result).toBe(expected)
-  })
-})
+    expect(result).toBe(expected);
+  });
+});
 ```
 
 ## CI/CD Integration
@@ -97,6 +99,7 @@ describe('Feature Name', () => {
 Tests run automatically in GitHub Actions workflow (`.github/workflows/ci.yml`).
 
 Add to CI:
+
 ```yaml
 - name: Run Jest Tests
   run: npm test

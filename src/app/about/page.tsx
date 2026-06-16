@@ -1,11 +1,11 @@
-import type { Metadata } from "next"
+import type { Metadata } from "next";
 
-import { AboutCard } from "@/features/portfolio/components/about-card"
-import { SectionShell } from "@/features/portfolio/components/section-shell"
+import { AboutCard } from "@/features/portfolio/components/about-card";
+import { SectionShell } from "@/features/portfolio/components/section-shell";
 
 export const metadata: Metadata = {
   title: "About",
-}
+};
 
 export default function AboutPage() {
   return (
@@ -15,5 +15,5 @@ export default function AboutPage() {
     >
       <AboutCard />
     </SectionShell>
-  )
+  );
 }

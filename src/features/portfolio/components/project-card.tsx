@@ -33,22 +33,27 @@ type ProjectImageProps = {
   onError: () => void;
 };
 
-function ProjectImage({ project, projectCoverImageSrc, canRenderProjectImage, onError }: ProjectImageProps) {
+function ProjectImage({
+  project,
+  projectCoverImageSrc,
+  canRenderProjectImage,
+  onError,
+}: ProjectImageProps) {
   const router = useRouter();
-  
+
   const handleClick = () => {
     router.push(`/projects/${project.slug}`);
   };
-  
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       router.push(`/projects/${project.slug}`);
     }
   };
-  
+
   return (
-    <div 
+    <div
       data-testid="project-image-link"
       onClick={handleClick}
       onKeyDown={handleKeyDown}
@@ -80,10 +85,16 @@ function ProjectImage({ project, projectCoverImageSrc, canRenderProjectImage, on
 
 // Extract GitHub stats from project highlights (enriched by backend)
 function extractGithubStats(highlights: string[]) {
-  const starsMatch = highlights.find(h => h.includes('GitHub stars'))?.match(/(\d+)/);
-  const forksMatch = highlights.find(h => h.includes('Forks'))?.match(/(\d+)/);
-  const updatedMatch = highlights.find(h => h.includes('Last updated'))?.replace('Last updated: ', '');
-  
+  const starsMatch = highlights
+    .find((h) => h.includes("GitHub stars"))
+    ?.match(/(\d+)/);
+  const forksMatch = highlights
+    .find((h) => h.includes("Forks"))
+    ?.match(/(\d+)/);
+  const updatedMatch = highlights
+    .find((h) => h.includes("Last updated"))
+    ?.replace("Last updated: ", "");
+
   return {
     stars: starsMatch ? parseInt(starsMatch[1], 10) : null,
     forks: forksMatch ? parseInt(forksMatch[1], 10) : null,
@@ -100,10 +111,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
     project.coverImageSrc ?? project.screenshotImageSrcs?.[0];
   const canRenderProjectImage =
     Boolean(projectCoverImageSrc) && !hasProjectImageError;
-  
+
   // Extract GitHub stats from enriched highlights
   const githubStats = extractGithubStats(project.highlights || []);
-  
+
   const visibleDescription =
     showFullDescription || !hasLongDescription
       ? project.description
@@ -125,15 +136,24 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {project.summary}
               </p>
               <div className="flex flex-wrap items-center gap-2 pt-2">
-                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                <Badge
+                  variant="outline"
+                  className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs"
+                >
                   <Star className="mr-1 size-3 text-yellow-500" />
                   {githubStats.stars !== null ? githubStats.stars : "—"}
                 </Badge>
-                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                <Badge
+                  variant="outline"
+                  className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs"
+                >
                   <GitFork className="mr-1 size-3 text-blue-500" />
                   {githubStats.forks !== null ? githubStats.forks : "—"}
                 </Badge>
-                <Badge variant="outline" className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs">
+                <Badge
+                  variant="outline"
+                  className="rounded-full border-border/60 bg-background/80 px-2 py-0.5 text-xs"
+                >
                   <Calendar className="mr-1 size-3 text-muted-foreground" />
                   {githubStats.updated || "—"}
                 </Badge>
@@ -152,8 +172,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <CardContent className="flex flex-1 flex-col gap-5">
           <div className="rounded-[1.45rem] border border-dashed border-border/80 bg-background/80 p-5 sm:p-6">
-            <ProjectImage 
-              project={project} 
+            <ProjectImage
+              project={project}
               projectCoverImageSrc={projectCoverImageSrc}
               canRenderProjectImage={canRenderProjectImage}
               onError={() => setHasProjectImageError(true)}

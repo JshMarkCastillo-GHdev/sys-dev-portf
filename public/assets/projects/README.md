@@ -15,6 +15,8 @@ Current mapping used by the app:
 - `project_1/` -> Full Stack Developer Portfolio
 - `project_2/` -> YoloV8 App with React/Vite
 - `project_3/` -> Point-of-Sale Generic System
+- `project_4/` -> Photobooth Application
+- `project_5/` -> Centry Ticketing System
 
 Recommended ratios and sizes:
 - Feature screenshots: `16:10`

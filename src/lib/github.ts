@@ -1,155 +1,100 @@
-import "server-only"
-
-
+import "server-only";
 
 import type {
-
   GithubProfile,
-
   GithubProjectRepo,
-
   ProjectItem,
-
-} from "@/features/portfolio/types/portfolio"
-
-
+} from "@/features/portfolio/types/portfolio";
 
 type GithubProfileResponse = {
+  avatar_url: string;
 
-  avatar_url: string
+  bio: string | null;
 
-  bio: string | null
+  blog: string | null;
 
-  blog: string | null
+  company: string | null;
 
-  company: string | null
+  followers: number;
 
-  followers: number
+  location: string | null;
 
-  location: string | null
+  login: string;
 
-  login: string
+  name: string | null;
 
-  name: string | null
-
-  public_repos: number
-
-}
-
-
+  public_repos: number;
+};
 
 type GithubRepoResponse = {
+  id: number;
 
-  id: number
+  name: string;
 
-  name: string
+  description: string | null;
 
-  description: string | null
+  html_url: string;
 
-  html_url: string
+  homepage: string | null;
 
-  homepage: string | null
+  stargazers_count: number;
 
-  stargazers_count: number
+  forks_count: number;
 
-  forks_count: number
+  updated_at: string;
 
-  updated_at: string
+  topics?: string[];
 
-  topics?: string[]
+  language: string | null;
 
-  language: string | null
+  archived: boolean;
 
-  archived: boolean
-
-  fork: boolean
-
-}
-
-
+  fork: boolean;
+};
 
 function getGithubHeaders(): HeadersInit {
-
   const headers: HeadersInit = {
-
     Accept: "application/vnd.github+json",
 
     "User-Agent": "sys-dev-portf",
+  };
 
-  }
-
-
-
-  const token = process.env.GITHUB_TOKEN?.trim()
-
-
+  const token = process.env.GITHUB_TOKEN?.trim();
 
   if (token) {
-
-    headers.Authorization = `Bearer ${token}`
-
+    headers.Authorization = `Bearer ${token}`;
   }
 
-
-
-  return headers
-
+  return headers;
 }
 
-
-
 async function fetchGithubJson<T>(url: string): Promise<T> {
-
   const response = await fetch(url, {
-
     headers: getGithubHeaders(),
 
     next: { revalidate: 3600 },
-
-  })
-
-
+  });
 
   if (!response.ok) {
-
-    throw new Error(`GitHub request failed with status ${response.status}`)
-
+    throw new Error(`GitHub request failed with status ${response.status}`);
   }
 
-
-
-  return (await response.json()) as T
-
+  return (await response.json()) as T;
 }
 
-
-
 export async function getGithubProfile(
-
-  username: string
-
+  username: string,
 ): Promise<GithubProfile | null> {
-
   if (!username) {
-
-    return null
-
+    return null;
   }
 
-
-
   try {
-
     const profile = await fetchGithubJson<GithubProfileResponse>(
-
-      `https://api.github.com/users/${username}`
-
-    )
-
-
+      `https://api.github.com/users/${username}`,
+    );
 
     return {
-
       username: profile.login,
 
       displayName: profile.name || profile.login,
@@ -167,82 +112,51 @@ export async function getGithubProfile(
       location: profile.location || undefined,
 
       blog: profile.blog || undefined,
-
-    }
-
+    };
   } catch (error) {
+    console.error("Failed to fetch GitHub profile", error);
 
-    console.error("Failed to fetch GitHub profile", error)
-
-    return null
-
+    return null;
   }
-
 }
 
-
-
 export async function getGithubRepos(
-
   username: string,
 
-  allowlist: string[]
-
+  allowlist: string[],
 ): Promise<GithubProjectRepo[]> {
-
   if (!username) {
-
-    return []
-
+    return [];
   }
 
-
-
   try {
-
     const repos = await fetchGithubJson<GithubRepoResponse[]>(
-
-      `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
-
-    )
-
-
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,
+    );
 
     // Extract repo names from allowlist (handles both full URLs and plain repo names)
 
     const allowed = new Set(
-
       allowlist.map((entry) => {
-
-        const trimmed = entry.trim().toLowerCase()
+        const trimmed = entry.trim().toLowerCase();
 
         // If it's a URL, extract the repo name from the last path segment
 
         if (trimmed.startsWith("http")) {
-
           try {
+            const url = new URL(trimmed);
 
-            const url = new URL(trimmed)
+            const segments = url.pathname.split("/").filter(Boolean);
 
-            const segments = url.pathname.split("/").filter(Boolean)
-
-            return segments[segments.length - 1] || trimmed
-
+            return segments[segments.length - 1] || trimmed;
           } catch {
-
-            return trimmed
-
+            return trimmed;
           }
-
         }
 
-        return trimmed
-
-      })
-
-    )
-
-
+        return trimmed;
+      }),
+    );
 
     return repos
 
@@ -251,7 +165,6 @@ export async function getGithubRepos(
       .filter((repo) => allowed.has(repo.name.toLowerCase()))
 
       .map((repo) => ({
-
         id: repo.id,
 
         name: repo.name,
@@ -271,77 +184,45 @@ export async function getGithubRepos(
         topics: repo.topics || [],
 
         language: repo.language || undefined,
-
       }))
 
-      .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
-
+      .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt));
   } catch (error) {
+    console.error("Failed to fetch GitHub repositories", error);
 
-    console.error("Failed to fetch GitHub repositories", error)
-
-    return []
-
+    return [];
   }
-
 }
 
-
-
 export function mergeProjectsWithGithub(
-
   projects: ProjectItem[],
 
-  repos: GithubProjectRepo[]
-
+  repos: GithubProjectRepo[],
 ): ProjectItem[] {
-
-  const repoMap = new Map(
-
-    repos.map((repo) => [repo.name.toLowerCase(), repo])
-
-  )
-
-
+  const repoMap = new Map(repos.map((repo) => [repo.name.toLowerCase(), repo]));
 
   return projects.map((project) => {
-
     const matchedRepo = project.githubRepo
-
       ? repoMap.get(project.githubRepo.toLowerCase())
-
-      : undefined
-
-
+      : undefined;
 
     if (!matchedRepo) {
-
-      return project
-
+      return project;
     }
 
-
-
-    const repoTopics = matchedRepo.topics.slice(0, 4)
+    const repoTopics = matchedRepo.topics.slice(0, 4);
 
     const mergedStack = Array.from(
-
       new Set([
-
         ...project.techStack,
 
         ...(matchedRepo.language ? [matchedRepo.language] : []),
 
         ...repoTopics,
-
-      ])
-
-    )
-
-
+      ]),
+    );
 
     return {
-
       ...project,
 
       summary: matchedRepo.description || project.summary,
@@ -353,28 +234,23 @@ export function mergeProjectsWithGithub(
       techStack: mergedStack,
 
       highlights: [
-
         `GitHub stars: ${matchedRepo.stars}`,
 
         `Forks: ${matchedRepo.forks}`,
 
-        `Last updated: ${new Date(matchedRepo.updatedAt).toLocaleDateString("en-US", {
+        `Last updated: ${new Date(matchedRepo.updatedAt).toLocaleDateString(
+          "en-US",
+          {
+            month: "short",
 
-          month: "short",
+            day: "numeric",
 
-          day: "numeric",
-
-          year: "numeric",
-
-        })}`,
+            year: "numeric",
+          },
+        )}`,
 
         ...project.highlights,
-
       ].slice(0, 5),
-
-    }
-
-  })
-
+    };
+  });
 }
-

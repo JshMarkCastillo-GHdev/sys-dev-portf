@@ -1,9 +1,11 @@
 # Portfolio Placeholder Guide
 
 Primary edit file:
+
 - `src/features/portfolio/data/portfolio-content.ts`
 
 Primary asset directories:
+
 - `public/assets/profile/`
 - `public/assets/projects/`
 - `public/assets/brand/`
@@ -71,6 +73,7 @@ Primary asset directories:
   `screenshotImageSrcs`
 
 Current project asset paths:
+
 - `featuredProjects[0].coverImageSrc`
   `/assets/projects/project_1/cover.png`
 - `featuredProjects[0].screenshotImageSrcs`
@@ -88,6 +91,7 @@ Current project asset paths:
   `/assets/projects/project_3/screen-02.png`
 
 Recommended screenshot sizes:
+
 - Feature screenshots: `16:10`
 - Preferred export: `1600x1000`
 - Smaller acceptable export: `1280x800`

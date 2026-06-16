@@ -1,12 +1,12 @@
-import type { Metadata } from "next"
+import type { Metadata } from "next";
 
-import { ExperienceCard } from "@/features/portfolio/components/experience-card"
-import { SectionShell } from "@/features/portfolio/components/section-shell"
-import { experienceItems } from "@/features/portfolio/data/portfolio-content"
+import { ExperienceCard } from "@/features/portfolio/components/experience-card";
+import { SectionShell } from "@/features/portfolio/components/section-shell";
+import { experienceItems } from "@/features/portfolio/data/portfolio-content";
 
 export const metadata: Metadata = {
   title: "Industry Experience",
-}
+};
 
 export default function IndustryExperiencePage() {
   return (
@@ -24,5 +24,5 @@ export default function IndustryExperiencePage() {
         ))}
       </div>
     </SectionShell>
-  )
+  );
 }

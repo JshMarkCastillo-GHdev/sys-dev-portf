@@ -11,9 +11,11 @@ This Playwright test suite validates the UI uniformity, mobile compatibility, an
 ## Test Coverage
 
 ### 1. UI Uniformity Tests (`project-card-uniformity.spec.ts`)
+
 **Scope:** Frontend Only
 
 Validates that all project cards (project_1 through project_4) render with consistent:
+
 - Card dimensions and structure
 - Typography and styling
 - Tech stack badge rendering
@@ -24,6 +26,7 @@ Validates that all project cards (project_1 through project_4) render with consi
 - Content completeness
 
 **Key Test Cases:**
+
 - ✅ All 4 project cards render with uniform dimensions
 - ✅ Project_4 (Photobooth) matches the structure of other cards
 - ✅ Featured badges appear correctly (project_1, project_2 featured; project_3, project_4 not featured)
@@ -32,9 +35,11 @@ Validates that all project cards (project_1 through project_4) render with consi
 - ✅ Action buttons are properly positioned
 
 ### 2. Mobile Compatibility Tests (`mobile-compatibility.spec.ts`)
+
 **Scope:** Frontend Only
 
 Validates responsive behavior across mobile viewports:
+
 - iPhone SE (375x667)
 - iPhone 14 Pro Max (430x932)
 - Pixel 7 (412x915)
@@ -42,6 +47,7 @@ Validates responsive behavior across mobile viewports:
 - Custom small mobile (375x667)
 
 **Key Test Cases:**
+
 - ✅ Cards stack vertically on mobile (single column)
 - ✅ Project_4 card fits within mobile viewport without overflow
 - ✅ Text remains readable (minimum 14px font size)
@@ -52,14 +58,17 @@ Validates responsive behavior across mobile viewports:
 - ✅ Show more/less toggle works on touch
 
 ### 3. Cross-Browser Compatibility Tests (`cross-browser-compatibility.spec.ts`)
+
 **Scope:** Frontend Only
 
 Validates consistent rendering and functionality across:
+
 - Chromium (Chrome)
 - Firefox
 - WebKit (Safari)
 
 **Key Test Cases:**
+
 - ✅ Visual styling consistency (border-radius, colors, shadows)
 - ✅ CSS transitions work correctly
 - ✅ Font rendering consistency
@@ -90,12 +99,14 @@ Projects:
 ## Running Tests
 
 ### Prerequisites
+
 ```bash
 # Install Playwright browsers
 npx playwright install
 ```
 
 ### Run All Tests
+
 ```bash
 # From frontend-worktree/tests/playwright/
 npx playwright test
@@ -105,6 +116,7 @@ npx playwright test frontend-worktree/tests/playwright/
 ```
 
 ### Run Specific Test Suite
+
 ```bash
 # UI Uniformity only
 npx playwright test project-card-uniformity.spec.ts
@@ -117,12 +129,14 @@ npx playwright test cross-browser-compatibility.spec.ts
 ```
 
 ### Run Specific Browser
+
 ```bash
 npx playwright test --project="Desktop Chrome"
 npx playwright test --project="Mobile iPhone 14 Pro Max"
 ```
 
 ### Debug Mode
+
 ```bash
 npx playwright test --debug
 ```
@@ -130,6 +144,7 @@ npx playwright test --debug
 ## Test Results
 
 Results are output to:
+
 - HTML Report: `frontend-worktree/test-results/html-report/`
 - JSON Results: `frontend-worktree/test-results/test-results.json`
 - Screenshots (on failure): `frontend-worktree/test-results/`
@@ -197,9 +212,11 @@ The tests rely on the following data attributes being present in the ProjectCard
 ## Out of Scope (Requires Other Roles)
 
 ### Backend Integration Tests
+
 **Role Required:** Backend QA Engineer
 
 These tests are NOT covered as they require backend coordination:
+
 - GitHub API integration (fetching repo data)
 - Dynamic content loading from database
 - Form submission handling (contact form)
@@ -207,9 +224,11 @@ These tests are NOT covered as they require backend coordination:
 - API endpoint testing
 
 ### Security Audit Tests
+
 **Role Required:** Security QA Engineer
 
 Not covered in this frontend-focused suite:
+
 - XSS vulnerability testing
 - CSRF protection validation
 - Content Security Policy enforcement
@@ -217,9 +236,11 @@ Not covered in this frontend-focused suite:
 - Authorization boundary testing
 
 ### Performance Benchmark Tests
+
 **Role Required:** Performance QA Engineer
 
 Advanced performance testing not covered:
+
 - Lighthouse CI integration
 - Core Web Vitals threshold validation
 - Bundle size analysis
@@ -227,9 +248,11 @@ Advanced performance testing not covered:
 - CDN performance testing
 
 ### Accessibility Audit Tests
+
 **Role Required:** Accessibility QA Engineer
 
 While basic touch targets are checked, full a11y audit requires:
+
 - Screen reader compatibility (NVDA, JAWS, VoiceOver)
 - Keyboard-only navigation flows
 - Color contrast ratio validation (WCAG AA)
@@ -237,9 +260,11 @@ While basic touch targets are checked, full a11y audit requires:
 - Focus management validation
 
 ### Visual Regression Tests
+
 **Role Required:** UI/Visual QA Engineer
 
 Pixel-perfect comparison testing:
+
 - Screenshot comparison baselines
 - Component-level visual diffing
 - Design system token compliance
@@ -270,7 +295,7 @@ When adding new projects or modifying the ProjectCard component:
 - name: Run Playwright Tests
   run: |
     npx playwright test frontend-worktree/tests/playwright/
-    
+
 - name: Upload Test Results
   uses: actions/upload-artifact@v3
   if: always()

@@ -1,9 +1,9 @@
-import type { NextConfig } from "next"
+import type { NextConfig } from "next";
 
 // Parse dev origins from env var (comma-separated) or default to localhost
 const devOrigins = process.env.NEXT_PUBLIC_DEV_ORIGINS
   ? process.env.NEXT_PUBLIC_DEV_ORIGINS.split(",").map((o) => o.trim())
-  : ["localhost"]
+  : ["localhost"];
 
 const securityHeaders = [
   {
@@ -32,9 +32,10 @@ const securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://avatars.githubusercontent.com https://opengraph.githubassets.com data: blob:; font-src 'self'; connect-src 'self' https://api.github.com; frame-ancestors 'none'; upgrade-insecure-requests",
+    value:
+      "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://avatars.githubusercontent.com https://opengraph.githubassets.com data: blob:; font-src 'self'; connect-src 'self' https://api.github.com; frame-ancestors 'none'; upgrade-insecure-requests",
   },
-]
+];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: devOrigins,
@@ -56,7 +57,7 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
-    ]
+    ];
   },
   async redirects() {
     return [
@@ -75,8 +76,8 @@ const nextConfig: NextConfig = {
         destination: "/projects/project_3",
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

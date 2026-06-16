@@ -19,18 +19,18 @@ Three main functions available:
 
 ```typescript
 // 1. Fetch GitHub profile
-const profile = await getGithubProfile('JshMarkCastillo-GHdev')
+const profile = await getGithubProfile("JshMarkCastillo-GHdev");
 // Returns: avatar, bio, followers, publicRepos, etc.
 
 // 2. Fetch GitHub repos with filtering
-const repos = await getGithubRepos('JshMarkCastillo-GHdev', [
-  'https://github.com/JshMarkCastillo-GHdev/sys-dev-portf',
-  'https://github.com/JshMarkCastillo-GHdev/sys-pos-system',
-])
+const repos = await getGithubRepos("JshMarkCastillo-GHdev", [
+  "https://github.com/JshMarkCastillo-GHdev/sys-dev-portf",
+  "https://github.com/JshMarkCastillo-GHdev/sys-pos-system",
+]);
 // Returns: stars, forks, updatedAt, topics, language, etc.
 
 // 3. Merge GitHub data with projects
-const enrichedProjects = mergeProjectsWithGithub(projects, repos)
+const enrichedProjects = mergeProjectsWithGithub(projects, repos);
 // Returns: Projects with merged techStack, highlights, live stats
 ```
 
@@ -50,12 +50,12 @@ ProjectCard, ProjectDetail components
 
 ### 3. What's Already Configured
 
-| Project | githubRepo Field | In Allowlist | GitHub Enrichment |
-|---------|------------------|--------------|-------------------|
-| Portfolio (project_1) | `sys-dev-portf` | ✅ Yes | ✅ Active |
-| YoloV8 (project_2) | `yolov8-webApp-reactVite` | ✅ Yes | ✅ Active |
-| POS System (project_3) | `sys-pos-system` | ✅ Yes | ✅ Active |
-| Photobooth (project_4) | ❌ None | ✅ Yes | ⚠️ External (static only) |
+| Project                | githubRepo Field          | In Allowlist | GitHub Enrichment         |
+| ---------------------- | ------------------------- | ------------ | ------------------------- |
+| Portfolio (project_1)  | `sys-dev-portf`           | ✅ Yes       | ✅ Active                 |
+| YoloV8 (project_2)     | `yolov8-webApp-reactVite` | ✅ Yes       | ✅ Active                 |
+| POS System (project_3) | `sys-pos-system`          | ✅ Yes       | ✅ Active                 |
+| Photobooth (project_4) | ❌ None                   | ✅ Yes       | ⚠️ External (static only) |
 
 ---
 
@@ -75,14 +75,14 @@ ProjectCard, ProjectDetail components
 ```tsx
 // In ProjectCard, access enriched data from project prop:
 interface ProjectCardProps {
-  project: ProjectItem // This now has enriched data
+  project: ProjectItem; // This now has enriched data
 }
 
 // Display stars, forks, last updated from project.highlights
 // Example highlights after enrichment:
 // [
 //   "GitHub stars: 42",
-//   "Forks: 5", 
+//   "Forks: 5",
 //   "Last updated: Jan 15, 2024",
 //   "Original feature 1",
 //   "Original feature 2"
@@ -122,7 +122,7 @@ interface ProjectCardProps {
 ```tsx
 // Add section showing:
 // - ⭐ Stars: {extract from highlights}
-// - 🍴 Forks: {extract from highlights}  
+// - 🍴 Forks: {extract from highlights}
 // - 📅 Last updated: {extract from highlights}
 // - 🔗 GitHub repo link (project.repoUrl)
 ```
@@ -144,23 +144,26 @@ interface ProjectCardProps {
 **Status:** ✅ Already receiving enriched data
 
 **Verify:**
+
 ```tsx
 // Check that projects have highlights array with GitHub stats
-console.log(projects[0].highlights)
+console.log(projects[0].highlights);
 // Should see: ["GitHub stars: X", "Forks: Y", "Last updated: ..."]
 ```
 
 ### Task 4: Add Loading States
 
 **For Server Components:**
+
 ```tsx
 // Add loading.tsx for projects page
 export default function Loading() {
-  return <ProjectCardSkeleton count={4} />
+  return <ProjectCardSkeleton count={4} />;
 }
 ```
 
 **For GitHub Stats Display:**
+
 ```tsx
 // If no highlights (repo not public yet), show:
 <span className="text-muted-foreground">Stats unavailable</span>
@@ -170,9 +173,9 @@ export default function Loading() {
 
 ```tsx
 // If project.highlights doesn't include GitHub stats:
-const hasGithubStats = project.highlights?.some(h => 
-  h.includes('GitHub stars')
-)
+const hasGithubStats = project.highlights?.some((h) =>
+  h.includes("GitHub stars"),
+);
 
 if (!hasGithubStats) {
   // Show static content or "Make repo public to see stats"
@@ -187,16 +190,16 @@ if (!hasGithubStats) {
 
 ```typescript
 interface ProjectItem {
-  slug: string
-  title: string
-  summary: string           // ← May be updated from GitHub description
-  description: string
-  techStack: string[]       // ← Merged: original + GitHub lang + topics
-  repoUrl: string          // ← Updated from GitHub
-  liveUrl?: string         // ← May be updated from GitHub homepage
-  githubRepo?: string      // ← Field that triggers enrichment
-  highlights: string[]     // ← NEW: ["GitHub stars: X", "Forks: Y", ...]
-  featured: boolean
+  slug: string;
+  title: string;
+  summary: string; // ← May be updated from GitHub description
+  description: string;
+  techStack: string[]; // ← Merged: original + GitHub lang + topics
+  repoUrl: string; // ← Updated from GitHub
+  liveUrl?: string; // ← May be updated from GitHub homepage
+  githubRepo?: string; // ← Field that triggers enrichment
+  highlights: string[]; // ← NEW: ["GitHub stars: X", "Forks: Y", ...]
+  featured: boolean;
   // ... other fields
 }
 ```
@@ -206,17 +209,19 @@ interface ProjectItem {
 ```typescript
 // Method 1: From highlights array (recommended)
 const githubStats = {
-  stars: project.highlights.find(h => h.includes('stars'))?.match(/\d+/)?.[0],
-  forks: project.highlights.find(h => h.includes('Forks'))?.match(/\d+/)?.[0],
-  updated: project.highlights.find(h => h.includes('Last updated'))?.replace('Last updated: ', ''),
-}
+  stars: project.highlights.find((h) => h.includes("stars"))?.match(/\d+/)?.[0],
+  forks: project.highlights.find((h) => h.includes("Forks"))?.match(/\d+/)?.[0],
+  updated: project.highlights
+    .find((h) => h.includes("Last updated"))
+    ?.replace("Last updated: ", ""),
+};
 
 // Method 2: Parse from techStack (GitHub language is included)
-const githubLanguage = project.techStack.find(t => 
+const githubLanguage = project.techStack.find((t) =>
   // This is the primary language from GitHub
   // You'll need to compare against known languages
-  ['TypeScript', 'JavaScript', 'Python', 'Java', 'Go', 'Rust'].includes(t)
-)
+  ["TypeScript", "JavaScript", "Python", "Java", "Go", "Rust"].includes(t),
+);
 ```
 
 ---
@@ -226,7 +231,7 @@ const githubLanguage = project.techStack.find(t =>
 ### Visual Testing
 
 - [ ] Project cards show ⭐ stars count
-- [ ] Project cards show 🍴 forks count  
+- [ ] Project cards show 🍴 forks count
 - [ ] Project cards show 📅 last updated date
 - [ ] Tech stack includes GitHub language + topics
 - [ ] "Live preview" button uses correct URL
@@ -256,7 +261,8 @@ const githubLanguage = project.techStack.find(t =>
 ### Issue 1: No GitHub Stats Showing
 
 **Cause:** Repos not public yet  
-**Solution:** 
+**Solution:**
+
 1. Check `src/features/portfolio/data/portfolio-content.ts`
 2. Verify repos are in `repoAllowlist`
 3. Make repos public (see `REPO_PUBLIC_SETUP.md`)
@@ -265,6 +271,7 @@ const githubLanguage = project.techStack.find(t =>
 
 **Cause:** `githubRepo` field mismatch  
 **Solution:**
+
 ```typescript
 // Ensure project.githubRepo matches GitHub repo name:
 // ❌ githubRepo: "sys-pos-system-wrong"
@@ -281,15 +288,18 @@ const githubLanguage = project.techStack.find(t =>
 ## Environment Variables
 
 Ensure `.env.local` has:
+
 ```bash
 GITHUB_TOKEN=github_pat_11...your_token_here
 ```
 
 Without token:
+
 - API rate limit: 60 requests/hour
 - May fail in development with frequent refreshes
 
 With token:
+
 - API rate limit: 5,000 requests/hour
 - Required for production deployment
 
@@ -297,18 +307,19 @@ With token:
 
 ## Files You Need to Modify
 
-| File | Changes |
-|------|---------|
-| `src/features/portfolio/components/project-card.tsx` | Add GitHub stats display |
-| `src/app/projects/[slug]/page.tsx` | Add GitHub section in detail view |
-| `src/app/projects/page.tsx` | Verify data flow (already receiving enriched data) |
-| `src/app/projects/loading.tsx` | Add loading skeleton (optional) |
+| File                                                 | Changes                                            |
+| ---------------------------------------------------- | -------------------------------------------------- |
+| `src/features/portfolio/components/project-card.tsx` | Add GitHub stats display                           |
+| `src/app/projects/[slug]/page.tsx`                   | Add GitHub section in detail view                  |
+| `src/app/projects/page.tsx`                          | Verify data flow (already receiving enriched data) |
+| `src/app/projects/loading.tsx`                       | Add loading skeleton (optional)                    |
 
 ---
 
 ## Questions?
 
 If you encounter issues:
+
 1. Check browser console for errors
 2. Verify `project.highlights` array exists and has content
 3. Run `npm test` to verify backend tests pass

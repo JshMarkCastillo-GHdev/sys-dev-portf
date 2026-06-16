@@ -1,26 +1,14 @@
 # Project Audit
 
-
-
 This audit captures the current structure, feature surface, security posture, UI/UX quality, vibe-coded areas, and technical debt for `sys-dev-portf`.
-
-
 
 ## Executive Summary
 
-
-
 `sys-dev-portf` is a content-first developer portfolio built with Next.js App Router, TypeScript, Tailwind CSS v4, and shadcn-style UI primitives. The project mostly follows `AGENTS.md`: it avoids unnecessary backend layers, keeps portfolio content centralized, and uses server-only GitHub enrichment for public repository data.
-
-
 
 The main issues are documentation drift, visible placeholder content, a likely GitHub repository allowlist mismatch, and missing stronger security headers for a public-facing site.
 
-
-
 ## Structure Review
-
-
 
 ```text
 
@@ -82,11 +70,7 @@ sys-dev-portf/
 
 ```
 
-
-
 ## Important Features
-
-
 
 - **Static portfolio pages**: App Router pages present home, about, skills, projects, experience, education, and contact content.
 
@@ -104,11 +88,7 @@ sys-dev-portf/
 
 - **CI validation**: `.github/workflows/ci.yml` runs install, lint, typecheck, and build.
 
-
-
 ## AGENTS.md Compliance
-
-
 
 - **Portfolio-first scope**: Compliant. The app remains a developer portfolio, not an admin or business operations app.
 
@@ -122,25 +102,15 @@ sys-dev-portf/
 
 - **Validation**: Acceptable for current scope because there are no external write endpoints. Environment-derived config still needs clearer documented formats.
 
-
-
 ## Security Findings
 
-
-
 ### Medium
-
-
 
 - **Missing CSP and Permissions-Policy**: `next.config.ts` has basic headers (`nosniff`, `Referrer-Policy`, `X-Frame-Options`) but no Content-Security-Policy or Permissions-Policy.
 
 - **Public personal contact data**: Email is intentionally exposed in static content. Keep this deliberate and avoid adding more private identifiers without approval.
 
-
-
 ### Low
-
-
 
 - **External links use `noreferrer`**: Existing external links generally avoid opener leakage. This is acceptable.
 
@@ -148,15 +118,9 @@ sys-dev-portf/
 
 - **GitHub errors logged server-side**: Current logs are generic enough and do not expose tokens.
 
-
-
 ## UI/UX Findings
 
-
-
 ### Strengths
-
-
 
 - **Responsive layout**: Pages use mobile-first grid and spacing patterns.
 
@@ -166,11 +130,7 @@ sys-dev-portf/
 
 - **Scan-friendly sections**: Cards, badges, section shells, and clear headings support portfolio browsing.
 
-
-
 ### Gaps
-
-
 
 - **Visible placeholders**: Some placeholder text and example URLs can reduce credibility in a production portfolio.
 
@@ -178,11 +138,7 @@ sys-dev-portf/
 
 - **Generic copy**: Some project and hero phrasing feels broad and could be more specific to real achievements.
 
-
-
 ## Vibe-Coded Indicators
-
-
 
 - **Placeholder strings**: `imageHint` values and screenshot fallback text still say `Replace with real info`.
 
@@ -192,23 +148,13 @@ sys-dev-portf/
 
 - **Broad claims**: Several descriptions emphasize scalability and automation without concrete metrics, screenshots, or outcomes.
 
-
-
 ## Technical Debt
-
-
 
 ### High
 
-
-
 - **Repository allowlist mismatch**: `siteConfig.repoAllowlist` contains full GitHub URLs, while `getGithubRepos` compares each allowlist entry to `repo.name`. This likely prevents intended live enrichment for allowlisted repositories.
 
-
-
 ### Medium
-
-
 
 - **Missing `.env.example`**: No `.env.example` file is present. README now instructs Windows users to create `.env.local` directly, but a tracked example file would still improve onboarding.
 
@@ -216,21 +162,13 @@ sys-dev-portf/
 
 - **Documentation drift risk**: README structure has been aligned with the current tree; future folder moves should update the documentation in the same change.
 
-
-
 ### Low
-
-
 
 - **Client component footprint**: `ProjectCard`, `SiteHeader`, and `ScrollReveal` appropriately need interactivity, but future components should remain Server Components by default.
 
 - **No tests**: Current behavior is mostly static. Tests become more important if route handlers, schemas, or content normalization are added.
 
-
-
 ## Recommended Follow-Ups
-
-
 
 1. Normalize `repoAllowlist` to repo names or update matching to support full URLs.
 
@@ -243,4 +181,3 @@ sys-dev-portf/
 5. Keep contact static unless a real form is needed; if added, implement Zod validation, spam protection, and rate limiting.
 
 6. Tighten portfolio copy with concrete outcomes, project screenshots, and real live URLs.
-

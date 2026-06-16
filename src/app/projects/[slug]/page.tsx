@@ -1,22 +1,28 @@
-import type { Metadata } from "next"
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { ArrowUpRight, Star, GitFork, Calendar } from "lucide-react"
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowUpRight, Star, GitFork, Calendar } from "lucide-react";
 
-import { SectionShell } from "@/features/portfolio/components/section-shell"
-import { getTechBadgeClass } from "@/features/portfolio/lib/badge-styles"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { featuredProjects } from "@/features/portfolio/data/portfolio-content"
-import { getProjectBySlug } from "@/features/portfolio/lib/project-data"
+import { SectionShell } from "@/features/portfolio/components/section-shell";
+import { getTechBadgeClass } from "@/features/portfolio/lib/badge-styles";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { featuredProjects } from "@/features/portfolio/data/portfolio-content";
+import { getProjectBySlug } from "@/features/portfolio/lib/project-data";
 
 // Extract GitHub stats from enriched highlights
 function extractGithubStats(highlights: string[]) {
-  const starsMatch = highlights.find(h => h.includes('GitHub stars'))?.match(/(\d+)/);
-  const forksMatch = highlights.find(h => h.includes('Forks'))?.match(/(\d+)/);
-  const updatedMatch = highlights.find(h => h.includes('Last updated'))?.replace('Last updated: ', '');
-  
+  const starsMatch = highlights
+    .find((h) => h.includes("GitHub stars"))
+    ?.match(/(\d+)/);
+  const forksMatch = highlights
+    .find((h) => h.includes("Forks"))
+    ?.match(/(\d+)/);
+  const updatedMatch = highlights
+    .find((h) => h.includes("Last updated"))
+    ?.replace("Last updated: ", "");
+
   return {
     stars: starsMatch ? parseInt(starsMatch[1], 10) : null,
     forks: forksMatch ? parseInt(forksMatch[1], 10) : null,
@@ -25,43 +31,43 @@ function extractGithubStats(highlights: string[]) {
 }
 
 type ProjectDetailPageProps = {
-  params: Promise<{ slug: string }>
-}
+  params: Promise<{ slug: string }>;
+};
 
 export async function generateStaticParams() {
-  return featuredProjects.map((project) => ({ slug: project.slug }))
+  return featuredProjects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: ProjectDetailPageProps): Promise<Metadata> {
-  const { slug } = await params
-  const project = await getProjectBySlug(slug)
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     return {
       title: "Project not found",
-    }
+    };
   }
 
   return {
     title: project.title,
     description: project.summary,
-  }
+  };
 }
 
 export default async function ProjectDetailPage({
   params,
 }: ProjectDetailPageProps) {
-  const { slug } = await params
-  const project = await getProjectBySlug(slug)
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   // Extract GitHub stats from enriched data
-  const githubStats = extractGithubStats(project.highlights || [])
+  const githubStats = extractGithubStats(project.highlights || []);
 
   return (
     <SectionShell
@@ -117,14 +123,18 @@ export default async function ProjectDetailPage({
                   <Star className="size-5 text-yellow-500" />
                   <div>
                     <p className="text-xs text-muted-foreground">Stars</p>
-                    <p className="text-lg font-semibold">{githubStats.stars !== null ? githubStats.stars : "—"}</p>
+                    <p className="text-lg font-semibold">
+                      {githubStats.stars !== null ? githubStats.stars : "—"}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl border border-border/40 bg-muted/30 p-3">
                   <GitFork className="size-5 text-blue-500" />
                   <div>
                     <p className="text-xs text-muted-foreground">Forks</p>
-                    <p className="text-lg font-semibold">{githubStats.forks !== null ? githubStats.forks : "—"}</p>
+                    <p className="text-lg font-semibold">
+                      {githubStats.forks !== null ? githubStats.forks : "—"}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -132,7 +142,9 @@ export default async function ProjectDetailPage({
                 <Calendar className="size-5 text-muted-foreground" />
                 <div>
                   <p className="text-xs text-muted-foreground">Last Updated</p>
-                  <p className="text-sm font-medium">{githubStats.updated || "—"}</p>
+                  <p className="text-sm font-medium">
+                    {githubStats.updated || "—"}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -149,7 +161,13 @@ export default async function ProjectDetailPage({
             <CardContent className="flex flex-col gap-3">
               {project.liveUrl ? (
                 <Button
-                  render={<Link href={project.liveUrl} target="_blank" rel="noreferrer" />}
+                  render={
+                    <Link
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    />
+                  }
                   className="w-full rounded-full"
                 >
                   Live preview
@@ -158,7 +176,13 @@ export default async function ProjectDetailPage({
               ) : null}
               {project.repoUrl ? (
                 <Button
-                  render={<Link href={project.repoUrl} target="_blank" rel="noreferrer" />}
+                  render={
+                    <Link
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    />
+                  }
                   variant="outline"
                   className="w-full rounded-full"
                 >
@@ -178,5 +202,5 @@ export default async function ProjectDetailPage({
         </div>
       </div>
     </SectionShell>
-  )
+  );
 }

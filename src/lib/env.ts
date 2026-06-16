@@ -16,6 +16,8 @@ function parseOptionalString(rawValue?: string): string | undefined {
 
 export const env = {
   publicSiteUrl: parsePublicSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
-  publicContactEmail: parseOptionalString(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
+  publicContactEmail: parseOptionalString(
+    process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+  ),
   publicResumeUrl: parseOptionalString(process.env.NEXT_PUBLIC_RESUME_URL),
 } as const;

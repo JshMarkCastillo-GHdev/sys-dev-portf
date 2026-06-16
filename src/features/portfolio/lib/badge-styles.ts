@@ -76,9 +76,15 @@ const fallbackTechBadgeTone =
   "border-border/80 bg-background text-foreground hover:border-foreground/45 hover:bg-card";
 
 export function getTechBadgeClass(label: string) {
-  return cn(sharedBadgeClasses, techBadgeToneMap[label] ?? fallbackTechBadgeTone);
+  return cn(
+    sharedBadgeClasses,
+    techBadgeToneMap[label] ?? fallbackTechBadgeTone,
+  );
 }
 
 export function getSoftSkillBadgeClass(index: number) {
-  return cn(sharedBadgeClasses, softSkillToneCycle[index % softSkillToneCycle.length]);
+  return cn(
+    sharedBadgeClasses,
+    softSkillToneCycle[index % softSkillToneCycle.length],
+  );
 }

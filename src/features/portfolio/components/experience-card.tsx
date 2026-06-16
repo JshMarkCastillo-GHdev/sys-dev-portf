@@ -1,25 +1,25 @@
-import { BriefcaseBusiness, GraduationCap } from "lucide-react"
+import { BriefcaseBusiness, GraduationCap } from "lucide-react";
 
 import type {
   EducationItem,
   ExperienceItem,
-} from "@/features/portfolio/types/portfolio"
-import { IconBadge } from "@/features/portfolio/components/icon-badge"
-import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+} from "@/features/portfolio/types/portfolio";
+import { IconBadge } from "@/features/portfolio/components/icon-badge";
+import { ScrollReveal } from "@/features/portfolio/components/scroll-reveal";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type ExperienceCardProps = {
-  item: ExperienceItem | EducationItem
-  subtitle: string
-}
+  item: ExperienceItem | EducationItem;
+  subtitle: string;
+};
 
 export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
-  const isIndustry = "company" in item
-  const heading = isIndustry ? item.role : item.degree
-  const secondary = isIndustry ? item.company : item.institution
-  const duration = item.duration
-  const details = isIndustry ? item.responsibilities : item.details
-  const summary = item.summary
+  const isIndustry = "company" in item;
+  const heading = isIndustry ? item.role : item.degree;
+  const secondary = isIndustry ? item.company : item.institution;
+  const duration = item.duration;
+  const details = isIndustry ? item.responsibilities : item.details;
+  const summary = item.summary;
 
   return (
     <ScrollReveal>
@@ -31,7 +31,9 @@ export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
                 {subtitle}
               </p>
               <CardTitle className="text-2xl break-words">{heading}</CardTitle>
-              <p className="break-words text-sm text-muted-foreground">{secondary}</p>
+              <p className="break-words text-sm text-muted-foreground">
+                {secondary}
+              </p>
             </div>
             <IconBadge size="lg">
               {isIndustry ? (
@@ -48,7 +50,9 @@ export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
               Duration
             </p>
-            <p className="mt-3 break-words text-sm text-foreground/92">{duration}</p>
+            <p className="mt-3 break-words text-sm text-foreground/92">
+              {duration}
+            </p>
           </div>
 
           {summary ? (
@@ -56,7 +60,9 @@ export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                 Overview
               </p>
-              <p className="mt-3 text-sm leading-7 text-foreground/92">{summary}</p>
+              <p className="mt-3 text-sm leading-7 text-foreground/92">
+                {summary}
+              </p>
             </div>
           ) : null}
 
@@ -76,5 +82,5 @@ export function ExperienceCard({ item, subtitle }: ExperienceCardProps) {
         </CardContent>
       </Card>
     </ScrollReveal>
-  )
+  );
 }
