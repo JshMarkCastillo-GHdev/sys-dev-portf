@@ -238,9 +238,9 @@ export const skillGroups: SkillGroup[] = [
     icon: "backend",
 
     description:
-      "Comfortable with server-side JavaScript for building APIs, integrations, and application logic.",
+      "Server-side JavaScript through Node.js and Next.js—API routes, auth, and application logic.",
 
-    items: ["NodeJS"],
+    items: ["Node.js · Next.js server (API routes, NextAuth)"],
   },
 
   {
@@ -251,7 +251,7 @@ export const skillGroups: SkillGroup[] = [
     description:
       "Familiar with relational and document-oriented data stacks for structured and flexible application data.",
 
-    items: ["Prisma + PostgreSQL", "Mongoose + MongoDB"],
+    items: ["Prisma + PostgreSQL", "Neon PostgreSQL", "Mongoose + MongoDB"],
   },
 
   {
@@ -534,7 +534,7 @@ export const featuredProjects: ProjectItem[] = [
       "Internal IT support ticketing platform with role-based access—create drafts, submit, claim, and track tickets with activity timelines.",
 
     description:
-      "Portfolio demo of an internal IT support ticketing platform built with Next.js App Router, Prisma, PostgreSQL, and NextAuth. Demonstrates the full ticket lifecycle: create draft, submit, claim, update status, and soft-delete drafts, with role-based access control across Employee through SystemAdmin tiers. Authorization is enforced in API routes with Zod-validated inputs, activity logging on every mutation, and Docker Compose deployment (app, PostgreSQL, Redis) for local or VM hosting.",
+      "Portfolio demo of an internal IT support ticketing platform built with Next.js App Router, Prisma, Neon PostgreSQL, and NextAuth. Demonstrates the full ticket lifecycle: create draft, submit, claim, update status, and soft-delete drafts, with role-based access control across Employee through SystemAdmin tiers. Authorization is enforced in API routes with Zod-validated inputs, activity logging on every mutation, and production deployment on Vercel with Neon and Upstash Redis.",
 
     techStack: [
       "Next.js App Router",
@@ -543,7 +543,11 @@ export const featuredProjects: ProjectItem[] = [
 
       "Prisma + PostgreSQL",
 
+      "Neon PostgreSQL",
+
       "NextAuth",
+
+      "Upstash Redis",
 
       "Tailwind CSS",
 
