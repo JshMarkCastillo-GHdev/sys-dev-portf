@@ -240,7 +240,7 @@ export const skillGroups: SkillGroup[] = [
     description:
       "Server-side JavaScript through Node.js and Next.js—API routes, auth, and application logic.",
 
-    items: ["Node.js · Next.js server (API routes, NextAuth)"],
+    items: ["Node.js", "Next.js server (API routes, NextAuth)"],
   },
 
   {
